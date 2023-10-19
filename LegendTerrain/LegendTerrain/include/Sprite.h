@@ -6,11 +6,6 @@
 #include "Shader.h"
 #include "Texture.h"
 
-struct Position
-{
-	float x, y, z;
-};
-
 class Sprite
 {
 public:

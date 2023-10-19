@@ -140,6 +140,7 @@
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Plane.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\Texture.cpp" />
@@ -147,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Game.h" />
+    <ClInclude Include="include\Plane.h" />
     <ClInclude Include="include\Shader.h" />
     <ClInclude Include="include\Sprite.h" />
     <ClInclude Include="include\Texture.h" />

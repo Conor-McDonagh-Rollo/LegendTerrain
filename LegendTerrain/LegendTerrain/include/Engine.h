@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include "Sprite.h"
+#include "Plane.h"
 #include <iostream>
 
 class Engine

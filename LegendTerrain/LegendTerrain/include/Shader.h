@@ -10,6 +10,10 @@
 #include <sstream>
 #include <iostream>
 
+struct Position
+{
+    float x, y, z;
+};
 
 class Shader
 {
@@ -26,7 +30,7 @@ public:
     void setInt(const std::string& name, int value) const;
     void setFloat(const std::string& name, float value) const;
     void setVec4(const std::string& name, float v1, float v2, float v3, float v4) const;
-    void setMat4(const std::string& name, glm::mat4 model) const;
+    void setMat4(const std::string& name, glm::mat4 &model) const;
 };
 
 #endif

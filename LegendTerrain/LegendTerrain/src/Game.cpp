@@ -57,6 +57,22 @@ void Game::processInput()
     {
         right = false;
     }
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)
+    {
+        rot_left = true;
+    }
+    else
+    {
+        rot_left = false;
+    }
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        rot_right = true;
+    }
+    else
+    {
+        rot_right = false;
+    }
 
 }
 
@@ -65,12 +81,23 @@ void Game::update(float dt)
     // Gonna update stuff here eventually
     if (right)
     {
-        box.move(10 * dt);
+        //box.move(10 * dt);
+        plane.move(10 * dt);
     }
     if (left)
     {
-        box.move(-10 * dt);
+        //box.move(-10 * dt);
+        plane.move(-10 * dt);
     }
+    if (rot_right)
+    {
+        plane.rotate(100 * dt);
+    }
+    if (rot_left)
+    {
+        plane.rotate(-100 * dt);
+    }
+    plane.rotate(100 * dt);
 }
 
 void Game::render()
@@ -79,7 +106,8 @@ void Game::render()
 
     // ----------- DRAW OBJECTS -----------
 
-    box.draw();
+    //box.draw();
+    plane.draw();
 
     // ------------------------------------
 }

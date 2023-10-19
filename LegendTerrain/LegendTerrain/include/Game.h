@@ -17,10 +17,13 @@ private:
 	GLFWwindow* window = nullptr;
 
 	Engine* engine = nullptr;
-	Sprite box = Sprite("assets/test_tex/container.jpg");
+	//Sprite box = Sprite("assets/test_tex/container.jpg");
+	Plane plane = Plane({0,0,-5}); // Position, Texture - both optional
 
 	bool left = false;
 	bool right = false;
+	bool rot_left = false;
+	bool rot_right = false;
 };
 
 #endif
