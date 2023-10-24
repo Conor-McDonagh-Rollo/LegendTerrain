@@ -7,5 +7,9 @@ uniform sampler2D texture1;
 
 void main()
 {
-    FragColor = texture(texture1, TexCoord);
+    // Sample the texture color and its alpha channel
+    vec4 texColor = texture(texture1, TexCoord);
+
+    // Set the output color with proper alpha blending
+    FragColor = texColor;
 }

@@ -4,9 +4,12 @@ void Textured_Object::generate(GLuint& _VAO,
 							   GLuint& _VBO,
 							   GLuint& _EBO,
 							   GLuint& _VBO_Tex,
+							   size_t _verticiesSize,
 							   float*  _vertices,
+							   size_t _tec_coordsSize,
 							   float*  _tec_coords,
-							   float*  _indices)
+							   size_t _indicesSize,
+							   unsigned int*  _indices)
 {
 	
 
@@ -15,15 +18,15 @@ void Textured_Object::generate(GLuint& _VAO,
 
 	glGenBuffers(1, &_VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, _VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(_vertices), _vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, _verticiesSize, _vertices, GL_STATIC_DRAW);
 
 	glGenBuffers(1, &_VBO_Tex);
 	glBindBuffer(GL_ARRAY_BUFFER, _VBO_Tex);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(_tec_coords), _tec_coords, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, _tec_coordsSize, _tec_coords, GL_STATIC_DRAW);
 
 	glGenBuffers(1, &_EBO);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(_indices), _indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indicesSize, _indices, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0); // position attribute
 	glBindBuffer(GL_ARRAY_BUFFER, _VBO);
@@ -52,7 +55,6 @@ void Textured_Object::draw()
 	myShader.setMat4("projection", projection);
 
 	GLint modelLoc = glGetUniformLocation(myShader.ID, "model");
-	std::cout << "Model uniform location: " << modelLoc << std::endl;
 
 	// Bind and Draw as usual
 	texture->bind();

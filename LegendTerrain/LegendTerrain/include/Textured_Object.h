@@ -15,9 +15,12 @@ public:
 				  GLuint& _VBO,
 				  GLuint& _EBO,
 				  GLuint& _VBO_Tex,
+				  size_t _verticiesSize,
 				  float* _verticies,
+				  size_t _tec_coordsSize,
 				  float* _tec_coords,
-				  float* _indicies);
+				  size_t _indicesSize,
+				  unsigned int* _indices);
 
 	void draw();
 	void move(float x = 0.f, float y = 0.f, float z = 0.f)
@@ -33,7 +36,7 @@ public:
 		while (rotationAngle < 0.0f) rotationAngle += 360.0f;
 	}
 
-private:
+protected:
 
 	float rotationAngle = 0.0f; // Initialized to no rotation
 

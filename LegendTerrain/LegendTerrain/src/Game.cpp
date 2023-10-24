@@ -98,6 +98,8 @@ void Game::update(float dt)
         plane.rotate(-100 * dt);
     }
     plane.rotate(100 * dt);
+    plane2.rotate(100 * dt);
+    box.rotate(100 * dt);
 }
 
 void Game::render()
@@ -106,8 +108,9 @@ void Game::render()
 
     // ----------- DRAW OBJECTS -----------
 
-    //box.draw();
+    box.draw();
     plane.draw();
+    plane2.draw();
 
     // ------------------------------------
 }
