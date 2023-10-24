@@ -1,6 +1,6 @@
 #include "../include/Plane.h"
 
-Plane::Plane(Position pos, const char* tex_path)
+Plane::Plane(glm::vec3 pos, const char* tex_path)
 {
 	myShader = Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 	texture = new Texture();

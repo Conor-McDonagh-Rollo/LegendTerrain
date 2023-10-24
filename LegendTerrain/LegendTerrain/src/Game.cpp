@@ -3,6 +3,7 @@
 Game::Game()
     : engine{ new Engine("LegendTerrain") }
 {
+    terrain.rotate(-90, 0, 0);
 }
 
 void Game::run()
@@ -98,8 +99,8 @@ void Game::update(float dt)
         plane.rotate(-100 * dt);
     }
     float rotBy = 100 * dt;
-    plane.rotate(rotBy, rotBy);
     plane2.rotate(0, -rotBy, rotBy);
+    //plane.rotate(rotBy, rotBy);
     box.rotate(-rotBy, rotBy);
 }
 
@@ -110,8 +111,9 @@ void Game::render()
     // ----------- DRAW OBJECTS -----------
 
     box.draw();
-    plane.draw();
+    //plane.draw();
     plane2.draw();
+    terrain.draw();
 
     // ------------------------------------
 }

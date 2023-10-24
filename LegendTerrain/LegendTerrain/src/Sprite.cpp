@@ -1,6 +1,6 @@
 #include "../include/Sprite.h"
 
-Sprite::Sprite(Position pos, const char* tex_path)
+Sprite::Sprite(glm::vec3 pos, const char* tex_path)
 {
 	myShader = Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 	texture = new Texture();

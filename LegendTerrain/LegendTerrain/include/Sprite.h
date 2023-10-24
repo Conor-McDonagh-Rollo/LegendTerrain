@@ -6,7 +6,7 @@
 class Sprite : public Textured_Object
 {
 public:
-	Sprite(Position pos = { 0,0,0 }, const char* tex_path = "assets/defaults/default_texture.jpg");
+	Sprite(glm::vec3 pos = { 0,0,0 }, const char* tex_path = "assets/defaults/default_texture.jpg");
 
 };
 
