@@ -108,13 +108,6 @@ void Shader::setVec4(const std::string& name, float v1, float v2, float v3, floa
 
 void Shader::setMat4(const std::string& name, glm::mat4 &model) const
 {
-    /*
-    glUseProgram(ID);
-    GLint uniformLocation = glGetUniformLocation(ID, name.c_str());
-
-    // Set the value of the uniform variable with glUniformMatrix4fv
-    glUniformMatrix4fv(uniformLocation, 1, GL_FALSE, glm::value_ptr(model));
-    */
 
     glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &model[0][0]);
 }

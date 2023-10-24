@@ -17,7 +17,7 @@ public:
 	inline unsigned int getTextureID() { return texture; }
 
 private:
-	unsigned int texture = NULL;
+	GLuint texture = NULL;
 };
 
 #endif
