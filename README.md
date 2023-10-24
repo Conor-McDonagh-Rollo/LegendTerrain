@@ -33,8 +33,8 @@
 3. Add the includes and libraries to the project:
 	```bash
 	VC++ Directories
-		Include Directories: Path/To/Your/GLAD,GLFW,GLM
-		Library Directories: Path/To/Your/GLAD,GLFW,GLM
+		Include Directories: Path/To/Dependencies/OpenGL
+		Library Directories: Path/To/Dependencies/OpenGL
 	```
 4. Run in x64 configuration
 
