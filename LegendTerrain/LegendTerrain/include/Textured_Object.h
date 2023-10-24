@@ -29,16 +29,27 @@ public:
 		position.y += y;
 		position.z += z;
 	}
-	void rotate(float angleDelta)
+	void rotate(float angleDeltaX = 0.0f,
+				float angleDeltaY = 0.0f, 
+				float angleDeltaZ = 0.0f)
 	{
-		rotationAngle += angleDelta;
-		while (rotationAngle >= 360.0f) rotationAngle -= 360.0f; // Normalize to [0, 360)
-		while (rotationAngle < 0.0f) rotationAngle += 360.0f;
+		rotationAngle.x += angleDeltaX;
+		rotationAngle.y += angleDeltaY;
+		rotationAngle.z += angleDeltaZ;
+
+		// Normalize the angles to [0, 360)
+		while (rotationAngle.x >= 360.0f) rotationAngle.x -= 360.0f;
+		while (rotationAngle.y >= 360.0f) rotationAngle.y -= 360.0f;
+		while (rotationAngle.z >= 360.0f) rotationAngle.z -= 360.0f;
+
+		while (rotationAngle.x < 0.0f) rotationAngle.x += 360.0f;
+		while (rotationAngle.y < 0.0f) rotationAngle.y += 360.0f;
+		while (rotationAngle.z < 0.0f) rotationAngle.z += 360.0f;
 	}
 
 protected:
 
-	float rotationAngle = 0.0f; // Initialized to no rotation
+	glm::vec3 rotationAngle = { 0,0,0 };
 
 	void updateModelMatrix()
 	{
@@ -46,8 +57,10 @@ protected:
 		glm::vec3 newPosition = glm::vec3(position.x, position.y, position.z); // New position
 		model = glm::translate(model, newPosition);
 
-		// Rotation around the Y-Axis (temporary)
-		model = glm::rotate(model, glm::radians(rotationAngle), glm::vec3(0.0f, 1.0f, 0.0f));
+		// Rotation around the X, Y, and Z axes
+		model = glm::rotate(model, glm::radians(rotationAngle.x), glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotationAngle.y), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(rotationAngle.z), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		myShader.setMat4("model", model);
 	}

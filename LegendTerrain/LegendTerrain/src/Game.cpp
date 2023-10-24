@@ -97,9 +97,10 @@ void Game::update(float dt)
     {
         plane.rotate(-100 * dt);
     }
-    plane.rotate(100 * dt);
-    plane2.rotate(100 * dt);
-    box.rotate(100 * dt);
+    float rotBy = 100 * dt;
+    plane.rotate(rotBy, rotBy);
+    plane2.rotate(0, -rotBy, rotBy);
+    box.rotate(-rotBy, rotBy);
 }
 
 void Game::render()
