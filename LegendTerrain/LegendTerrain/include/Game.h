@@ -20,7 +20,7 @@ private:
 	Sprite box = Sprite({ 0,0,0 }, "assets/test_tex/container.jpg");
 	Plane plane = Plane({0,0,-5}); // Position, Texture - both optional
 	Plane plane2 = Plane({ 2,0,-5 }, "assets/test_tex/test_transparent.png");
-	Terrain terrain = Terrain({ 0,-0.5,-2 }, 25);
+	Terrain terrain = Terrain({ 0,-0.5,-2 }, 1);
 
 	bool left = false;
 	bool right = false;
