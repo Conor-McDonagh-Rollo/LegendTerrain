@@ -3,6 +3,7 @@
 
 #include "Sprite.h"
 #include "Plane.h"
+#include "Terrain.h"
 #include <iostream>
 
 class Engine

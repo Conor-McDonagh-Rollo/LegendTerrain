@@ -6,7 +6,7 @@
 class Plane : public Textured_Object
 {
 public:
-	Plane(Position pos = {0,0,0}, const char* tex_path = "assets/defaults/default_texture.jpg");
+	Plane(glm::vec3 pos = {0,0,0}, const char* tex_path = "assets/defaults/default_texture.jpg");
 
 };
 

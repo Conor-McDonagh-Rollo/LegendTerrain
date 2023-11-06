@@ -20,7 +20,9 @@ public:
 				  size_t _tec_coordsSize,
 				  float* _tec_coords,
 				  size_t _indicesSize,
-				  unsigned int* _indices);
+				  unsigned int* _indices,
+				  int amountOfIndicies,
+				  int numOfVert);
 
 	void draw();
 	void move(float x = 0.f, float y = 0.f, float z = 0.f)
@@ -47,6 +49,13 @@ public:
 		while (rotationAngle.z < 0.0f) rotationAngle.z += 360.0f;
 	}
 
+	void rebindVBO()
+	{
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferData(GL_ARRAY_BUFFER, vertexCount * 3 * sizeof(float), m_vertices, GL_STATIC_DRAW);
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+	}
+
 protected:
 
 	glm::vec3 rotationAngle = { 0,0,0 };
@@ -71,7 +80,12 @@ protected:
 	glm::vec3 position = glm::vec3(0.f, 0.f, 0.f);
 
 	float* m_vertices = nullptr;
+	float* m_texCoords = nullptr;
+	unsigned int* m_indices = nullptr;
 	GLuint index = 0;
+	int indexCount = 6;
+	int vertexCount = 4;
+	int texCoordCount = 0;
 
 	Shader myShader;
 
