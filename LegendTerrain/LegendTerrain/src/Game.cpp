@@ -3,7 +3,6 @@
 Game::Game()
     : engine{ new Engine("LegendTerrain") }
 {
-    terrain.rotate(-90, 0, 0);
 }
 
 void Game::run()
@@ -74,7 +73,10 @@ void Game::processInput()
     {
         rot_right = false;
     }
-
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_SPACE) == GLFW_PRESS)
+    {
+        terrain.DisplaceVerticies();
+    }
 }
 
 void Game::update(float dt)
@@ -83,25 +85,23 @@ void Game::update(float dt)
     if (right)
     {
         //box.move(10 * dt);
-        plane.move(10 * dt);
+        terrain.move(10 * dt);
     }
     if (left)
     {
         //box.move(-10 * dt);
-        plane.move(-10 * dt);
+        terrain.move(-10 * dt);
     }
     if (rot_right)
     {
-        plane.rotate(100 * dt);
+        terrain.rotate(100 * dt);
     }
     if (rot_left)
     {
-        plane.rotate(-100 * dt);
+        terrain.rotate(-100 * dt);
     }
     float rotBy = 100 * dt;
-    plane2.rotate(0, -rotBy, rotBy);
-    plane.rotate(rotBy, rotBy);
-    box.rotate(-rotBy, rotBy);
+    terrain.rotate(0, -rotBy, 0);
 }
 
 void Game::render()
@@ -110,9 +110,9 @@ void Game::render()
 
     // ----------- DRAW OBJECTS -----------
 
-    box.draw();
-    plane.draw();
-    plane2.draw();
+    //box.draw();
+    //plane.draw();
+    //plane2.draw();
     terrain.draw();
 
     // ------------------------------------

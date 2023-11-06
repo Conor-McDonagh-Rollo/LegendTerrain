@@ -55,7 +55,7 @@ Plane::Plane(glm::vec3 pos, const char* tex_path)
 	};
 	generate(VAO, VBO, EBO, VBO_Tex,
 		sizeof(vertices), vertices, sizeof(tec_coords), tec_coords,
-		sizeof(indices), indices);
+		sizeof(indices), indices, 6, 4);
 
 	move(pos.x, pos.y, pos.z);
 }
