@@ -3,9 +3,8 @@
 
 Terrain::Terrain(glm::vec3 pos, int detail)
 {
-    myShader = Shader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
     texture = new Texture();
-    texture->set("assets/defaults/default_texture.jpg");
+    texture->set("assets/defaults/default_texture2.jpg");
 
     int numVertices = (detail + 1) * (detail + 1);
     float* vertices = new float[numVertices * 3]; // 3 coordinates per vertex (x, y, z)
@@ -73,6 +72,7 @@ Terrain::Terrain(glm::vec3 pos, int detail)
         verticesSize, vertices, texCoordsSize, texCoords,
         indicesSize, indices, _index + 1, numOfVert);
 
+    DisplaceVerticies();
     move(pos.x, pos.y, pos.z);
 }
 
@@ -80,7 +80,7 @@ void Terrain::DisplaceVerticies()
 {
     std::random_device rd;
     std::mt19937 gen(rd()); 
-    std::uniform_real_distribution<> dis(-0.3, 0.3);
+    std::uniform_real_distribution<> dis(-0.15, 0.15);
 
     // Start at Y Coordinate and add 3 every time to keep within Y
     for (int i = 1; i < vertexCount; i += 3)

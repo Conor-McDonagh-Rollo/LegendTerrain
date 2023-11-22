@@ -3,13 +3,15 @@
 
 #include <glm/glm/glm.hpp>
 #include <glm/glm/ext/matrix_transform.hpp>
+#include <vector>
+#include "Object.h"
 #include "Shader.h"
 #include "Texture.h"
 
-class Textured_Object 
+class Textured_Object : public Object
 {
 public:
-	Textured_Object() {};
+	Textured_Object() { };
 
 	void generate(GLuint& _VAO,
 				  GLuint& _VBO,
@@ -24,8 +26,8 @@ public:
 				  int amountOfIndicies,
 				  int numOfVert);
 
-	void draw();
-	void move(float x = 0.f, float y = 0.f, float z = 0.f)
+	void draw() override;
+	void move(float x = 0.f, float y = 0.f, float z = 0.f) override
 	{
 		position.x += x;
 		position.y += y;
@@ -33,7 +35,7 @@ public:
 	}
 	void rotate(float angleDeltaX = 0.0f,
 				float angleDeltaY = 0.0f, 
-				float angleDeltaZ = 0.0f)
+				float angleDeltaZ = 0.0f) override
 	{
 		rotationAngle.x += angleDeltaX;
 		rotationAngle.y += angleDeltaY;
@@ -56,6 +58,11 @@ public:
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
+	void setShader(Shader& shader)
+	{
+		currentShader = &shader;
+	}
+
 protected:
 
 	glm::vec3 rotationAngle = { 0,0,0 };
@@ -71,7 +78,7 @@ protected:
 		model = glm::rotate(model, glm::radians(rotationAngle.y), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(rotationAngle.z), glm::vec3(0.0f, 0.0f, 1.0f));
 
-		myShader.setMat4("model", model);
+		currentShader->setMat4("model", model);
 	}
 
 	GLuint VAO = 0, VBO = 0, EBO = 0, VBO_Tex = 0;
@@ -87,7 +94,7 @@ protected:
 	int vertexCount = 4;
 	int texCoordCount = 0;
 
-	Shader myShader;
+	Shader* currentShader = nullptr;
 
 };
 

@@ -20,9 +20,8 @@ class Shader
 public:
     // the program ID
     unsigned int ID = NULL;
-    Shader() {}
     // constructor reads and builds the shader
-    Shader(const char* vertexPath, const char* fragmentPath);
+    Shader(const char* vertexPath = "assets/shaders/vertex.glsl", const char* fragmentPath = "assets/shaders/fragment.glsl");
     // use/activate the shader
     void use();
     // utility uniform functions

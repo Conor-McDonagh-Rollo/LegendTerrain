@@ -51,28 +51,11 @@ void Textured_Object::generate(GLuint& _VAO,
 
 void Textured_Object::draw()
 {
-	updateModelMatrix();
-
 	// Set Model Matrix as a uniform in the shader
-	myShader.use();
-	myShader.setMat4("model", model);
+	currentShader->use();
 
-	// Temporary: Set the View and Projection matrices
-	glm::mat4 view = glm::lookAt(
-		// Camera position in World Space
-		glm::vec3(0, 4, 1),
-		// and looks at the origin
-		glm::vec3(0, 0, 0),
-		// Head is up (set to 0,-1,0 to look upside-down)
-		glm::vec3(0, 1, 0)
-	);
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f); // 45-degree FOV, 4:3 aspect ratio, near clip 0.1, far clip 100
-	myShader.setMat4("view", view);
-	myShader.setMat4("projection", projection);
-
-	
-
-	GLint modelLoc = glGetUniformLocation(myShader.ID, "model");
+	updateModelMatrix();
+	GLint modelLoc = glGetUniformLocation(currentShader->ID, "model");
 
 	// Bind and Draw as usual
 	texture->bind();

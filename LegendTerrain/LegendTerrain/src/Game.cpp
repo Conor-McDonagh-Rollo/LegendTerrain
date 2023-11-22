@@ -3,6 +3,17 @@
 Game::Game()
     : engine{ new Engine("LegendTerrain") }
 {
+    terrain.push_back(engine->makeTerrain(5, {-1, 0, -1}));
+    terrain.push_back(engine->makeTerrain(5, { 0, 0, -1 }));
+    terrain.push_back(engine->makeTerrain(5, { 1, 0, -1 }));
+
+    terrain.push_back(engine->makeTerrain(5, { -1, 0, 0 }));
+    terrain.push_back(engine->makeTerrain(5, { 0, 0, 0 }));
+    terrain.push_back(engine->makeTerrain(5, { 1, 0, 0 }));
+
+    terrain.push_back(engine->makeTerrain(5, { -1, 0, 1 }));
+    terrain.push_back(engine->makeTerrain(5, { 0, 0, 1 }));
+    terrain.push_back(engine->makeTerrain(5, { 1, 0, 1 }));
 }
 
 void Game::run()
@@ -57,26 +68,40 @@ void Game::processInput()
     {
         right = false;
     }
-    if (glfwGetKey(engine->getWindow(), GLFW_KEY_LEFT) == GLFW_PRESS)
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_W) == GLFW_PRESS)
     {
-        rot_left = true;
+        forward = true;
     }
     else
     {
-        rot_left = false;
+        forward = false;
     }
-    if (glfwGetKey(engine->getWindow(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_S) == GLFW_PRESS)
     {
-        rot_right = true;
+        backward = true;
     }
     else
     {
-        rot_right = false;
+        backward = false;
     }
     if (glfwGetKey(engine->getWindow(), GLFW_KEY_SPACE) == GLFW_PRESS)
     {
-        terrain.DisplaceVerticies();
+        up = true;
     }
+    else
+    {
+        up = false;
+    }
+    if (glfwGetKey(engine->getWindow(), GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+    {
+        down = true;
+    }
+    else
+    {
+        down = false;
+    }
+
+    
 }
 
 void Game::update(float dt)
@@ -84,24 +109,29 @@ void Game::update(float dt)
     // Gonna update stuff here eventually
     if (right)
     {
-        //box.move(10 * dt);
-        terrain.move(10 * dt);
+        engine->getCamera()->ProcessKeyboard(RIGHT, dt);
     }
     if (left)
     {
-        //box.move(-10 * dt);
-        terrain.move(-10 * dt);
+        engine->getCamera()->ProcessKeyboard(LEFT, dt);
     }
-    if (rot_right)
+    if (forward)
     {
-        terrain.rotate(100 * dt);
+        engine->getCamera()->ProcessKeyboard(FORWARD, dt);
     }
-    if (rot_left)
+    if (backward)
     {
-        terrain.rotate(-100 * dt);
+        engine->getCamera()->ProcessKeyboard(BACKWARD, dt);
     }
-    float rotBy = 100 * dt;
-    terrain.rotate(0, -rotBy, 0);
+    if (up)
+    {
+        engine->getCamera()->ProcessKeyboard(UP, dt);
+    }
+    if (down)
+    {
+        engine->getCamera()->ProcessKeyboard(DOWN, dt);
+    }
+
 }
 
 void Game::render()
@@ -110,10 +140,10 @@ void Game::render()
 
     // ----------- DRAW OBJECTS -----------
 
-    //box.draw();
-    //plane.draw();
-    //plane2.draw();
-    terrain.draw();
+    for (auto* obj : terrain)
+    {
+        obj->draw();
+    }
 
     // ------------------------------------
 }
