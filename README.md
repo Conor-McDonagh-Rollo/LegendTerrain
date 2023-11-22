@@ -30,7 +30,7 @@
     ```bash
     LegendTerrain\LegendTerrain\LegendTerrain.sln
     ```
-3. Add the includes and libraries to the project:
+3. Add the includes and libraries to the project in the x64 config:
 	```bash
 	VC++ Directories
 		Include Directories: Path/To/Dependencies/OpenGL
