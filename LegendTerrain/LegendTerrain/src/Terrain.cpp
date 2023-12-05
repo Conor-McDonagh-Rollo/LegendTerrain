@@ -1,5 +1,4 @@
 #include "../include/Terrain.h"
-#include <random>
 
 Terrain::Terrain(glm::vec3 pos, int detail)
 {
@@ -78,14 +77,12 @@ Terrain::Terrain(glm::vec3 pos, int detail)
 
 void Terrain::DisplaceVerticies()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd()); 
-    std::uniform_real_distribution<> dis(-0.15, 0.15);
 
     // Start at Y Coordinate and add 3 every time to keep within Y
     for (int i = 1; i < vertexCount; i += 3)
     {
-        m_vertices[i] = dis(gen);
+        float y = perlin.noise2D(m_vertices[i - 2], m_vertices[i - 1]);
+        m_vertices[i] = y;
     }
 
     rebindVBO();
