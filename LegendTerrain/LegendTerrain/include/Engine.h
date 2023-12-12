@@ -26,6 +26,7 @@ public:
     Object* makeTerrain(int detail = 5, glm::vec3 position = { 0,0,0 });
     Object* makePlane(const char* texture = "assets/defaults/default_texture.jpg", glm::vec3 position = {0,0,0});
     Object* makeSprite(const char* texture = "assets/defaults/default_texture.jpg", glm::vec3 position = { 0,0,0 });
+    Object* makeMesh(const char* path);
 private:
 
     // settings

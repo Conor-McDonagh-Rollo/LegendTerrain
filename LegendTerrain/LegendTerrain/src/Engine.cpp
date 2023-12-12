@@ -3,6 +3,7 @@
 #include "../include/Sprite.h"
 #include "../include/Plane.h"
 #include "../include/Terrain.h"
+#include "../include/Mesh.h"
 
 Camera* Engine::mainCamera = nullptr;
 
@@ -133,6 +134,13 @@ Object* Engine::makePlane(const char* texture, glm::vec3 position)
 Object* Engine::makeSprite(const char* texture, glm::vec3 position)
 {
     Sprite* result = new Sprite(position, texture);
+    result->setShader(shaders[0]);
+    return result;
+}
+
+Object* Engine::makeMesh(const char* path)
+{
+    Mesh* result = new Mesh(path, {0,0,0});
     result->setShader(shaders[0]);
     return result;
 }

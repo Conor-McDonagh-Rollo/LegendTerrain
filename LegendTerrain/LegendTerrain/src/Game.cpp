@@ -14,6 +14,8 @@ Game::Game()
     terrain.push_back(engine->makeTerrain(5, { -1, 0, 1 }));
     terrain.push_back(engine->makeTerrain(5, { 0, 0, 1 }));
     terrain.push_back(engine->makeTerrain(5, { 1, 0, 1 }));
+
+    //testMesh = engine->makeMesh("assets//defaults//suzanne.obj");
 }
 
 void Game::run()
