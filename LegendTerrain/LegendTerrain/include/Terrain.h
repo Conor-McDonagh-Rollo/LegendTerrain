@@ -8,9 +8,9 @@ class Terrain : public Textured_Object
 {
 public:
 	Terrain(glm::vec3 pos = { 0,0,0 }, int detail = 1);
-	void DisplaceVerticies();
+	void DisplaceVerticies(glm::vec3 pos);
 
-	const siv::PerlinNoise::seed_type seed = 123456u;
+	const siv::PerlinNoise::seed_type seed = 6942009u;
 	const siv::PerlinNoise perlin{ seed };
 };
 

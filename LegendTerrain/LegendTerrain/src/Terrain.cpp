@@ -71,17 +71,17 @@ Terrain::Terrain(glm::vec3 pos, int detail)
         verticesSize, vertices, texCoordsSize, texCoords,
         indicesSize, indices, _index + 1, numOfVert);
 
-    DisplaceVerticies();
     move(pos.x, pos.y, pos.z);
+    DisplaceVerticies(pos);
 }
 
-void Terrain::DisplaceVerticies()
+void Terrain::DisplaceVerticies(glm::vec3 pos)
 {
 
     // Start at Y Coordinate and add 3 every time to keep within Y
-    for (int i = 1; i < vertexCount; i += 3)
+    for (int i = 1; i < (vertexCount / 4); i += 3)
     {
-        float y = perlin.noise2D(m_vertices[i - 2], m_vertices[i - 1]);
+        float y = perlin.noise2D(m_vertices[i - 1] + pos.x, m_vertices[i + 1] + pos.z);
         m_vertices[i] = y;
     }
 

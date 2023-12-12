@@ -46,7 +46,7 @@ void Textured_Object::generate(GLuint& _VAO,
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	indexCount = amountOfIndicies;
-	vertexCount = numOfVert;
+	vertexCount = _verticiesSize;
 }
 
 void Textured_Object::draw()

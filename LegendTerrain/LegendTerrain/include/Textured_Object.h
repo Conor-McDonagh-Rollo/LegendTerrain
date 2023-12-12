@@ -54,7 +54,7 @@ public:
 	void rebindVBO()
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, vertexCount * 3 * sizeof(float), m_vertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, vertexCount, m_vertices, GL_STATIC_DRAW);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
