@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include <string>
 #include <type_traits>
 
 class Engine;
@@ -7,9 +8,15 @@ class Engine;
 class GameObject : public std::enable_shared_from_this<GameObject> {
 protected:
     GameObject() = default;
+    GameObject(const char* _name) { name = _name; }
 public:
+    std::string name = "GameObject";
+    virtual void awake() = 0;
+    virtual void start() = 0;
     virtual void render() = 0;
     virtual void update(float dt) = 0;
+    virtual void on_object_add() = 0;
+    virtual void on_object_remove() = 0;
     virtual ~GameObject() = default;
 
     //Factory

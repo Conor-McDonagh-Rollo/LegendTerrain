@@ -13,6 +13,10 @@ public:
         {
             printf("Jump Released!\n");
         }
+        if (Input::GetButtonDown("GetScene"))
+        {
+            std::cout << Engine::getInstance().GetCurrentScene()->name << std::endl;
+        }
         if (Input::GetButton("Sprint"))
         {
             printf("Sprinting!\n");
@@ -42,6 +46,7 @@ int main()
 {
     Input::MapButton("Jump", GLFW_KEY_SPACE);
     Input::MapButton("Sprint", GLFW_KEY_LEFT_SHIFT);
+    Input::MapButton("GetScene", GLFW_KEY_G);
     Input::MapAxis("Horizontal", GLFW_KEY_D, GLFW_KEY_A);
     Input::MapAxis("Vertical", GLFW_KEY_W, GLFW_KEY_S);
 

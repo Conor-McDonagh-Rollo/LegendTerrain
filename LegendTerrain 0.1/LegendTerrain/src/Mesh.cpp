@@ -1,5 +1,5 @@
 #include "../include/Mesh.h"
-
+/*
 Mesh::Mesh(const char* path, glm::vec3 pos)
 {
     // Use Assimp to load the model
@@ -106,3 +106,4 @@ void Mesh::processMesh(aiMesh* mesh, const aiScene* scene)
         flattenedVertices.size() / 8 // Number of vertices (divide by number of elements per vertex)
     );
 }
+*/

@@ -19,7 +19,7 @@ private:
 	Engine* engine = nullptr;
 
 	std::vector<Object*> terrain;
-	Object* testMesh = nullptr;
+	//Object* testMesh = nullptr;
 
 	bool left = false;
 	bool right = false;

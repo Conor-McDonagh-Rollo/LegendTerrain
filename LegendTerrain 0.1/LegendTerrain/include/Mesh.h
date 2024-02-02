@@ -1,6 +1,6 @@
 #ifndef MESH_H
 #define MESH_H
-
+/*
 #include "Textured_Object.h"
 #include <glm/glm/glm.hpp>
 #include <vector>
@@ -47,5 +47,5 @@ private:
 
     void processMesh(aiMesh* mesh, const aiScene* scene);
 };
-
+*/
 #endif

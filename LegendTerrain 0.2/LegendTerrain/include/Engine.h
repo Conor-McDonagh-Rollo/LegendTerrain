@@ -3,10 +3,11 @@
 #include <memory>
 #include "Window.h"
 #include "GameObject.h"
+#include "SceneManager.h"
 
 class Engine {
 private:
-    std::vector<std::shared_ptr<GameObject>> objects;
+    SceneManager sceneMan;
     static Engine instance;
 
     Engine() = default;
@@ -18,8 +19,12 @@ public:
         return instance;
     }
 
+    std::shared_ptr<Scene> GetCurrentScene() {
+        return sceneMan.GetActiveScene();
+    }
+
     void addObject(std::shared_ptr<GameObject> obj) {
-        objects.push_back(obj);
+        sceneMan.AddGameObjectToScene(obj);
     }
 
     void start(int sizeX, int sizeY, const char* title)
@@ -41,10 +46,7 @@ public:
 
             if (deltaTime < targetFrameTime) {
 
-                for (auto& obj : objects) {
-                    obj->update(deltaTime);
-                    obj->render();
-                }
+                sceneMan.LoopScene(deltaTime);
 
                 Input::Update();
                 mainWindow->swapBuffers(); // only swap buffers at 60 FPS

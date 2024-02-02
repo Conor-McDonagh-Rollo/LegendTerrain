@@ -140,7 +140,8 @@ Object* Engine::makeSprite(const char* texture, glm::vec3 position)
 
 Object* Engine::makeMesh(const char* path)
 {
-    Mesh* result = new Mesh(path, {0,0,0});
-    result->setShader(shaders[0]);
-    return result;
+    //Mesh* result = new Mesh(path, {0,0,0});
+    //result->setShader(shaders[0]);
+    //return result;
+    return nullptr;
 }
