@@ -11,12 +11,12 @@ protected:
     GameObject(const char* _name) { name = _name; }
 public:
     std::string name = "GameObject";
-    virtual void awake() = 0;
-    virtual void start() = 0;
-    virtual void render() = 0;
-    virtual void update(float dt) = 0;
-    virtual void on_object_add() = 0;
-    virtual void on_object_remove() = 0;
+    virtual void awake() {};
+    virtual void start() {};
+    virtual void render() {};
+    virtual void update(float dt) {};
+    virtual void on_object_add() {};
+    virtual void on_object_remove() {};
     virtual ~GameObject() = default;
 
     //Factory

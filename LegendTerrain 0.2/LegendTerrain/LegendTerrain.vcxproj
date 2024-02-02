@@ -21,9 +21,13 @@
   <ItemGroup>
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -31,11 +35,14 @@
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\Input.h" />
     <ClInclude Include="include\Mesh.h" />
+    <ClInclude Include="include\MeshGameObject.h" />
+    <ClInclude Include="include\MeshShape.h" />
     <ClInclude Include="include\Renderer.h" />
     <ClInclude Include="include\SceneManager.h" />
     <ClInclude Include="include\Shader.h" />
+    <ClInclude Include="include\Texture.h" />
+    <ClInclude Include="include\Types.h" />
     <ClInclude Include="include\Window.h" />
-    <ClInclude Include="Texture.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

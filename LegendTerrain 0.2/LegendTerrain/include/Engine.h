@@ -1,8 +1,11 @@
 #pragma once
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <vector>
 #include <memory>
 #include "Window.h"
 #include "GameObject.h"
+#include "MeshGameObject.h"
 #include "SceneManager.h"
 
 class Engine {
