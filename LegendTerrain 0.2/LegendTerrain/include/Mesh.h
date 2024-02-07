@@ -17,7 +17,7 @@ public:
     void Draw();
 
 private:
-    GLuint VAO, VBO, EBO;
+    GLuint VAO = 0, VBO = 0, EBO = 0;
     std::shared_ptr<Texture> texture;
     std::shared_ptr<Shader> shader;
     GLsizei vertexCount, indexCount;

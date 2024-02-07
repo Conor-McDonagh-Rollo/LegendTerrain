@@ -48,6 +48,8 @@ public:
 
 int main()
 {
+    Engine::getInstance();
+    Engine::getInstance().load(800, 600, "Legend Terrain");
     //auto player = GameObject::create<Player>();
     MeshShape ms;
     ms.indices = {
@@ -88,7 +90,7 @@ int main()
     auto testMesh = MeshGameObject::create<MeshGameObject>(ms);
 
 
-    Engine::getInstance().start(800,600,"Legend Terrain");
+    Engine::getInstance().start();
 
     return 0;
 }

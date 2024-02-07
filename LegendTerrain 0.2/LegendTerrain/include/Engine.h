@@ -13,7 +13,7 @@ private:
     SceneManager sceneMan;
     static Engine instance;
 
-    Engine() = default;
+    Engine();
 
     std::unique_ptr<Window> mainWindow;
 
@@ -30,9 +30,13 @@ public:
         sceneMan.AddGameObjectToScene(obj);
     }
 
-    void start(int sizeX, int sizeY, const char* title)
+    void load(int sizeX, int sizeY, const char* title)
     {
         mainWindow = std::make_unique<Window>(sizeX, sizeY, title);
+    }
+
+    void start()
+    {
 
         float targetFrameTime = 1.0 / 60.0; // 60 FPS
         float lastFrameTime = 0.0;
