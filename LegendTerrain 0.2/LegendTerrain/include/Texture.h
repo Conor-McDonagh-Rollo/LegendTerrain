@@ -5,12 +5,13 @@
 
 class Texture {
 public:
-    Texture(const std::string& imagePath);
+    Texture() {};
     ~Texture();
 
+    void Set(const std::string& imagePath);
     void Bind() const;
 
 private:
-    GLuint textureID;
+    GLuint textureID = NULL;
 };
 

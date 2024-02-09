@@ -7,18 +7,20 @@
 #include "GameObject.h"
 #include "MeshGameObject.h"
 #include "SceneManager.h"
+#include <iostream>
 
 class Engine {
 private:
     SceneManager sceneMan;
-    static Engine instance;
+    static std::unique_ptr<Engine> instance;
 
-    Engine();
 
     std::unique_ptr<Window> mainWindow;
 
 public:
-    static Engine& getInstance() {
+    Engine();
+
+    static std::unique_ptr<Engine>& getInstance() {
         return instance;
     }
 
@@ -30,9 +32,25 @@ public:
         sceneMan.AddGameObjectToScene(obj);
     }
 
-    void load(int sizeX, int sizeY, const char* title)
+    static void load(int sizeX, int sizeY, const char* title)
     {
-        mainWindow = std::make_unique<Window>(sizeX, sizeY, title);
+        Engine::instance = std::make_unique<Engine>();
+        instance->mainWindow = std::make_unique<Window>(sizeX, sizeY, title);
+        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+        {
+            std::cout << "Failed to initialize GLAD" << std::endl;
+            // Handle GLAD initialization failure
+        }
+        // Set clear color (fully transparent black)
+        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+        // Enable blending for alpha transparency
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        // Z indexing
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
     }
 
     void start()
@@ -52,7 +70,8 @@ public:
             mainWindow->pollEvents();
 
             if (deltaTime < targetFrameTime) {
-
+                glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
                 sceneMan.LoopScene(deltaTime);
 
                 Input::Update();

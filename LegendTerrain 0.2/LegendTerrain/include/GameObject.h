@@ -28,7 +28,7 @@ public:
         std::shared_ptr<T> obj = std::make_shared<T>(std::forward<Args>(args)...);
 
         // Register with the Engine
-        Engine::getInstance().addObject(obj);
+        Engine::getInstance()->addObject(obj);
 
         return obj;
     }

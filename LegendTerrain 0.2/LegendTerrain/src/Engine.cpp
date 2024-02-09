@@ -1,6 +1,6 @@
 #include "../include/Engine.h"
 
-Engine Engine::instance;
+std::unique_ptr<Engine> Engine::instance = nullptr;
 
 Engine::Engine()
 {

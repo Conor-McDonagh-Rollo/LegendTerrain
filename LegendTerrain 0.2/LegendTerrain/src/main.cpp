@@ -15,7 +15,7 @@ public:
         }
         if (Input::GetButtonDown("GetScene"))
         {
-            std::cout << Engine::getInstance().GetCurrentScene()->name << std::endl;
+            std::cout << Engine::getInstance()->GetCurrentScene()->name << std::endl;
         }
         if (Input::GetButton("Sprint"))
         {
@@ -36,6 +36,8 @@ public:
         {
             std::cout << movement.x << ", " << movement.y << std::endl;
         }
+
+
     }
     void start() override {
         Input::MapButton("Jump", GLFW_KEY_SPACE);
@@ -48,8 +50,7 @@ public:
 
 int main()
 {
-    Engine::getInstance();
-    Engine::getInstance().load(800, 600, "Legend Terrain");
+    Engine::load(800, 600, "Legend Terrain");
     //auto player = GameObject::create<Player>();
     MeshShape ms;
     ms.indices = {
@@ -87,10 +88,13 @@ int main()
         Vertex(-1,  1, -0.5), //6
         Vertex(1,  1, -0.5)  //7
     };
+    
     auto testMesh = MeshGameObject::create<MeshGameObject>(ms);
+    testMesh->SetTexture("assets/defaults/default_texture2.jpg");
+    testMesh->SetShader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 
 
-    Engine::getInstance().start();
+    Engine::getInstance()->start();
 
     return 0;
 }
