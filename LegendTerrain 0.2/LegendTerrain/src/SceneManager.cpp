@@ -56,6 +56,7 @@ void SceneManager::AddGameObjectToScene(std::shared_ptr<GameObject>& _obj)
 {
 	currentScene->objects.push_back(_obj);
 	_obj->on_object_add();
+	_obj->start();
 }
 
 void SceneManager::LoopScene(float dt)

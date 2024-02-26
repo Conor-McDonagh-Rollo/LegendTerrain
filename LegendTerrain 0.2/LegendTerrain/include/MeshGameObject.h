@@ -12,6 +12,16 @@ public:
 
 	}
 
+	void Move(const glm::vec3& delta) {
+		position += delta;
+		mesh.SetPosition(position);
+	}
+
+	void Rotate(const glm::vec3& delta) {
+		rotation += delta;
+		mesh.SetRotation(rotation);
+	}
+
 	void SetTexture(std::string path) {
 		std::shared_ptr<Texture> texture = std::make_shared<Texture>();
 		texture->Set(path);
@@ -23,6 +33,22 @@ public:
 		mesh.SetShader(shader);
 	}
 
+	void render() override {
+		mesh.Draw();
+	}
+
+	glm::vec3 GetPosition() { return position; }
+
+
+
+	void awake() override {};
+	void start() override {};
+	void update(float dt) override {};
+	void on_object_add() override {};
+	void on_object_remove() override {};
+
 private:
+	glm::vec3 position = {0,0,0};
+	glm::vec3 rotation = {0,0,0};
 	Mesh mesh;
 };

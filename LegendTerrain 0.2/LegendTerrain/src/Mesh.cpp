@@ -17,20 +17,39 @@ Mesh::Mesh(const std::vector<Vertex>& vertices, const std::vector<unsigned int>&
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
 
     // Set up the vertex attribute pointers
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
     glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, position));
 
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
     glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, texCoord));
 
     // Unbind VAO
     glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 Mesh::~Mesh() {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
+}
+
+void Mesh::SetPosition(const glm::vec3& _position)
+{
+    position = _position;
+    UpdateTransformationMatrix();
+}
+
+void Mesh::SetRotation(const glm::vec3& _rotation)
+{
+    rotation = _rotation;
+    UpdateTransformationMatrix();
+}
+
+void Mesh::SetScale(const glm::vec3& _scale)
+{
+    scale = _scale;
+    UpdateTransformationMatrix();
 }
 
 void Mesh::SetTexture(std::shared_ptr<Texture> texture) {
@@ -49,13 +68,12 @@ void Mesh::Draw() {
 
     glUseProgram(shader->GetProgramID());
 
-    glBindVertexArray(VAO);
+    shader->SetUniform("model", transformationMatrix);
+
     texture->Bind(); // Assuming you have a Bind method in the Texture class
 
     // Draw the mesh
+    glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
-
-    glBindTexture(GL_TEXTURE_2D, 0);
     glBindVertexArray(0);
-    glUseProgram(0);
 }

@@ -1,47 +1,35 @@
 #include "../include/Engine.h"
 #include <iostream>
 
-class Player : public GameObject {
+class Player : public MeshGameObject {
 public:
-    void update(float dt) override {
-        //printf("update");
-        if (Input::GetButtonDown("Jump"))
-        {
-            printf("Jump Pressed!\n");
-        }
-        if (Input::GetButtonUp("Jump"))
-        {
-            printf("Jump Released!\n");
-        }
-        if (Input::GetButtonDown("GetScene"))
-        {
-            std::cout << Engine::getInstance()->GetCurrentScene()->name << std::endl;
-        }
-        if (Input::GetButton("Sprint"))
-        {
-            printf("Sprinting!\n");
-        }
-        if (Input::GetMouseButton(0))
-        {
-            printf("Shoot!\n");
-        }
-        if (Input::GetMouseButton(1))
-        {
-            printf("Aim!\n");
-        }
+    Player(MeshShape ms) : MeshGameObject(ms) {}
 
+    void update(float dt) override {
+        
+        if (Input::GetButton("Jump"))
+        {
+            Move({ 0,1 / 100.f,0 });
+            std::cout << GetPosition().x << ", " << GetPosition().y << ", " << GetPosition().z << ".\n";
+        }
+        if (Input::GetButton("Crouch"))
+        {
+            Move({ 0,-1 / 100.f,0 });
+            std::cout << GetPosition().x << ", " << GetPosition().y << ", " << GetPosition().z << ".\n";
+        }
         glm::vec2 movement = glm::vec2(Input::GetAxis("Horizontal"), Input::GetAxis("Vertical"));
         
         if (movement != glm::vec2{0.f,0.f})
         {
-            std::cout << movement.x << ", " << movement.y << std::endl;
+            Move({ movement.x / 100.f, 0, movement.y / 100.f });
+            std::cout << GetPosition().x << ", " << GetPosition().y << ", " << GetPosition().z << ".\n";
         }
 
 
     }
     void start() override {
         Input::MapButton("Jump", GLFW_KEY_SPACE);
-        Input::MapButton("Sprint", GLFW_KEY_LEFT_SHIFT);
+        Input::MapButton("Crouch", GLFW_KEY_LEFT_CONTROL);
         Input::MapButton("GetScene", GLFW_KEY_G);
         Input::MapAxis("Horizontal", GLFW_KEY_D, GLFW_KEY_A);
         Input::MapAxis("Vertical", GLFW_KEY_W, GLFW_KEY_S);
@@ -50,7 +38,7 @@ public:
 
 int main()
 {
-    Engine::load(800, 600, "Legend Terrain");
+    Engine::load(1920, 1080, "Legend Terrain");
     //auto player = GameObject::create<Player>();
     MeshShape ms;
     ms.indices = {
@@ -89,7 +77,7 @@ int main()
         Vertex(1,  1, -0.5)  //7
     };
     
-    auto testMesh = MeshGameObject::create<MeshGameObject>(ms);
+    auto testMesh = MeshGameObject::create<Player>(ms);
     testMesh->SetTexture("assets/defaults/default_texture2.jpg");
     testMesh->SetShader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
 
