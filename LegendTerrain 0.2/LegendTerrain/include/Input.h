@@ -35,7 +35,7 @@ private:
     static void CursorPositionCallback(GLFWwindow* window, double xpos, double ypos);
 
 public:
-    static void Initialize(GLFWwindow* window);
+    static void Initialize(GLFWwindow* window, int SCR_WIDTH, int SCR_HEIGHT);
     static void Update(); 
     static void MapButton(const std::string& buttonName, int keyCode);
     static void MapAxis(const std::string& axisName, int positiveKey, int negativeKey);

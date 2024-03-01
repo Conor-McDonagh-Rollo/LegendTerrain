@@ -6,7 +6,7 @@ std::unordered_map<std::string, Axis> Input::axisMappings;
 glm::vec2 Input::mousePosition;
 std::unordered_map<int, bool> Input::mouseButtons;
 
-void Input::Initialize(GLFWwindow* window)
+void Input::Initialize(GLFWwindow* window, int SCR_WIDTH, int SCR_HEIGHT)
 {
     glfwSetKeyCallback(window, Input::KeyCallback);
     glfwSetMouseButtonCallback(window, Input::MouseButtonCallback);

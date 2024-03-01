@@ -33,6 +33,10 @@ public:
 		mesh.SetShader(shader);
 	}
 
+	void SetShader(std::shared_ptr<Shader> shader) {
+		mesh.SetShader(shader);
+	}
+
 	void render() override {
 		mesh.Draw();
 	}

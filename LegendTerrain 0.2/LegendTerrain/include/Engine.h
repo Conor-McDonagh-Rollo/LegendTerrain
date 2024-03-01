@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "MeshGameObject.h"
 #include "SceneManager.h"
+#include "Camera.h"
 #include <iostream>
 
 class Engine {
@@ -17,8 +18,24 @@ private:
 
     std::unique_ptr<Window> mainWindow;
 
+    void clearScreen()
+    {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        mainCamera->ProcessMouseMovement(Input::GetMousePosition().x, Input::GetMousePosition().y, false);
+
+        glm::mat4 viewtest = mainCamera->GetViewMatrix();
+        glm::mat4 projectiontest = mainCamera->GetProjectionMatrix();
+        defaultShader->SetUniform("view", viewtest);
+        defaultShader->SetUniform("projection", projectiontest);
+    }
+
 public:
     Engine();
+
+    static std::shared_ptr<Shader> defaultShader;
+    static std::unique_ptr<Camera> mainCamera;
 
     static std::unique_ptr<Engine>& getInstance() {
         return instance;
@@ -51,6 +68,10 @@ public:
         // Z indexing
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
+
+        defaultShader = std::make_shared<Shader>("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
+
+        mainCamera = std::make_unique<Camera>(sizeX, sizeY, glm::vec3(0, 2, 2));
     }
 
     void start()
@@ -70,8 +91,8 @@ public:
             mainWindow->pollEvents();
 
             if (deltaTime < targetFrameTime) {
-                glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+                clearScreen();
+
                 sceneMan.LoopScene(deltaTime);
 
                 Input::Update();

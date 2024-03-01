@@ -39,7 +39,8 @@ public:
 int main()
 {
     Engine::load(1920, 1080, "Legend Terrain");
-    //auto player = GameObject::create<Player>();
+
+
     MeshShape ms;
     ms.indices = {
         //Top
@@ -79,7 +80,7 @@ int main()
     
     auto testMesh = MeshGameObject::create<Player>(ms);
     testMesh->SetTexture("assets/defaults/default_texture2.jpg");
-    testMesh->SetShader("assets/shaders/vertex.glsl", "assets/shaders/fragment.glsl");
+    testMesh->SetShader(Engine::defaultShader);
 
 
     Engine::getInstance()->start();

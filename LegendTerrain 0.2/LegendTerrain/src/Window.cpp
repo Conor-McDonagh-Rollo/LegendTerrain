@@ -39,7 +39,7 @@ Window::Window(int width, int height, const std::string& title) {
 
     
 
-    Input::Initialize(window);
+    Input::Initialize(window, width, height);
 
     windows.push_back(this);
 }
