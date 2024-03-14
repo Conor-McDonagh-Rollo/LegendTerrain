@@ -34,12 +34,13 @@ void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime) {
         Position -= Up * velocity;
 }
 
-void Camera::ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch) {
-    xoffset *= MouseSensitivity;
-    yoffset *= MouseSensitivity;
+void Camera::ProcessMouseMovement(glm::vec2 offset, GLboolean constrainPitch) {
+    offset = glm::normalize(offset);
+    offset.x *= MouseSensitivity;
+    offset.y *= MouseSensitivity;
 
-    Yaw += xoffset;
-    Pitch += yoffset;
+    Yaw += offset.x;
+    Pitch += offset.y;
 
     if (constrainPitch) {
         if (Pitch > 89.0f)

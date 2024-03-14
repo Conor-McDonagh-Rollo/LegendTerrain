@@ -23,7 +23,7 @@ private:
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        mainCamera->ProcessMouseMovement(Input::GetMousePosition().x, Input::GetMousePosition().y, false);
+        mainCamera->ProcessMouseMovement(Input::GetMousePosition(), false);
 
         glm::mat4 viewtest = mainCamera->GetViewMatrix();
         glm::mat4 projectiontest = mainCamera->GetProjectionMatrix();

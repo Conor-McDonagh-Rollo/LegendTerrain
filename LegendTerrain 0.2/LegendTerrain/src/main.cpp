@@ -43,39 +43,16 @@ int main()
 
     MeshShape ms;
     ms.indices = {
-        //Top
-        2, 6, 7,
-        2, 3, 7,
-
-        //Bottom
-        0, 4, 5,
-        0, 1, 5,
-
-        //Left
-        0, 2, 6,
-        0, 4, 6,
-
-        //Right
-        1, 3, 7,
-        1, 5, 7,
-
         //Front
-        0, 2, 3,
-        0, 1, 3,
+        0, 1, 2,
+        0, 3, 2,
 
-        //Back
-        4, 6, 7,
-        4, 5, 7
     };
     ms.vertices = {
-        Vertex(- 1, -1,  0.5), //0
-        Vertex(1, -1,  0.5), //1
-        Vertex(-1,  1,  0.5), //2
-        Vertex(1,  1,  0.5), //3
-        Vertex(-1, -1, -0.5), //4
-        Vertex(1, -1, -0.5), //5
-        Vertex(-1,  1, -0.5), //6
-        Vertex(1,  1, -0.5)  //7
+        Vertex(0, 0,  0), //0
+        Vertex(1, 0,  0), //1
+        Vertex(1,  -1,  0), //2
+        Vertex(0,  -1,  0), //3
     };
     
     auto testMesh = MeshGameObject::create<Player>(ms);
