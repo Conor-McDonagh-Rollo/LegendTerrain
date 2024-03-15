@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 Player::Player()
 	: GameObject()
@@ -15,10 +16,10 @@ void Player::initialize()
 void Player::update(float dt)
 {
 	float horizontal = 0.f;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-		horizontal = -1.f;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-		horizontal = 1.f;
+	if (Input::GetButton("left"))
+		horizontal = -5.f;
+	if (Input::GetButton("right"))
+		horizontal = 5.f;
 	if (horizontal != 0)
 	{
 		velocity.x = horizontal;
@@ -31,7 +32,7 @@ void Player::update(float dt)
 	if (!grounded)
 	{
 		if (velocity.y < 9.f)
-			velocity.y += dt * 1000.f;
+			velocity.y += dt * 100.f;
 		if (sprite.getPosition().y > 500.f)
 		{
 			grounded = true;
@@ -41,9 +42,9 @@ void Player::update(float dt)
 	}
 	else
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		if (Input::GetButtonDown("jump"))
 		{
-			velocity.y = -5.5f;
+			velocity.y = -20.f;
 			grounded = false;
 		}
 	}

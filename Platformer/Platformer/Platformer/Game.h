@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Globals.h"
+#include "Input.h"
 
 class Game
 {
