@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Globals.h"
 #include "Input.h"
+#include "TileManager.h"
 
 class Game
 {
@@ -17,7 +18,11 @@ private:
 
 
 	sf::RenderWindow window;
+	sf::View view;
 
 	Player player;
+
+	TileManager tileman;
+	std::vector<Chunk>* chunks;
 };
 

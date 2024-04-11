@@ -8,6 +8,14 @@ Game::Game()
     Input::SetButton("left", sf::Keyboard::A);
     Input::SetButton("right", sf::Keyboard::D);
     Input::SetButton("jump", sf::Keyboard::Space);
+
+    Tile::loadTextures();
+    chunks = tileman.generateMap(100, 100);
+
+    view.setSize(1280, 720);
+    window.setView(view);
+
+    player.tileman = &tileman;
 }
 
 void Game::Run()
@@ -57,6 +65,18 @@ void Game::render()
 {
     // Render
     window.clear();
+    view.setCenter(player.sprite.getPosition());
+    window.setView(view);
+
+    for (auto it = chunks->begin(); it != chunks->end(); ++it)
+    {
+        for (auto t : it->tiles)
+        {
+            t.draw(window);
+        }
+    }
+
     player.draw();
+    
     window.display();
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "TileManager.h"
 #include "GameObject.h"
 #include "Globals.h"
 #include "Input.h"
@@ -13,5 +14,12 @@ public:
 	void initialize() override;
 	void update(float dt) override;
 	void draw() override;
+
+	TileManager* tileman;
+private:
+	void handleCollision(Tile& tile);
+	bool isOnTopOfTile(const Tile& tile);
+
+	float maxSlideSpeed = 10.f; // for walls
 };
 
