@@ -31,27 +31,32 @@ void Player::update(float dt)
 		velocity.x *= dt;
 	}
 
-	
+	std::cout << sprite.getPosition().x << ", " << sprite.getPosition().y << " :: " << tileman->getChunkPos(sprite.getPosition().x, sprite.getPosition().y) << std::endl;
 	for (Chunk& c : tileman->getSurroundingChunks(sprite.getPosition().x, sprite.getPosition().y))
 	{
 		for (Tile& t : c.tiles)
 		{
-			handleCollision(t);
+			t.body.setColor(sf::Color::Red);
+			/*handleCollision(t);
 			if (isOnTopOfTile(t)) {
 				grounded = true;
 			}
 			else
 			{
 				grounded = false;
-			}
+			}*/
 		}
 	}
-
+	
 	if (!grounded)
 	{
 		if (velocity.y < 9.f)
 			velocity.y += dt * 100.f;
-		
+		if (Input::GetButtonDown("jump"))
+		{
+			velocity.y = -20.f;
+			//grounded = false;
+		}
 	}
 	else
 	{

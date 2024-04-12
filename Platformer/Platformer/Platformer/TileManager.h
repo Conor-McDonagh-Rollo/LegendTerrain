@@ -6,13 +6,13 @@
 
 class Tile {
 public:
+    static const int TILE_SIZE = 32;
+
     enum TileType { AIR, GROUND };
 
     Tile() {}
 
     Tile(TileType type, int x, int y) : type(type) {
-
-        int tileSize = 32;
 
         switch (type) {
         case GROUND:
@@ -22,7 +22,7 @@ public:
             body.setTexture(airTexture);
             break;
         }
-        body.setPosition(static_cast<float>(x * tileSize), static_cast<float>(y * tileSize));
+        body.setPosition(static_cast<float>(x * TILE_SIZE), static_cast<float>(y * TILE_SIZE));
     }
 
     TileType getType() const { return type; }
@@ -60,7 +60,8 @@ public:
         for (int x = 0; x < CHUNK_SIZE; ++x) {
             for (int y = 0; y < CHUNK_SIZE; ++y) {
                 // Initialize tiles, possibly as AIR initially
-                tiles[x + y * CHUNK_SIZE] = Tile(Tile::AIR, startX + x, startY + y);
+                Tile t = Tile(Tile::AIR, startX + x, startY + y);
+                tiles[x + y * CHUNK_SIZE] = t;
             }
         }
     }
@@ -101,17 +102,28 @@ public:
         return map;
     }
 
+    std::string getChunkPos(int x, int y)
+    {
+        int chunkX = x / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
+        int chunkY = y / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
+        return std::string{std::to_string(chunkX) + ", " + std::to_string(chunkY)};
+    }
+
     std::vector<std::reference_wrapper<Chunk>> getSurroundingChunks(int X, int Y) {
         std::vector<std::reference_wrapper<Chunk>> surroundingChunks;
 
-        int ChunkX = X / (Chunk::CHUNK_SIZE * 32);
-        int ChunkY = Y / (Chunk::CHUNK_SIZE * 32);
+        int chunkX = X / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
+        int chunkY = Y / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
 
-        for (int x = ChunkX - 1; x <= ChunkX + 1; x++) {
-            for (int y = ChunkY - 1; y <= ChunkY + 1; y++) {
-                if (x >= 0 && x < chunkCols && y >= 0 && y < chunkRows) {
-                    surroundingChunks.push_back(map->at(x + y * chunkCols));
-                }
+        // Ensure the pointer is valid
+        if (!map || chunkX < 0 || chunkY < 0 || chunkX >= chunkCols || chunkY >= chunkRows) {
+            return surroundingChunks;  // Return empty vector if pointer is invalid or indices are out of range
+        }
+
+        // Iterate over the surrounding chunk indices, clamping to avoid out-of-bounds
+        for (int x = std::max(0, chunkX - 1); x <= std::min(chunkCols - 1, chunkX + 1); x++) {
+            for (int y = std::max(0, chunkY - 1); y <= std::min(chunkRows - 1, chunkY + 1); y++) {
+                surroundingChunks.push_back((*map)[x + y * chunkCols]); // Dereference map and access element
             }
         }
 
@@ -119,16 +131,18 @@ public:
     }
 
 private:
-
     void fillChunkWithTiles(Chunk& chunk, int chunkX, int chunkY, FastNoiseLite& noise) {
+        
         for (int x = 0; x < Chunk::CHUNK_SIZE; ++x) {
             for (int y = 0; y < Chunk::CHUNK_SIZE; ++y) {
                 int worldX = chunkX * Chunk::CHUNK_SIZE + x;
                 int worldY = chunkY * Chunk::CHUNK_SIZE + y;
                 float noiseValue = noise.GetNoise(static_cast<float>(worldX), static_cast<float>(worldY));
-                chunk.tiles[x + y * Chunk::CHUNK_SIZE] = translateNoiseToTile(noiseValue, worldX, worldY);
+                Tile t = translateNoiseToTile(noiseValue, worldX, worldY);
+                chunk.tiles[x + y * Chunk::CHUNK_SIZE] = t;
             }
         }
+        
     }
 
     Tile translateNoiseToTile(float noiseValue, int x, int y) {
