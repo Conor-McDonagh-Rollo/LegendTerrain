@@ -5,6 +5,7 @@ Game::Game()
     : window(sf::VideoMode(1280, 720), "SFML Game")
 {
     Globals::window = &window;
+    Globals::view = &view;
     Input::SetButton("left", sf::Keyboard::A);
     Input::SetButton("right", sf::Keyboard::D);
     Input::SetButton("jump", sf::Keyboard::Space);
@@ -16,6 +17,7 @@ Game::Game()
     window.setView(view);
 
     player.tileman = &tileman;
+    player.initialize();
 }
 
 void Game::Run()

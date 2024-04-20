@@ -87,11 +87,11 @@ public:
         std::uniform_int_distribution<> distr(0, std::numeric_limits<int>::max());
         noise.SetSeed(distr(eng));
 
-        for (int chunkX = 0; chunkX < chunkCols; ++chunkX) {
-            for (int chunkY = 0; chunkY < chunkRows; ++chunkY) {
-                Chunk chunk(chunkX * Chunk::CHUNK_SIZE, chunkY * Chunk::CHUNK_SIZE);
-                fillChunkWithTiles(chunk, chunkX, chunkY, noise);
-                map->push_back(chunk);
+        for (int chunkY = 0; chunkY < chunkCols; chunkY++) {
+            for (int chunkX = 0; chunkX < chunkRows; chunkX++) {
+                Chunk* chunk = new Chunk(chunkX * Chunk::CHUNK_SIZE, chunkY * Chunk::CHUNK_SIZE);
+                fillChunkWithTiles(*chunk, chunkX, chunkY, noise);
+                map->push_back(*chunk);
             }
         }
 
@@ -115,31 +115,41 @@ public:
         int chunkX = X / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
         int chunkY = Y / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
 
-        // Ensure the pointer is valid
         if (!map || chunkX < 0 || chunkY < 0 || chunkX >= chunkCols || chunkY >= chunkRows) {
-            return surroundingChunks;  // Return empty vector if pointer is invalid or indices are out of range
+            return surroundingChunks;  
         }
 
-        // Iterate over the surrounding chunk indices, clamping to avoid out-of-bounds
-        for (int x = std::max(0, chunkX - 1); x <= std::min(chunkCols - 1, chunkX + 1); x++) {
-            for (int y = std::max(0, chunkY - 1); y <= std::min(chunkRows - 1, chunkY + 1); y++) {
-                surroundingChunks.push_back((*map)[x + y * chunkCols]); // Dereference map and access element
+        for (int y = std::max(0, chunkY - 1); y <= std::min(chunkCols - 1, chunkY + 1); y++) {
+            for (int x = std::max(0, chunkX - 1); x <= std::min(chunkRows - 1, chunkX + 1); x++) {
+                surroundingChunks.push_back((*map)[x + (y * chunkCols)]);
             }
         }
 
         return surroundingChunks;
     }
 
+    std::reference_wrapper<Chunk> getChunkAtPosition(int X, int Y) {
+        int chunkX = X / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
+        int chunkY = Y / (Chunk::CHUNK_SIZE * Tile::TILE_SIZE);
+
+        if (!map || chunkX < 0 || chunkY < 0 || chunkX >= chunkCols || chunkY >= chunkRows) {
+            return (*map)[0];
+        }
+
+        std::reference_wrapper<Chunk> c = (*map)[chunkX + (chunkY * chunkCols)];
+        return c;
+    }
+
 private:
     void fillChunkWithTiles(Chunk& chunk, int chunkX, int chunkY, FastNoiseLite& noise) {
         
-        for (int x = 0; x < Chunk::CHUNK_SIZE; ++x) {
-            for (int y = 0; y < Chunk::CHUNK_SIZE; ++y) {
+        for (int y = 0; y < Chunk::CHUNK_SIZE; y++) {
+            for (int x = 0; x < Chunk::CHUNK_SIZE; x++) {
                 int worldX = chunkX * Chunk::CHUNK_SIZE + x;
                 int worldY = chunkY * Chunk::CHUNK_SIZE + y;
                 float noiseValue = noise.GetNoise(static_cast<float>(worldX), static_cast<float>(worldY));
                 Tile t = translateNoiseToTile(noiseValue, worldX, worldY);
-                chunk.tiles[x + y * Chunk::CHUNK_SIZE] = t;
+                chunk.tiles[x + (y * Chunk::CHUNK_SIZE)] = t;
             }
         }
         

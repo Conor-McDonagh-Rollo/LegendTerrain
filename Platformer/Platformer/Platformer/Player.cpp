@@ -5,14 +5,36 @@
 Player::Player()
 	: GameObject()
 {
-	initialize();
 }
 
 void Player::initialize()
 {
 	texture.loadFromFile("ASSETS//IMAGES//player.png");
 	sprite.setTexture(texture);
-	sprite.setPosition(500, 500);
+
+	sf::Vector2f bestPosition;
+	int best = 0;
+	for (int y = 0; y < 10; y++)
+	{
+		for (int x = 0; x < 10; x++)
+		{
+			Chunk& c = tileman->getChunkAtPosition(x, y);
+			int current = 0;
+			for (int i = 0; i < c.tiles.size(); i++)
+			{
+				if ((int)c.tiles[i].getType() == 0)
+				{
+					current++;
+				}
+			}
+			if (current > best)
+			{
+				bestPosition = sf::Vector2f(x,y);
+			}
+		}
+	}
+	Chunk& c = tileman->getChunkAtPosition(bestPosition.x, bestPosition.y);
+	sprite.setPosition(c.tiles[c.tiles.size() / 2 + 5].getPosition());
 }
 
 void Player::update(float dt)
@@ -31,32 +53,39 @@ void Player::update(float dt)
 		velocity.x *= dt;
 	}
 
-	std::cout << sprite.getPosition().x << ", " << sprite.getPosition().y << " :: " << tileman->getChunkPos(sprite.getPosition().x, sprite.getPosition().y) << std::endl;
+	if (Input::GetMouseButton(0))
+	{
+		sf::Vector2f pos = Input::GetMousePositionInWorld();
+		Chunk& c = tileman->getChunkAtPosition(pos.x, pos.y);
+		for (Tile& t : c.tiles)
+		{
+			if (t.getType() == t.GROUND)
+				t.body.setColor(sf::Color::Red);
+		}
+	}
+	
 	for (Chunk& c : tileman->getSurroundingChunks(sprite.getPosition().x, sprite.getPosition().y))
 	{
 		for (Tile& t : c.tiles)
 		{
-			t.body.setColor(sf::Color::Red);
-			/*handleCollision(t);
+			//t.body.setColor(sf::Color::Red);
+			handleCollision(t);
 			if (isOnTopOfTile(t)) {
 				grounded = true;
+				std::cout << "floor";
 			}
 			else
 			{
 				grounded = false;
-			}*/
+			}
 		}
 	}
+	
 	
 	if (!grounded)
 	{
 		if (velocity.y < 9.f)
 			velocity.y += dt * 100.f;
-		if (Input::GetButtonDown("jump"))
-		{
-			velocity.y = -20.f;
-			//grounded = false;
-		}
 	}
 	else
 	{
@@ -117,6 +146,8 @@ void Player::handleCollision(Tile& tile)
 }
 
 bool Player::isOnTopOfTile(const Tile& tile) {
+	if (tile.getType() == tile.TileType::AIR)
+		return false;
 	sf::FloatRect playerBounds = sprite.getGlobalBounds();
 	sf::FloatRect tileBounds = tile.body.getGlobalBounds();
 
@@ -124,7 +155,6 @@ bool Player::isOnTopOfTile(const Tile& tile) {
 	float playerBottom = playerBounds.top + playerBounds.height;
 	float tileTop = tileBounds.top;
 
-	// Optional: add a small threshold to account for floating-point inaccuracies
 	float threshold = 1.0f;
 
 	return playerBottom <= tileTop + threshold && playerBounds.top < tileTop;

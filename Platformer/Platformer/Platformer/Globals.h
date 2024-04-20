@@ -4,5 +4,6 @@ class Globals
 {
 public:
 	static sf::RenderWindow* window;
+	static sf::View* view;
 };
 
