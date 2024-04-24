@@ -119,6 +119,7 @@ void Engine::clearScreen()
 
 Object* Engine::makeTerrain(int detail, glm::vec3 position)
 {
+    currentTerrain[{position.x, position.z}] = true;
     Terrain* result = new Terrain(position, detail);
     result->setShader(shaders[0]);
     return result;

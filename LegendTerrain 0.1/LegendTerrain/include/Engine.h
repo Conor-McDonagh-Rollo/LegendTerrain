@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "Camera.h"
 #include <iostream>
+#include <map>
 class Engine;
 class Sprite;
 class Plane;
@@ -27,6 +28,8 @@ public:
     Object* makePlane(const char* texture = "assets/defaults/default_texture.jpg", glm::vec3 position = {0,0,0});
     Object* makeSprite(const char* texture = "assets/defaults/default_texture.jpg", glm::vec3 position = { 0,0,0 });
     Object* makeMesh(const char* path);
+
+    std::map<std::pair<int,int>, bool> currentTerrain;
 private:
 
     // settings

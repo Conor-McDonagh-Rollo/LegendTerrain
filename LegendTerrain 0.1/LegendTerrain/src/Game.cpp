@@ -3,6 +3,8 @@
 Game::Game()
     : engine{ new Engine("LegendTerrain") }
 {
+    engine->getCamera()->Position = { 0,1,0 };
+
     terrain.push_back(engine->makeTerrain(5, {-1, 0, -1}));
     terrain.push_back(engine->makeTerrain(5, { 0, 0, -1 }));
     terrain.push_back(engine->makeTerrain(5, { 1, 0, -1 }));
@@ -132,6 +134,11 @@ void Game::update(float dt)
     if (down)
     {
         engine->getCamera()->ProcessKeyboard(DOWN, dt);
+    }
+
+    if (engine->currentTerrain[{(int)engine->getCamera()->Position.x, (int)engine->getCamera()->Position.z}] == false)
+    {
+        terrain.push_back(engine->makeTerrain(5, { (int)engine->getCamera()->Position.x, 0, (int)engine->getCamera()->Position.z }));
     }
 
 }
