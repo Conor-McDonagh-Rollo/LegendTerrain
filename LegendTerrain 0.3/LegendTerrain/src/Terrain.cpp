@@ -83,23 +83,27 @@ void Terrain::DisplaceVerticies(glm::vec3 pos)
     // Start at Y Coordinate and add 3 every time to keep within Y
     for (int i = 1; i < (vertexCount / 4); i += 3)
     {
-        float noiseValue = Noise::instance->GetHeight(m_vertices[i - 1] + pos.x, m_vertices[i + 1] + pos.z);
+        float noiseValue = Noise::instance->GetMaskedHeight(m_vertices[i - 1] + pos.x, m_vertices[i + 1] + pos.z);
         average += noiseValue;
         m_vertices[i] = noiseValue;
         count++;
     }
     average /= count;
-    if (average > 1.0f)
+    if (average > 2.0f)
+    {
+        texture = Texture::textureMap["snow"];
+    }
+    else if (average > 1.0f)
     {
         texture = Texture::textureMap["stone"];
     }
-    else if (average < 0.0f)
+    else if (average > 0.0f)
     {
-        texture = Texture::textureMap["water"];
+        texture = Texture::textureMap["ground"];
     }
     else
     {
-        texture = Texture::textureMap["ground"];
+        texture = Texture::textureMap["water"];
     }
 
     rebindVBO();

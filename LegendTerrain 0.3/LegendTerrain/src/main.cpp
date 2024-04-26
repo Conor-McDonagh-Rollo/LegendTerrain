@@ -8,6 +8,8 @@ int main()
     Engine* engine = new Engine{ "LegendTerrain 0.3" };
 
     // SET TEXTURE MAP
+    Texture* snow = new Texture();
+    snow->set("snow", "assets/defaults/snow.jpg");
     Texture* stone = new Texture();
     stone->set("stone", "assets/defaults/stone.jpg");
     Texture* water = new Texture();

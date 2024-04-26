@@ -2,6 +2,7 @@
 #include <list>
 #include <string>
 #include "GameObject.h"
+#include "Camera.h"
 
 struct Scene {
 	Scene(std::string _sc_name) {
@@ -17,6 +18,7 @@ class SceneManager
 private:
 	std::list<std::shared_ptr<Scene>> scenes;
 	static std::shared_ptr<Scene> currentScene;
+
 public:
 	SceneManager();
 	std::shared_ptr<Scene> AddScene(const char* _name);

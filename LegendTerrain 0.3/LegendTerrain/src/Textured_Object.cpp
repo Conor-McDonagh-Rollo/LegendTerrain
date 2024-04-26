@@ -55,7 +55,7 @@ void Textured_Object::render()
 	currentShader->use();
 
 	updateModelMatrix();
-	GLint modelLoc = glGetUniformLocation(currentShader->ID, "model");
+	//GLint modelLoc = glGetUniformLocation(currentShader->ID, "model");
 
 	// Bind and Draw as usual
 	texture->bind();

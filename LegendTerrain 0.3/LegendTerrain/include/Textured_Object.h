@@ -75,9 +75,9 @@ protected:
 		model = glm::translate(model, newPosition);
 
 		// Rotation around the X, Y, and Z axes
-		model = glm::rotate(model, glm::radians(rotationAngle.x), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(rotationAngle.y), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::rotate(model, glm::radians(rotationAngle.z), glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, glm::radians(rotationAngle.x), glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(rotationAngle.y), glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, glm::radians(rotationAngle.z), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		currentShader->setMat4("model", model);
 	}

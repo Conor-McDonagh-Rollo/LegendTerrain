@@ -112,33 +112,3 @@ void Engine::clearScreen()
     shaders[0].setMat4("view", viewtest);
     shaders[0].setMat4("projection", projectiontest);
 }
-/*
-Object* Engine::makeTerrain(int detail, glm::vec3 position)
-{
-    currentTerrain[{position.x, position.z}] = true;
-    Terrain* result = new Terrain(position, detail);
-    result->setShader(shaders[0]);
-    return result;
-}
-
-Object* Engine::makePlane(const char* texture, glm::vec3 position)
-{
-    Plane* result = new Plane(position, texture);
-    result->setShader(shaders[0]);
-    return result;
-}
-
-Object* Engine::makeSprite(const char* texture, glm::vec3 position)
-{
-    Sprite* result = new Sprite(position, texture);
-    result->setShader(shaders[0]);
-    return result;
-}
-
-Object* Engine::makeMesh(const char* path)
-{
-    //Mesh* result = new Mesh(path, {0,0,0});
-    //result->setShader(shaders[0]);
-    //return result;
-    return nullptr;
-}*/

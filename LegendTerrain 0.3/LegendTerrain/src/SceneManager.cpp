@@ -52,6 +52,7 @@ void SceneManager::LoopScene(float dt)
 	for (auto& obj : currentScene->objects) {
 		obj->update(dt);
 		obj->render();
+
 	}
 }
 

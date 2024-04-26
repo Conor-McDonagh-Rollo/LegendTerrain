@@ -41,6 +41,7 @@ public:
     void ProcessKeyboard(Camera_Movement direction, float deltaTime);
     void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
 
+    unsigned int global_distance = 0;
 private:
     glm::mat4 projection;
 

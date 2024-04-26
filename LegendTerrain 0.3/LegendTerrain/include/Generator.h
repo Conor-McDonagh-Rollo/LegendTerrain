@@ -20,7 +20,7 @@ private:
 	std::map<std::pair<int, int>, bool> currentTerrain;
 
 	Camera* mainCamera = nullptr;
-	const int GEN_DIST = 2;
+	const int GEN_DIST = 10;
 };
 
 #endif

@@ -32,6 +32,8 @@ void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime) {
         Position += Up * velocity;
     if (direction == DOWN)
         Position -= Up * velocity;
+
+    global_distance = (unsigned int)Position.x * (unsigned int)Position.z;
 }
 
 void Camera::ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch) {
