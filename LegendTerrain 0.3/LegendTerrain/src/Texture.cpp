@@ -2,8 +2,12 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../dependencies/stb_image.h"
 
-void Texture::set(const char* path)
+std::map<std::string, Texture*> Texture::textureMap;
+
+Texture* Texture::set(std::string name, const char* path)
 {
+    if (textureMap[name] != nullptr)
+        return textureMap[name];
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     // set the texture wrapping/filtering options (on the currently bound texture object)
@@ -25,5 +29,6 @@ void Texture::set(const char* path)
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
-
+    textureMap[name] = this;
+    return this;
 }

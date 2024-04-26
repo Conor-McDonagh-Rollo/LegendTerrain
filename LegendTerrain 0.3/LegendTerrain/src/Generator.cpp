@@ -9,6 +9,7 @@ Generator::Generator()
 
     Input::MapAxis("Horizontal", GLFW_KEY_D, GLFW_KEY_A);
     Input::MapAxis("Vertical", GLFW_KEY_W, GLFW_KEY_S);
+    Input::MapAxis("UpDown", GLFW_KEY_SPACE, GLFW_KEY_LEFT_CONTROL);
     Input::MapButton("Close", GLFW_KEY_ESCAPE);
 
     mainCamera = Engine::mainCamera.get();
@@ -38,6 +39,15 @@ void Generator::update(float dt)
     {
         mainCamera->ProcessKeyboard(BACKWARD, dt);
     }
+    if (Input::GetAxis("UpDown") > 0.f)
+    {
+        mainCamera->ProcessKeyboard(UP, dt);
+    }
+    if (Input::GetAxis("UpDown") < 0.f)
+    {
+        mainCamera->ProcessKeyboard(DOWN, dt);
+    }
+
     if (Input::GetButtonDown("Close"))
     {
         Engine::getInstance().stop();

@@ -105,7 +105,7 @@ void Engine::mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 
 void Engine::clearScreen()
 {
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.659f, 0.969f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glm::mat4 viewtest = mainCamera->GetViewMatrix();
     glm::mat4 projectiontest = mainCamera->GetProjectionMatrix();

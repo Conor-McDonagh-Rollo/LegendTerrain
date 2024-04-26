@@ -4,25 +4,41 @@
 
 class Noise {
 public:
-	Noise()
-	{
-		instance = this;
-	}
+    FastNoiseLite noise;
+    static Noise* instance;
 
-	void Load()
-	{
-		FastNoiseLite _noise;
-		_noise.SetNoiseType(FastNoiseLite::NoiseType_ValueCubic);
-		_noise.SetFrequency(1);
+    Noise() {
+        instance = this;
+    }
 
-		std::random_device rd;
-		std::mt19937 eng(rd());
-		std::uniform_int_distribution<> distr(0, std::numeric_limits<int>::max());
-		_noise.SetSeed(distr(eng));
+    void Load() {
+        FastNoiseLite _noise;
+        _noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
+        _noise.SetFrequency(0.3f);
 
-		noise = _noise;
-	}
+        std::random_device rd;
+        std::mt19937 eng(rd());
+        std::uniform_int_distribution<> distr(0, std::numeric_limits<int>::max());
+        _noise.SetSeed(distr(eng));
 
-	FastNoiseLite noise;
-	static Noise* instance;
+        noise = _noise;
+    }
+
+    float GetHeight(float x, float y, int octaves = 12, float persistence = 0.5f, float lacunarity = 1.0f) {
+        float amplitude = 1.0f;
+        float frequency = 1.0f;
+        float noiseHeight = 0.0f;
+
+        for (int i = 0; i < octaves; i++) {
+            float sampleX = x * frequency;
+            float sampleY = y * frequency;
+            float singleOctaveNoise = noise.GetNoise(sampleX, sampleY);
+            noiseHeight += singleOctaveNoise * amplitude;
+
+            amplitude *= persistence;
+            frequency *= lacunarity;
+        }
+
+        return noiseHeight;
+    }
 };

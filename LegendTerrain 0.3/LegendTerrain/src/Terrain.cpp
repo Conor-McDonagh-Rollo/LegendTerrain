@@ -4,7 +4,6 @@
 Terrain::Terrain(glm::vec3 pos, int detail)
 {
     texture = new Texture();
-    texture->set("assets/defaults/default_texture2.jpg");
     setShader(*Engine::defaultShader.get());
 
     int numVertices = (detail + 1) * (detail + 1);
@@ -79,12 +78,28 @@ Terrain::Terrain(glm::vec3 pos, int detail)
 
 void Terrain::DisplaceVerticies(glm::vec3 pos)
 {
-    
+    int count = 0;
+    float average = 0.f;
     // Start at Y Coordinate and add 3 every time to keep within Y
     for (int i = 1; i < (vertexCount / 4); i += 3)
     {
-        float noiseValue = Noise::instance->noise.GetNoise(m_vertices[i - 1] + pos.x, m_vertices[i + 1] + pos.z);
+        float noiseValue = Noise::instance->GetHeight(m_vertices[i - 1] + pos.x, m_vertices[i + 1] + pos.z);
+        average += noiseValue;
         m_vertices[i] = noiseValue;
+        count++;
+    }
+    average /= count;
+    if (average > 1.0f)
+    {
+        texture = Texture::textureMap["stone"];
+    }
+    else if (average < 0.0f)
+    {
+        texture = Texture::textureMap["water"];
+    }
+    else
+    {
+        texture = Texture::textureMap["ground"];
     }
 
     rebindVBO();
