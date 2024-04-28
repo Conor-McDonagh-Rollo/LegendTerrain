@@ -1,0 +1,110 @@
+\doxysection{Scene\+Manager Class Reference}
+\hypertarget{class_scene_manager}{}\label{class_scene_manager}\index{SceneManager@{SceneManager}}
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_manager_a52085e6737c23b491c228e86781af808}{Scene\+Manager}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ \mbox{\hyperlink{class_scene_manager_a41eba336f9ea3b133094267b0ef38020}{Add\+Scene}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\item 
+void \mbox{\hyperlink{class_scene_manager_a89c0b225e6a9342fb1932b144d895ef0}{Set\+Scene}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ \mbox{\hyperlink{class_scene_manager_acbcbbd3fa8f1fcfe11214ccb69a5b9af}{Get\+Scene}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ \mbox{\hyperlink{class_scene_manager_a58260fb4b5b455312c1a9607d629ee9d}{Get\+Active\+Scene}} ()
+\item 
+void \mbox{\hyperlink{class_scene_manager_a6d2ce8a3ded090dce71b6e6a421fee54}{Loop\+Scene}} (float dt)
+\item 
+void \mbox{\hyperlink{class_scene_manager_a4171a53bc903f090222cb027ec88166b}{Add\+Game\+Object\+To\+Scene}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \&\+\_\+obj)
+\item 
+void \mbox{\hyperlink{class_scene_manager_a0b23bec64a7a2bc91ee6bb7b875d0b5f}{Remove\+Game\+Object\+From\+Scene}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \&\+\_\+obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::list$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ $>$ \mbox{\hyperlink{class_scene_manager_a14cfdbf0cf924bf1f89337e03160e9c0}{scenes}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ \mbox{\hyperlink{class_scene_manager_a892795b902c5a2f3243ac7b92e0e7484}{current\+Scene}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_scene_manager_a52085e6737c23b491c228e86781af808}\label{class_scene_manager_a52085e6737c23b491c228e86781af808} 
+\index{SceneManager@{SceneManager}!SceneManager@{SceneManager}}
+\index{SceneManager@{SceneManager}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{SceneManager()}{SceneManager()}}
+{\footnotesize\ttfamily Scene\+Manager\+::\+Scene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_manager_a4171a53bc903f090222cb027ec88166b}\label{class_scene_manager_a4171a53bc903f090222cb027ec88166b} 
+\index{SceneManager@{SceneManager}!AddGameObjectToScene@{AddGameObjectToScene}}
+\index{AddGameObjectToScene@{AddGameObjectToScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{AddGameObjectToScene()}{AddGameObjectToScene()}}
+{\footnotesize\ttfamily void Scene\+Manager\+::\+Add\+Game\+Object\+To\+Scene (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \&}]{\+\_\+obj }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_a41eba336f9ea3b133094267b0ef38020}\label{class_scene_manager_a41eba336f9ea3b133094267b0ef38020} 
+\index{SceneManager@{SceneManager}!AddScene@{AddScene}}
+\index{AddScene@{AddScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{AddScene()}{AddScene()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ Scene\+Manager\+::\+Add\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{\+\_\+name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_a58260fb4b5b455312c1a9607d629ee9d}\label{class_scene_manager_a58260fb4b5b455312c1a9607d629ee9d} 
+\index{SceneManager@{SceneManager}!GetActiveScene@{GetActiveScene}}
+\index{GetActiveScene@{GetActiveScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{GetActiveScene()}{GetActiveScene()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ Scene\+Manager\+::\+Get\+Active\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_acbcbbd3fa8f1fcfe11214ccb69a5b9af}\label{class_scene_manager_acbcbbd3fa8f1fcfe11214ccb69a5b9af} 
+\index{SceneManager@{SceneManager}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ Scene\+Manager\+::\+Get\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{\+\_\+name }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_a6d2ce8a3ded090dce71b6e6a421fee54}\label{class_scene_manager_a6d2ce8a3ded090dce71b6e6a421fee54} 
+\index{SceneManager@{SceneManager}!LoopScene@{LoopScene}}
+\index{LoopScene@{LoopScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{LoopScene()}{LoopScene()}}
+{\footnotesize\ttfamily void Scene\+Manager\+::\+Loop\+Scene (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_a0b23bec64a7a2bc91ee6bb7b875d0b5f}\label{class_scene_manager_a0b23bec64a7a2bc91ee6bb7b875d0b5f} 
+\index{SceneManager@{SceneManager}!RemoveGameObjectFromScene@{RemoveGameObjectFromScene}}
+\index{RemoveGameObjectFromScene@{RemoveGameObjectFromScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{RemoveGameObjectFromScene()}{RemoveGameObjectFromScene()}}
+{\footnotesize\ttfamily void Scene\+Manager\+::\+Remove\+Game\+Object\+From\+Scene (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ \&}]{\+\_\+obj }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_manager_a89c0b225e6a9342fb1932b144d895ef0}\label{class_scene_manager_a89c0b225e6a9342fb1932b144d895ef0} 
+\index{SceneManager@{SceneManager}!SetScene@{SetScene}}
+\index{SetScene@{SetScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{SetScene()}{SetScene()}}
+{\footnotesize\ttfamily void Scene\+Manager\+::\+Set\+Scene (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_scene_manager_a892795b902c5a2f3243ac7b92e0e7484}\label{class_scene_manager_a892795b902c5a2f3243ac7b92e0e7484} 
+\index{SceneManager@{SceneManager}!currentScene@{currentScene}}
+\index{currentScene@{currentScene}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{currentScene}{currentScene}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ Scene\+Manager\+::current\+Scene\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_scene_manager_a14cfdbf0cf924bf1f89337e03160e9c0}\label{class_scene_manager_a14cfdbf0cf924bf1f89337e03160e9c0} 
+\index{SceneManager@{SceneManager}!scenes@{scenes}}
+\index{scenes@{scenes}!SceneManager@{SceneManager}}
+\doxysubsubsection{\texorpdfstring{scenes}{scenes}}
+{\footnotesize\ttfamily std\+::list$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{struct_scene}{Scene}}$>$ $>$ Scene\+Manager\+::scenes\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/include/\mbox{\hyperlink{_scene_manager_8h}{Scene\+Manager.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{_scene_manager_8cpp}{Scene\+Manager.\+cpp}}\end{DoxyCompactItemize}

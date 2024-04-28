@@ -1,0 +1,32 @@
+\doxysection{Generator.\+h}
+\hypertarget{_generator_8h_source}{}\label{_generator_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Generator.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Generator.h}}
+\mbox{\hyperlink{_generator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAME\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAME\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_generator}{Generator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}{Generator}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_a64ab791569a2b2c98631d71d82a1594e}{run}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_a9ea10932e25a916ac947264ae665373e}{update}}(\textcolor{keywordtype}{float}\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_generator_a0af661379b54f3977d8d7f2d82d2ecc6}{generateTerrain}}(\textcolor{keyword}{const}\ glm::vec3\&\ position);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<std::shared\_ptr<Terrain>>\ \mbox{\hyperlink{class_generator_a20082d8f5889b3664ea1ffef9aee646c}{terrain}};}
+\DoxyCodeLine{00020\ \ \ \ \ std::map<std::pair<int,\ int>,\ \textcolor{keywordtype}{bool}>\ \mbox{\hyperlink{class_generator_aedc1fd1b6069e23c4176c0fa67e2d707}{currentTerrain}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}*\ \mbox{\hyperlink{class_generator_a0ccb0ec4268c72548f908dc38952f114}{mainCamera}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_generator_a5b7c4dfb4a7a173015af5d961f389954}{GEN\_DIST}}\ =\ 10;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

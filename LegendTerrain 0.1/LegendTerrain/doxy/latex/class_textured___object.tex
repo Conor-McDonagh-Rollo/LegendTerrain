@@ -1,0 +1,259 @@
+\doxysection{Textured\+\_\+\+Object Class Reference}
+\hypertarget{class_textured___object}{}\label{class_textured___object}\index{Textured\_Object@{Textured\_Object}}
+
+
+{\ttfamily \#include $<$Textured\+\_\+\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Textured\+\_\+\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{class_textured___object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Textured\+\_\+\+Object\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_textured___object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_textured___object_adebcc055da454e2d305c043800e8104a}{Textured\+\_\+\+Object}} ()
+\item 
+void \mbox{\hyperlink{class_textured___object_a4b76246339f2c6126847a7106857a1af}{generate}} (GLuint \&\+\_\+\+VAO, GLuint \&\+\_\+\+VBO, GLuint \&\+\_\+\+EBO, GLuint \&\+\_\+\+VBO\+\_\+\+Tex, size\+\_\+t \+\_\+verticies\+Size, float \texorpdfstring{$\ast$}{*}\+\_\+verticies, size\+\_\+t \+\_\+tec\+\_\+coords\+Size, float \texorpdfstring{$\ast$}{*}\+\_\+tec\+\_\+coords, size\+\_\+t \+\_\+indices\+Size, unsigned int \texorpdfstring{$\ast$}{*}\+\_\+indices, int amount\+Of\+Indicies, int num\+Of\+Vert)
+\item 
+void \mbox{\hyperlink{class_textured___object_afa50f07aaa73a9173fd700868f4ccd71}{draw}} () override
+\item 
+void \mbox{\hyperlink{class_textured___object_a9b8bcdfdb0beccd54c730a75d3139edb}{move}} (float x=0.f, float y=0.f, float z=0.f) override
+\item 
+void \mbox{\hyperlink{class_textured___object_a1662b2e8d21743f45576041e1338e423}{rotate}} (float angle\+DeltaX=0.\+0f, float angle\+DeltaY=0.\+0f, float angle\+DeltaZ=0.\+0f) override
+\item 
+void \mbox{\hyperlink{class_textured___object_a2a84b641752044cbbd610fbfe373a995}{rebind\+VBO}} ()
+\item 
+void \mbox{\hyperlink{class_textured___object_adeec2d0654968935ec73622cad4555a7}{set\+Shader}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_object}{Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_object_a40860402e64d8008fb42329df7097cdb}{Object}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_textured___object_a8a6981eae515f380b0217f8bf9187556}{update\+Model\+Matrix}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotation\+Angle}} = \{ 0,0,0 \}
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_af103a22c88a3cb58f867d2fdaa17c7a2}{VAO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0}{VBO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a9c71bb97fd3532f6b3f675795809cd0d}{EBO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_aa465480895675ee711b23375b2e60fe7}{VBO\+\_\+\+Tex}} = 0
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_a5974ce7ebc5282a2936a134ff75bf2e6}{texture}} = nullptr
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}} = glm\+::mat4(1.\+0f)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}} = glm\+::vec3(0.f, 0.f, 0.f)
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77}{m\+\_\+vertices}} = nullptr
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_aaf33f7c5a9f6d9752720e7338e198eb9}{m\+\_\+tex\+Coords}} = nullptr
+\item 
+unsigned int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_adebe280f5297c42aff79da3db31f8b0f}{m\+\_\+indices}} = nullptr
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a928fecf885bd9c350075bac8e8f41da6}{index}} = 0
+\item 
+int \mbox{\hyperlink{class_textured___object_a2b67fe29bb2e5e5e8905f5941bf1137f}{index\+Count}} = 6
+\item 
+int \mbox{\hyperlink{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7}{vertex\+Count}} = 4
+\item 
+int \mbox{\hyperlink{class_textured___object_ad8114b230eb97b240fa95148e649e049}{tex\+Coord\+Count}} = 0
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}{current\+Shader}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_textured___object_adebcc055da454e2d305c043800e8104a}\label{class_textured___object_adebcc055da454e2d305c043800e8104a} 
+\index{Textured\_Object@{Textured\_Object}!Textured\_Object@{Textured\_Object}}
+\index{Textured\_Object@{Textured\_Object}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{Textured\_Object()}{Textured\_Object()}}
+{\footnotesize\ttfamily Textured\+\_\+\+Object\+::\+Textured\+\_\+\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_textured___object_afa50f07aaa73a9173fd700868f4ccd71}\label{class_textured___object_afa50f07aaa73a9173fd700868f4ccd71} 
+\index{Textured\_Object@{Textured\_Object}!draw@{draw}}
+\index{draw@{draw}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_object_a59f4160d4d035e85ebdd706acdcd60f9}{Object}}.
+
+\Hypertarget{class_textured___object_a4b76246339f2c6126847a7106857a1af}\label{class_textured___object_a4b76246339f2c6126847a7106857a1af} 
+\index{Textured\_Object@{Textured\_Object}!generate@{generate}}
+\index{generate@{generate}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::generate (\begin{DoxyParamCaption}\item[{GLuint \&}]{\+\_\+\+VAO,  }\item[{GLuint \&}]{\+\_\+\+VBO,  }\item[{GLuint \&}]{\+\_\+\+EBO,  }\item[{GLuint \&}]{\+\_\+\+VBO\+\_\+\+Tex,  }\item[{size\+\_\+t}]{\+\_\+verticies\+Size,  }\item[{float \texorpdfstring{$\ast$}{*}}]{\+\_\+verticies,  }\item[{size\+\_\+t}]{\+\_\+tec\+\_\+coords\+Size,  }\item[{float \texorpdfstring{$\ast$}{*}}]{\+\_\+tec\+\_\+coords,  }\item[{size\+\_\+t}]{\+\_\+indices\+Size,  }\item[{unsigned int \texorpdfstring{$\ast$}{*}}]{\+\_\+indices,  }\item[{int}]{amount\+Of\+Indicies,  }\item[{int}]{num\+Of\+Vert }\end{DoxyParamCaption})}
+
+\Hypertarget{class_textured___object_a9b8bcdfdb0beccd54c730a75d3139edb}\label{class_textured___object_a9b8bcdfdb0beccd54c730a75d3139edb} 
+\index{Textured\_Object@{Textured\_Object}!move@{move}}
+\index{move@{move}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::move (\begin{DoxyParamCaption}\item[{float}]{x = {\ttfamily 0.f},  }\item[{float}]{y = {\ttfamily 0.f},  }\item[{float}]{z = {\ttfamily 0.f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_object_a36d02fe56a0b4bf4143e0751d3f2b760}{Object}}.
+
+\Hypertarget{class_textured___object_a2a84b641752044cbbd610fbfe373a995}\label{class_textured___object_a2a84b641752044cbbd610fbfe373a995} 
+\index{Textured\_Object@{Textured\_Object}!rebindVBO@{rebindVBO}}
+\index{rebindVBO@{rebindVBO}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{rebindVBO()}{rebindVBO()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::rebind\+VBO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_textured___object_a1662b2e8d21743f45576041e1338e423}\label{class_textured___object_a1662b2e8d21743f45576041e1338e423} 
+\index{Textured\_Object@{Textured\_Object}!rotate@{rotate}}
+\index{rotate@{rotate}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::rotate (\begin{DoxyParamCaption}\item[{float}]{angle\+DeltaX = {\ttfamily 0.0f},  }\item[{float}]{angle\+DeltaY = {\ttfamily 0.0f},  }\item[{float}]{angle\+DeltaZ = {\ttfamily 0.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_object_ab5b5e2d05671d58882ffa4fe3c328455}{Object}}.
+
+\Hypertarget{class_textured___object_adeec2d0654968935ec73622cad4555a7}\label{class_textured___object_adeec2d0654968935ec73622cad4555a7} 
+\index{Textured\_Object@{Textured\_Object}!setShader@{setShader}}
+\index{setShader@{setShader}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{setShader()}{setShader()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::set\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_textured___object_a8a6981eae515f380b0217f8bf9187556}\label{class_textured___object_a8a6981eae515f380b0217f8bf9187556} 
+\index{Textured\_Object@{Textured\_Object}!updateModelMatrix@{updateModelMatrix}}
+\index{updateModelMatrix@{updateModelMatrix}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{updateModelMatrix()}{updateModelMatrix()}}
+{\footnotesize\ttfamily void Textured\+\_\+\+Object\+::update\+Model\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}\label{class_textured___object_a86ebf6627de9d9f8526506642e7b4535} 
+\index{Textured\_Object@{Textured\_Object}!currentShader@{currentShader}}
+\index{currentShader@{currentShader}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{currentShader}{currentShader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shader}{Shader}}\texorpdfstring{$\ast$}{*} Textured\+\_\+\+Object\+::current\+Shader = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_a9c71bb97fd3532f6b3f675795809cd0d}\label{class_textured___object_a9c71bb97fd3532f6b3f675795809cd0d} 
+\index{Textured\_Object@{Textured\_Object}!EBO@{EBO}}
+\index{EBO@{EBO}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{EBO}{EBO}}
+{\footnotesize\ttfamily GLuint Textured\+\_\+\+Object\+::\+EBO = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_a928fecf885bd9c350075bac8e8f41da6}\label{class_textured___object_a928fecf885bd9c350075bac8e8f41da6} 
+\index{Textured\_Object@{Textured\_Object}!index@{index}}
+\index{index@{index}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily GLuint Textured\+\_\+\+Object\+::index = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_a2b67fe29bb2e5e5e8905f5941bf1137f}\label{class_textured___object_a2b67fe29bb2e5e5e8905f5941bf1137f} 
+\index{Textured\_Object@{Textured\_Object}!indexCount@{indexCount}}
+\index{indexCount@{indexCount}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{indexCount}{indexCount}}
+{\footnotesize\ttfamily int Textured\+\_\+\+Object\+::index\+Count = 6\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_adebe280f5297c42aff79da3db31f8b0f}\label{class_textured___object_adebe280f5297c42aff79da3db31f8b0f} 
+\index{Textured\_Object@{Textured\_Object}!m\_indices@{m\_indices}}
+\index{m\_indices@{m\_indices}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{m\_indices}{m\_indices}}
+{\footnotesize\ttfamily unsigned int\texorpdfstring{$\ast$}{*} Textured\+\_\+\+Object\+::m\+\_\+indices = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_aaf33f7c5a9f6d9752720e7338e198eb9}\label{class_textured___object_aaf33f7c5a9f6d9752720e7338e198eb9} 
+\index{Textured\_Object@{Textured\_Object}!m\_texCoords@{m\_texCoords}}
+\index{m\_texCoords@{m\_texCoords}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{m\_texCoords}{m\_texCoords}}
+{\footnotesize\ttfamily float\texorpdfstring{$\ast$}{*} Textured\+\_\+\+Object\+::m\+\_\+tex\+Coords = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77}\label{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77} 
+\index{Textured\_Object@{Textured\_Object}!m\_vertices@{m\_vertices}}
+\index{m\_vertices@{m\_vertices}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{m\_vertices}{m\_vertices}}
+{\footnotesize\ttfamily float\texorpdfstring{$\ast$}{*} Textured\+\_\+\+Object\+::m\+\_\+vertices = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_addd5b8e121cae852f36e862da32b0433}\label{class_textured___object_addd5b8e121cae852f36e862da32b0433} 
+\index{Textured\_Object@{Textured\_Object}!model@{model}}
+\index{model@{model}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily glm\+::mat4 Textured\+\_\+\+Object\+::model = glm\+::mat4(1.\+0f)\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}\label{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb} 
+\index{Textured\_Object@{Textured\_Object}!position@{position}}
+\index{position@{position}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Textured\+\_\+\+Object\+::position = glm\+::vec3(0.f, 0.f, 0.f)\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_ac039b14e58dc7a91654153b92b50f351}\label{class_textured___object_ac039b14e58dc7a91654153b92b50f351} 
+\index{Textured\_Object@{Textured\_Object}!rotationAngle@{rotationAngle}}
+\index{rotationAngle@{rotationAngle}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{rotationAngle}{rotationAngle}}
+{\footnotesize\ttfamily glm\+::vec3 Textured\+\_\+\+Object\+::rotation\+Angle = \{ 0,0,0 \}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_ad8114b230eb97b240fa95148e649e049}\label{class_textured___object_ad8114b230eb97b240fa95148e649e049} 
+\index{Textured\_Object@{Textured\_Object}!texCoordCount@{texCoordCount}}
+\index{texCoordCount@{texCoordCount}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{texCoordCount}{texCoordCount}}
+{\footnotesize\ttfamily int Textured\+\_\+\+Object\+::tex\+Coord\+Count = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_a5974ce7ebc5282a2936a134ff75bf2e6}\label{class_textured___object_a5974ce7ebc5282a2936a134ff75bf2e6} 
+\index{Textured\_Object@{Textured\_Object}!texture@{texture}}
+\index{texture@{texture}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_texture}{Texture}}\texorpdfstring{$\ast$}{*} Textured\+\_\+\+Object\+::texture = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_af103a22c88a3cb58f867d2fdaa17c7a2}\label{class_textured___object_af103a22c88a3cb58f867d2fdaa17c7a2} 
+\index{Textured\_Object@{Textured\_Object}!VAO@{VAO}}
+\index{VAO@{VAO}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{VAO}{VAO}}
+{\footnotesize\ttfamily GLuint Textured\+\_\+\+Object\+::\+VAO = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0}\label{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0} 
+\index{Textured\_Object@{Textured\_Object}!VBO@{VBO}}
+\index{VBO@{VBO}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{VBO}{VBO}}
+{\footnotesize\ttfamily GLuint Textured\+\_\+\+Object\+::\+VBO = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_aa465480895675ee711b23375b2e60fe7}\label{class_textured___object_aa465480895675ee711b23375b2e60fe7} 
+\index{Textured\_Object@{Textured\_Object}!VBO\_Tex@{VBO\_Tex}}
+\index{VBO\_Tex@{VBO\_Tex}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{VBO\_Tex}{VBO\_Tex}}
+{\footnotesize\ttfamily GLuint Textured\+\_\+\+Object\+::\+VBO\+\_\+\+Tex = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7}\label{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7} 
+\index{Textured\_Object@{Textured\_Object}!vertexCount@{vertexCount}}
+\index{vertexCount@{vertexCount}!Textured\_Object@{Textured\_Object}}
+\doxysubsubsection{\texorpdfstring{vertexCount}{vertexCount}}
+{\footnotesize\ttfamily int Textured\+\_\+\+Object\+::vertex\+Count = 4\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+1/\+Legend\+Terrain/include/\mbox{\hyperlink{_textured___object_8h}{Textured\+\_\+\+Object.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+1/\+Legend\+Terrain/src/\mbox{\hyperlink{_textured___object_8cpp}{Textured\+\_\+\+Object.\+cpp}}\end{DoxyCompactItemize}

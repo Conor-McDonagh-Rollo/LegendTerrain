@@ -1,0 +1,68 @@
+\doxysection{Noise.\+h}
+\hypertarget{_noise_8h_source}{}\label{_noise_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Noise.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Noise.h}}
+\mbox{\hyperlink{_noise_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_fast_noise_lite_8h}{FastNoiseLite.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_noise}{Noise}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_fast_noise_lite}{FastNoiseLite}}\ \mbox{\hyperlink{class_noise_a0322a0a0c4196d990821f8fd298f4c6b}{noise}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_noise}{Noise}}*\ \mbox{\hyperlink{class_noise_a05e0da88d7244c67e1e851a12f3e928d}{instance}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_noise_a875a47574d1c86c793296b542e7de9f3}{Noise}}()\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_noise_a05e0da88d7244c67e1e851a12f3e928d}{instance}}\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_noise_a3a5a500031a2c839193b591737a42e2a}{Load}}()\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fast_noise_lite}{FastNoiseLite}}\ \_noise;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \_noise.\mbox{\hyperlink{class_fast_noise_lite_af345b52cbe9b499eb6a0c1d9b72a738f}{SetNoiseType}}(\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa48814718aab8aa15024a1a6fb6e99985}{FastNoiseLite::NoiseType\_Perlin}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \_noise.\mbox{\hyperlink{class_fast_noise_lite_a6e268d7e687b658f83dee38ea7dc1afc}{SetFrequency}}(0.2f);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ std::mt19937\ eng(rd());}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<>\ distr(0,\ std::numeric\_limits<int>::max());}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \_noise.\mbox{\hyperlink{class_fast_noise_lite_a4d2f591a9fb81fa37ec4ae45694ae90e}{SetSeed}}(distr(eng));}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_noise_a0322a0a0c4196d990821f8fd298f4c6b}{noise}}\ =\ \_noise;}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_noise_ab9c4541f1359f0e9d4a0bc0ae7e23f8b}{GetHeight}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{int}\ octaves\ =\ 12,\ \textcolor{keywordtype}{float}\ persistence\ =\ 0.5f,\ \textcolor{keywordtype}{float}\ lacunarity\ =\ 1.0f)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ amplitude\ =\ 2.0f;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ frequency\ =\ 1.0f;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ noiseHeight\ =\ 0.0f;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ octaves;\ i++)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sampleX\ =\ x\ *\ frequency;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sampleY\ =\ y\ *\ frequency;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ singleOctaveNoise\ =\ \mbox{\hyperlink{class_noise_a0322a0a0c4196d990821f8fd298f4c6b}{noise}}.\mbox{\hyperlink{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}{GetNoise}}(sampleX,\ sampleY);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ noiseHeight\ +=\ singleOctaveNoise\ *\ amplitude;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ amplitude\ *=\ persistence;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ frequency\ *=\ lacunarity;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ noiseHeight;}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_noise_ae742865cfcb4953d8da145748b471a83}{GetMaskedHeight}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{int}\ octaves\ =\ 12,\ \textcolor{keywordtype}{float}\ persistence\ =\ 0.5f,\ \textcolor{keywordtype}{float}\ lacunarity\ =\ 1.0f)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ baseHeight\ =\ \mbox{\hyperlink{class_noise_ab9c4541f1359f0e9d4a0bc0ae7e23f8b}{GetHeight}}(x,\ y,\ octaves,\ persistence,\ lacunarity);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ mask\ =\ \mbox{\hyperlink{class_noise_a0322a0a0c4196d990821f8fd298f4c6b}{noise}}.\mbox{\hyperlink{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}{GetNoise}}(x\ *\ 1.5,\ y\ *\ 1.5);\ \textcolor{comment}{//\ frequency\ for\ large\ features}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mask\ >\ 0.2)\ \{\ \ \textcolor{comment}{//\ rarity}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ featureHeight\ =\ \mbox{\hyperlink{class_noise_ab9c4541f1359f0e9d4a0bc0ae7e23f8b}{GetHeight}}(x,\ y,\ 3,\ 0.8f,\ 1.5f);\ \textcolor{comment}{//\ settings\ for\ pronounced\ features}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ baseHeight\ +=\ featureHeight\ *\ (mask\ -\/\ 0.5)\ *\ 4;\ \textcolor{comment}{//\ scale\ \string^\string^\string^}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (baseHeight\ <\ 0.f)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ baseHeight\ *=\ 0.1f;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ baseHeight;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \};}
+
+\end{DoxyCode}

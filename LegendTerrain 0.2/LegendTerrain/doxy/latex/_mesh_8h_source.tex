@@ -1,0 +1,53 @@
+\doxysection{Mesh.\+h}
+\hypertarget{_mesh_8h_source}{}\label{_mesh_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Mesh.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_shader_8h}{Shader.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_types_8h}{Types.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh}{Mesh}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_mesh_a1bfd1eb4e2530fe0fe46bf798a8b7ecd}{Mesh}}(\textcolor{keyword}{const}\ std::vector<Vertex>\&\ vertices,\ \textcolor{keyword}{const}\ std::vector<unsigned\ int>\&\ indices);}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}{\string~Mesh}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_aa7eb887987a659a53726643ac126b9fc}{SetPosition}}(\textcolor{keyword}{const}\ glm::vec3\&\ \_position);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a3d4da78b9249055945f832649cf1c2f4}{SetRotation}}(\textcolor{keyword}{const}\ glm::vec3\&\ \_rotation);\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a003982cd424ce6089b8aea928a277048}{SetScale}}(\textcolor{keyword}{const}\ glm::vec3\&\ \_scale);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a93e4644c1f8f23c2ff7f49eb62dde94b}{SetTexture}}(std::shared\_ptr<Texture>\ \mbox{\hyperlink{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e}{texture}});}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a08f3eb0098d659544b6ea2572ed91731}{SetShader}}(std::shared\_ptr<Shader>\ \mbox{\hyperlink{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae}{shader}});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_afdd95c079fd0442afef8a6c421c8bfc9}{Draw}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_af3c130a7e2a9d259b3bb1e258c08f90e}{position}};}
+\DoxyCodeLine{00027\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_a73a92a342c5fc081422d12e26ebcda85}{rotation}};}
+\DoxyCodeLine{00028\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_aea97af1884bc8be8a4b14922317dafce}{scale}};}
+\DoxyCodeLine{00029\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{class_mesh_a0857e43c186991528edc8a98b7ad5a8e}{transformationMatrix}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ GLuint\ \mbox{\hyperlink{class_mesh_a09b989b9d4df8ae595d7e80e091a4a5b}{VAO}}\ =\ 0,\ \mbox{\hyperlink{class_mesh_a0d28b2c6fee628a13f43cae3f858569b}{VBO}}\ =\ 0,\ \mbox{\hyperlink{class_mesh_a894c6723c0172f4e38b2509582abfa6c}{EBO}}\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ std::shared\_ptr<Texture>\ \mbox{\hyperlink{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e}{texture}};}
+\DoxyCodeLine{00033\ \ \ \ \ std::shared\_ptr<Shader>\ \mbox{\hyperlink{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae}{shader}};}
+\DoxyCodeLine{00034\ \ \ \ \ GLsizei\ \mbox{\hyperlink{class_mesh_a33f96cf1a8f76ca877079ebd9423d072}{vertexCount}},\ \mbox{\hyperlink{class_mesh_ae89f95e85ae7fa157545324aa5f5db7d}{indexCount}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_a39267676a714ec95328e916f0bc397ef}{UpdateTransformationMatrix}}()\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ glm::mat4\ trans\ =\ glm::translate(glm::mat4(1.0f),\ \mbox{\hyperlink{class_mesh_af3c130a7e2a9d259b3bb1e258c08f90e}{position}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ glm::mat4\ rotX\ =\ glm::rotate(glm::mat4(1.0f),\ \mbox{\hyperlink{class_mesh_a73a92a342c5fc081422d12e26ebcda85}{rotation}}.x,\ glm::vec3(1,\ 0,\ 0));}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ glm::mat4\ rotY\ =\ glm::rotate(glm::mat4(1.0f),\ \mbox{\hyperlink{class_mesh_a73a92a342c5fc081422d12e26ebcda85}{rotation}}.y,\ glm::vec3(0,\ 1,\ 0));}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ glm::mat4\ rotZ\ =\ glm::rotate(glm::mat4(1.0f),\ \mbox{\hyperlink{class_mesh_a73a92a342c5fc081422d12e26ebcda85}{rotation}}.z,\ glm::vec3(0,\ 0,\ 1));}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ glm::mat4\ rot\ =\ rotX\ *\ rotY\ *\ rotZ;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ glm::mat4\ scl\ =\ glm::scale(glm::mat4(1.0f),\ \mbox{\hyperlink{class_mesh_aea97af1884bc8be8a4b14922317dafce}{scale}});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_a0857e43c186991528edc8a98b7ad5a8e}{transformationMatrix}}\ =\ trans\ *\ rot\ *\ scl;}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+
+\end{DoxyCode}

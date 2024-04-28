@@ -1,0 +1,9 @@
+<map id="Generator" name="Generator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="133,188,211,215"/>
+<area shape="rect" id="Node000002" href="$class_game_object.html" title=" " alt="" coords="47,97,142,124"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,134,163,186,159,189,113,137"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,184,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="97,64,97,97,92,97,92,64"/>
+<area shape="rect" id="Node000004" href="$class_camera.html" title=" " alt="" coords="165,97,232,124"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="193,140,178,188,173,187,188,138"/>
+</map>

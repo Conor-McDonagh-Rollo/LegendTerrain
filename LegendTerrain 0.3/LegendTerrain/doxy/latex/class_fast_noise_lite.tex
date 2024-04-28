@@ -1,0 +1,1249 @@
+\doxysection{Fast\+Noise\+Lite Class Reference}
+\hypertarget{class_fast_noise_lite}{}\label{class_fast_noise_lite}\index{FastNoiseLite@{FastNoiseLite}}
+
+
+{\ttfamily \#include $<$Fast\+Noise\+Lite.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fast_noise_lite_1_1_arguments__must__be__floating__point__values}{Arguments\+\_\+must\+\_\+be\+\_\+floating\+\_\+point\+\_\+values}}
+\item 
+struct \mbox{\hyperlink{struct_fast_noise_lite_1_1_arguments__must__be__floating__point__values_3_01double_01_4}{Arguments\+\_\+must\+\_\+be\+\_\+floating\+\_\+point\+\_\+values$<$ double $>$}}
+\item 
+struct \mbox{\hyperlink{struct_fast_noise_lite_1_1_arguments__must__be__floating__point__values_3_01float_01_4}{Arguments\+\_\+must\+\_\+be\+\_\+floating\+\_\+point\+\_\+values$<$ float $>$}}
+\item 
+struct \mbox{\hyperlink{struct_fast_noise_lite_1_1_arguments__must__be__floating__point__values_3_01long_01double_01_4}{Arguments\+\_\+must\+\_\+be\+\_\+floating\+\_\+point\+\_\+values$<$ long double $>$}}
+\item 
+struct \mbox{\hyperlink{struct_fast_noise_lite_1_1_lookup}{Lookup}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Noise\+Type}} \{ \newline
+\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa273710125306b24a19ad729077a4ba2a}{Noise\+Type\+\_\+\+Open\+Simplex2}}
+, \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aaac17b4bccd3cfd15a497f62f35fdda02}{Noise\+Type\+\_\+\+Open\+Simplex2S}}
+, \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aae89ea8cb91c2af29779c72a9999b6a9d}{Noise\+Type\+\_\+\+Cellular}}
+, \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa48814718aab8aa15024a1a6fb6e99985}{Noise\+Type\+\_\+\+Perlin}}
+, \newline
+\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa2ffe2220039377d96e1d7e6db8a76430}{Noise\+Type\+\_\+\+Value\+Cubic}}
+, \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa238407d71dbf00170b5880527a0280c2}{Noise\+Type\+\_\+\+Value}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Rotation\+Type3D}} \{ \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa59e3957062903084ab9e13f20f950901}{Rotation\+Type3\+D\+\_\+\+None}}
+, \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa1384eec7a60ea401549d8864211e6ae5}{Rotation\+Type3\+D\+\_\+\+Improve\+XYPlanes}}
+, \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afaf17e35a3980db55d702ef5dc063e37af}{Rotation\+Type3\+D\+\_\+\+Improve\+XZPlanes}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fractal\+Type}} \{ \newline
+\mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7af093951a7dd378fa2c0358a732eefff1}{Fractal\+Type\+\_\+\+None}}
+, \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ad25298c913211cb4c258b501da081a06}{Fractal\+Type\+\_\+\+FBm}}
+, \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a7dbc5f9e9b13c0ba4fb87d4f21190ba6}{Fractal\+Type\+\_\+\+Ridged}}
+, \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a35dd313649e5bcc962d1ed7cd2914a15}{Fractal\+Type\+\_\+\+Ping\+Pong}}
+, \newline
+\mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ac78be47e9b220eded04e2fd7f7ca55dc}{Fractal\+Type\+\_\+\+Domain\+Warp\+Progressive}}
+, \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7afd67757d93f8577128436183cf006230}{Fractal\+Type\+\_\+\+Domain\+Warp\+Independent}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Cellular\+Distance\+Function}} \{ \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca9285bc2130d00d2074096a847fbca0c2}{Cellular\+Distance\+Function\+\_\+\+Euclidean}}
+, \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca7e133daab308b37cfe068c98a0a5362c}{Cellular\+Distance\+Function\+\_\+\+Euclidean\+Sq}}
+, \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca5a986a5dd48b19b1547ed540d1442e78}{Cellular\+Distance\+Function\+\_\+\+Manhattan}}
+, \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851caa502f996098a51acdcdd3d71fd85bcab}{Cellular\+Distance\+Function\+\_\+\+Hybrid}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Cellular\+Return\+Type}} \{ \newline
+\mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab6f3c5e70d0a19c23581d914b235d1cf}{Cellular\+Return\+Type\+\_\+\+Cell\+Value}}
+, \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82aeea7b6e06cddcd0ad1432c22b2b596fc}{Cellular\+Return\+Type\+\_\+\+Distance}}
+, \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ada079e0363c8545e563cfad68fc31bd7}{Cellular\+Return\+Type\+\_\+\+Distance2}}
+, \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a1db39e56518560f9fad68a3a763d82db}{Cellular\+Return\+Type\+\_\+\+Distance2\+Add}}
+, \newline
+\mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab043f7fed712006800514bec486ea042}{Cellular\+Return\+Type\+\_\+\+Distance2\+Sub}}
+, \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a37a5663892c08b24d23fcde85348887c}{Cellular\+Return\+Type\+\_\+\+Distance2\+Mul}}
+, \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a0374f893396dd1784c3aeadc018965b3}{Cellular\+Return\+Type\+\_\+\+Distance2\+Div}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Domain\+Warp\+Type}} \{ \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913ad2527f642f647ac188119f9332d12f32}{Domain\+Warp\+Type\+\_\+\+Open\+Simplex2}}
+, \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a887121d445b27c5b5b5acb240eb480d1}{Domain\+Warp\+Type\+\_\+\+Open\+Simplex2\+Reduced}}
+, \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a447821263f201badd6f3c275efa437d5}{Domain\+Warp\+Type\+\_\+\+Basic\+Grid}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_aac059288dbce5a0ddcdd54c82df9aaf9}{Fast\+Noise\+Lite}} (int seed=1337)
+\begin{DoxyCompactList}\small\item\em Create new Fast\+Noise object with optional seed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a4d2f591a9fb81fa37ec4ae45694ae90e}{Set\+Seed}} (int seed)
+\begin{DoxyCompactList}\small\item\em Sets seed used for all noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a6e268d7e687b658f83dee38ea7dc1afc}{Set\+Frequency}} (float frequency)
+\begin{DoxyCompactList}\small\item\em Sets frequency for all noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_af345b52cbe9b499eb6a0c1d9b72a738f}{Set\+Noise\+Type}} (\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Noise\+Type}} noise\+Type)
+\begin{DoxyCompactList}\small\item\em Sets noise algorithm used for Get\+Noise(...) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a704dfe555b6ee0456707bb31e0aa8c0c}{Set\+Rotation\+Type3D}} (\mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Rotation\+Type3D}} rotation\+Type3D)
+\begin{DoxyCompactList}\small\item\em Sets domain rotation type for 3D \doxylink{class_noise}{Noise} and 3D Domain\+Warp. Can aid in reducing directional artifacts when sampling a 2D plane in 3D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_aaaff254bccb75fe64d7eaa75fe3930d6}{Set\+Fractal\+Type}} (\mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fractal\+Type}} fractal\+Type)
+\begin{DoxyCompactList}\small\item\em Sets method for combining octaves in all fractal noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a220275b5be1d2137f0a2f232a07e0792}{Set\+Fractal\+Octaves}} (int octaves)
+\begin{DoxyCompactList}\small\item\em Sets octave count for all fractal noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a29f35540c2eba7aa4378a73481bce283}{Set\+Fractal\+Lacunarity}} (float lacunarity)
+\begin{DoxyCompactList}\small\item\em Sets octave lacunarity for all fractal noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_aa1b68b34d506dd498533d7849a41fa78}{Set\+Fractal\+Gain}} (float gain)
+\begin{DoxyCompactList}\small\item\em Sets octave gain for all fractal noise types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_aca5f269464ab16934796ded272a12ffc}{Set\+Fractal\+Weighted\+Strength}} (float weighted\+Strength)
+\begin{DoxyCompactList}\small\item\em Sets octave weighting for all none Domain\+Warp fratal types. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_ac09b58924278defc443addb34cf80f59}{Set\+Fractal\+Ping\+Pong\+Strength}} (float ping\+Pong\+Strength)
+\begin{DoxyCompactList}\small\item\em Sets strength of the fractal ping pong effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a3bf01ec5bf90b724d43dfffd77280a1a}{Set\+Cellular\+Distance\+Function}} (\mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Cellular\+Distance\+Function}} cellular\+Distance\+Function)
+\begin{DoxyCompactList}\small\item\em Sets distance function used in cellular noise calculations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a376f2fc231bbdc600fd70f423e84da8f}{Set\+Cellular\+Return\+Type}} (\mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Cellular\+Return\+Type}} cellular\+Return\+Type)
+\begin{DoxyCompactList}\small\item\em Sets return type from cellular noise calculations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_ae49c55743d5782ad3c752ccf2b08ef00}{Set\+Cellular\+Jitter}} (float cellular\+Jitter)
+\begin{DoxyCompactList}\small\item\em Sets the maximum distance a cellular point can move from it\textquotesingle{}s grid position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a22e449e628ce14581ca277cb8915f1ef}{Set\+Domain\+Warp\+Type}} (\mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Domain\+Warp\+Type}} domain\+Warp\+Type)
+\begin{DoxyCompactList}\small\item\em Sets the warp algorithm when using Domain\+Warp(...) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a5d5677498f978e13915b241901885cc9}{Set\+Domain\+Warp\+Amp}} (float domain\+Warp\+Amp)
+\begin{DoxyCompactList}\small\item\em Sets the maximum warp distance from original position when using Domain\+Warp(...) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}{Get\+Noise}} (FNfloat x, FNfloat y) const
+\begin{DoxyCompactList}\small\item\em 2D noise at given position using current settings \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_ab283c7ec7664484731c49f580a73d425}{Get\+Noise}} (FNfloat x, FNfloat y, FNfloat z) const
+\begin{DoxyCompactList}\small\item\em 3D noise at given position using current settings \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a779a61505f0ba2c3854c3b14e86baf08}{Domain\+Warp}} (FNfloat \&x, FNfloat \&y) const
+\begin{DoxyCompactList}\small\item\em 2D warps the input position using current domain warp settings \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a7e24432919ce9cf6930442f5bdeaeb15}{Domain\+Warp}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\begin{DoxyCompactList}\small\item\em 3D warps the input position using current domain warp settings \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Transform\+Type3D}} \{ \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a8303a2a0a66cef0de5d57496ec871a0e}{Transform\+Type3\+D\+\_\+\+None}}
+, \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a433ccf86ea32b420945f9f31fb30f25b}{Transform\+Type3\+D\+\_\+\+Improve\+XYPlanes}}
+, \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408abd8545bfda94ad820cb166610169e46a}{Transform\+Type3\+D\+\_\+\+Improve\+XZPlanes}}
+, \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a60cae00b2eb23c462429815a05b48db6}{Transform\+Type3\+D\+\_\+\+Default\+Open\+Simplex2}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a6d6d8c26846bc12dab68093605812539}{Calculate\+Fractal\+Bounding}} ()
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a05f3a612f2002d1f4e0d1ba2c1496e3c}{Grad\+Coord}} (int seed, int x\+Primed, int y\+Primed, float xd, float yd) const
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a0e55d87883ba381bda2c3d50f5e1854e}{Grad\+Coord}} (int seed, int x\+Primed, int y\+Primed, int z\+Primed, float xd, float yd, float zd) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a06cb84eaf0cf06b343b21214833e2f51}{Grad\+Coord\+Out}} (int seed, int x\+Primed, int y\+Primed, float \&xo, float \&yo) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a2fff0d975a3215c7c050a5585b8ef948}{Grad\+Coord\+Out}} (int seed, int x\+Primed, int y\+Primed, int z\+Primed, float \&xo, float \&yo, float \&zo) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_af332d959c4c9321d20cef03865c13143}{Grad\+Coord\+Dual}} (int seed, int x\+Primed, int y\+Primed, float xd, float yd, float \&xo, float \&yo) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_ab3f23392ddeb598845855c01ab6841e4}{Grad\+Coord\+Dual}} (int seed, int x\+Primed, int y\+Primed, int z\+Primed, float xd, float yd, float zd, float \&xo, float \&yo, float \&zo) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a2276203f1c7f2731c58e18443014d62b}{Gen\+Noise\+Single}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a1331a512b421c0e2a4c4de651707f964}{Gen\+Noise\+Single}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a652ec43182c49bc2de3f038515f524ef}{Transform\+Noise\+Coordinate}} (FNfloat \&x, FNfloat \&y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a9e0f9b623e15308d823523ded76d8e92}{Transform\+Noise\+Coordinate}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_a7f9ba36d0f14fc43fb9e52f1e14494fb}{Update\+Transform\+Type3D}} ()
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_aaeaa84a21bf84a57b7807255ce9cf464}{Transform\+Domain\+Warp\+Coordinate}} (FNfloat \&x, FNfloat \&y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_aa5cdaceb73e8273858144c3f27415c7d}{Transform\+Domain\+Warp\+Coordinate}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\item 
+void \mbox{\hyperlink{class_fast_noise_lite_aeebd1f42cf08230335b6c58cb725f6d0}{Update\+Warp\+Transform\+Type3D}} ()
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a8e9a610e4e9492455bf7b6f3ff66b7e8}{Gen\+Fractal\+FBm}} (FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a8b90f78ec6b63b108223b10cf833201d}{Gen\+Fractal\+FBm}} (FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a812f3e4575bbb18242dace552e387ce5}{Gen\+Fractal\+Ridged}} (FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a372d33f25e60bb84ed497f033cd44619}{Gen\+Fractal\+Ridged}} (FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_ada5e3bb41e53c4c84fc7160f6855a30b}{Gen\+Fractal\+Ping\+Pong}} (FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_afde2043342de00dea478fdb208ef70bc}{Gen\+Fractal\+Ping\+Pong}} (FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a1b82cd90da98cdd33d30b846c13343ae}{Single\+Simplex}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_ac71a3e77feaa14fc75ec81593483fc4c}{Single\+Open\+Simplex2}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_aaa9e3c5f7c3533215e97d5f22c9cd851}{Single\+Open\+Simplex2S}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_af9446d9f1c657957e689876898a5e117}{Single\+Open\+Simplex2S}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a143427440981833cf12e8fbeb8ec42b8}{Single\+Cellular}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a43f18d47106610ca4fae2667044bfc45}{Single\+Cellular}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a52effc9c45621e394a57d373b2c7ecc1}{Single\+Perlin}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a5752ba9c1e99b39f7eebfd4cf3da8e96}{Single\+Perlin}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_ad711912ac1d26f8c97362a9cc0a78978}{Single\+Value\+Cubic}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a7a92832aaa2806274738d84bab64d1c8}{Single\+Value\+Cubic}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a5b24f72e0eb588de17b37612253abf63}{Single\+Value}} (int seed, FNfloat x, FNfloat y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\float \mbox{\hyperlink{class_fast_noise_lite_a1ebb1aba2c7fa2000d06d33c77475429}{Single\+Value}} (int seed, FNfloat x, FNfloat y, FNfloat z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_aa6c6438f68f556177e64b59750d19c7c}{Do\+Single\+Domain\+Warp}} (int seed, float amp, float freq, FNfloat x, FNfloat y, FNfloat \&xr, FNfloat \&yr) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a65ea8382136ca7b4cde82eb7131da4f9}{Do\+Single\+Domain\+Warp}} (int seed, float amp, float freq, FNfloat x, FNfloat y, FNfloat z, FNfloat \&xr, FNfloat \&yr, FNfloat \&zr) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a0203bb85d55f3507cfde54c7955c1d92}{Domain\+Warp\+Single}} (FNfloat \&x, FNfloat \&y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a2a970d7497876b0d6755a23e776dc225}{Domain\+Warp\+Single}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a52d2af3ba683fd5cbbf276539965a433}{Domain\+Warp\+Fractal\+Progressive}} (FNfloat \&x, FNfloat \&y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a1602e743cbccaebd61de57823e358871}{Domain\+Warp\+Fractal\+Progressive}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a535eeb28d70929bccb1fca95cf73690c}{Domain\+Warp\+Fractal\+Independent}} (FNfloat \&x, FNfloat \&y) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a40b4f39cb426ab64bcd2b5b1848a83ee}{Domain\+Warp\+Fractal\+Independent}} (FNfloat \&x, FNfloat \&y, FNfloat \&z) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a4fe156e6bb6c906cdbfa5fbad8845d4a}{Single\+Domain\+Warp\+Basic\+Grid}} (int seed, float warp\+Amp, float frequency, FNfloat x, FNfloat y, FNfloat \&xr, FNfloat \&yr) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a949cbc10afdf8adb2660520bb8d0d6e3}{Single\+Domain\+Warp\+Basic\+Grid}} (int seed, float warp\+Amp, float frequency, FNfloat x, FNfloat y, FNfloat z, FNfloat \&xr, FNfloat \&yr, FNfloat \&zr) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a74f1a02069a62bcc5c62a13b60afcfa1}{Single\+Domain\+Warp\+Simplex\+Gradient}} (int seed, float warp\+Amp, float frequency, FNfloat x, FNfloat y, FNfloat \&xr, FNfloat \&yr, bool out\+Grad\+Only) const
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\void \mbox{\hyperlink{class_fast_noise_lite_a957720c93ecf450ee39d20141b22dfb6}{Single\+Domain\+Warp\+Open\+Simplex2\+Gradient}} (int seed, float warp\+Amp, float frequency, FNfloat x, FNfloat y, FNfloat z, FNfloat \&xr, FNfloat \&yr, FNfloat \&zr, bool out\+Grad\+Only) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_ade6b4177f6db7c52bf46c15f714eebfd}{Fast\+Min}} (float a, float b)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_acf1d95f04dbaa363154d1a798c7a14fa}{Fast\+Max}} (float a, float b)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_ad488fcd54c3c767007773fa6c868d8a4}{Fast\+Abs}} (float f)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_a50556149c7e3b6e660b67e73f1c11335}{Fast\+Sqrt}} (float f)
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\static int \mbox{\hyperlink{class_fast_noise_lite_a3eed07e8df82818cf2f9850ebcaa19f1}{Fast\+Floor}} (FNfloat f)
+\item 
+{\footnotesize template$<$typename FNfloat $>$ }\\static int \mbox{\hyperlink{class_fast_noise_lite_a4b805b337efd232dbd8d679e9622f750}{Fast\+Round}} (FNfloat f)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_a5bc190208ca84c806ce71a7961206f46}{Lerp}} (float a, float b, float t)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_a9d010e057f9d0174d2799eab30a030a2}{Interp\+Hermite}} (float t)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_a402dd514176be219f2d894ab1905307c}{Interp\+Quintic}} (float t)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_ad73e0d0258f4d5fbaf51e9eee76568a8}{Cubic\+Lerp}} (float a, float b, float c, float d, float t)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_a339c5b8d2e0f886099b0ea6a9cd78404}{Ping\+Pong}} (float t)
+\item 
+static int \mbox{\hyperlink{class_fast_noise_lite_a5d9e063c01cccb611027bcc85cb8a28d}{Hash}} (int seed, int x\+Primed, int y\+Primed)
+\item 
+static int \mbox{\hyperlink{class_fast_noise_lite_a863aa9a2d782f02e9d14f58da2a4b8c5}{Hash}} (int seed, int x\+Primed, int y\+Primed, int z\+Primed)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_ac787ef53ff06dfa096392ff74eea9596}{Val\+Coord}} (int seed, int x\+Primed, int y\+Primed)
+\item 
+static float \mbox{\hyperlink{class_fast_noise_lite_abe0152f0a6f0bdae3e5b7bd9e1eda0c9}{Val\+Coord}} (int seed, int x\+Primed, int y\+Primed, int z\+Primed)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fast_noise_lite_af71c4786508dc681eb9311e17cc5bf57}{m\+Seed}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a4bf74a82bf017d08b01654b597400d6d}{m\+Frequency}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Noise\+Type}} \mbox{\hyperlink{class_fast_noise_lite_ad6ca1c3cf47d8968a60270ee9097357a}{m\+Noise\+Type}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Rotation\+Type3D}} \mbox{\hyperlink{class_fast_noise_lite_a60b5836312ea4abec9054ca0ac1f0cab}{m\+Rotation\+Type3D}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Transform\+Type3D}} \mbox{\hyperlink{class_fast_noise_lite_ad27490f738720c25a7af6cbd61660926}{m\+Transform\+Type3D}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fractal\+Type}} \mbox{\hyperlink{class_fast_noise_lite_acee789a9d12be778becfb4f8402cb42a}{m\+Fractal\+Type}}
+\item 
+int \mbox{\hyperlink{class_fast_noise_lite_a95483e2a43133bcd9b18bd451f385e6c}{m\+Octaves}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a027a36c2a4d43086265e336b6eba913b}{m\+Lacunarity}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_adff27fcbd76388e9ce719e5199471b86}{m\+Gain}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_ae6d2d4bf368abc39361ac3b4f20ca119}{m\+Weighted\+Strength}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a5b93c33bf4a5c1646f237f1c86afd5e9}{m\+Ping\+Pong\+Strength}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a9449a5cebea9638ca8626cd5219bf7ba}{m\+Fractal\+Bounding}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Cellular\+Distance\+Function}} \mbox{\hyperlink{class_fast_noise_lite_a0abe941d5947124334543312551d1402}{m\+Cellular\+Distance\+Function}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Cellular\+Return\+Type}} \mbox{\hyperlink{class_fast_noise_lite_aeb6bbde987e153de6aca302460055285}{m\+Cellular\+Return\+Type}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a50dc93ba0a397c58d8c1e087735df4af}{m\+Cellular\+Jitter\+Modifier}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Domain\+Warp\+Type}} \mbox{\hyperlink{class_fast_noise_lite_a4e37b8d4d38b64e1de4f4497c8e0ff23}{m\+Domain\+Warp\+Type}}
+\item 
+\mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Transform\+Type3D}} \mbox{\hyperlink{class_fast_noise_lite_aa7b078a1bbef83bc82320aeaeb420000}{m\+Warp\+Transform\+Type3D}}
+\item 
+float \mbox{\hyperlink{class_fast_noise_lite_a444efe1dc074914f91d8549a409ebdde}{m\+Domain\+Warp\+Amp}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{class_fast_noise_lite_ad9f773b6c14bf912520629c7ba3e318e}{PrimeX}} = 501125321
+\item 
+static const int \mbox{\hyperlink{class_fast_noise_lite_ae61601e33e67631a0c8345b2eddbf539}{PrimeY}} = 1136930381
+\item 
+static const int \mbox{\hyperlink{class_fast_noise_lite_a702c2b7d315f389e0751bb33412c0c0b}{PrimeZ}} = 1720413743
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}\label{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c} 
+\index{FastNoiseLite@{FastNoiseLite}!CellularDistanceFunction@{CellularDistanceFunction}}
+\index{CellularDistanceFunction@{CellularDistanceFunction}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{CellularDistanceFunction}{CellularDistanceFunction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Fast\+Noise\+Lite\+::\+Cellular\+Distance\+Function}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularDistanceFunction\_Euclidean@{CellularDistanceFunction\_Euclidean}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularDistanceFunction\_Euclidean@{CellularDistanceFunction\_Euclidean}}}\Hypertarget{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca9285bc2130d00d2074096a847fbca0c2}\label{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca9285bc2130d00d2074096a847fbca0c2} 
+Cellular\+Distance\+Function\+\_\+\+Euclidean&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularDistanceFunction\_EuclideanSq@{CellularDistanceFunction\_EuclideanSq}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularDistanceFunction\_EuclideanSq@{CellularDistanceFunction\_EuclideanSq}}}\Hypertarget{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca7e133daab308b37cfe068c98a0a5362c}\label{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca7e133daab308b37cfe068c98a0a5362c} 
+Cellular\+Distance\+Function\+\_\+\+Euclidean\+Sq&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularDistanceFunction\_Manhattan@{CellularDistanceFunction\_Manhattan}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularDistanceFunction\_Manhattan@{CellularDistanceFunction\_Manhattan}}}\Hypertarget{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca5a986a5dd48b19b1547ed540d1442e78}\label{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851ca5a986a5dd48b19b1547ed540d1442e78} 
+Cellular\+Distance\+Function\+\_\+\+Manhattan&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularDistanceFunction\_Hybrid@{CellularDistanceFunction\_Hybrid}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularDistanceFunction\_Hybrid@{CellularDistanceFunction\_Hybrid}}}\Hypertarget{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851caa502f996098a51acdcdd3d71fd85bcab}\label{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851caa502f996098a51acdcdd3d71fd85bcab} 
+Cellular\+Distance\+Function\+\_\+\+Hybrid&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82} 
+\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType@{CellularReturnType}}
+\index{CellularReturnType@{CellularReturnType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{CellularReturnType}{CellularReturnType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Fast\+Noise\+Lite\+::\+Cellular\+Return\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_CellValue@{CellularReturnType\_CellValue}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_CellValue@{CellularReturnType\_CellValue}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab6f3c5e70d0a19c23581d914b235d1cf}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab6f3c5e70d0a19c23581d914b235d1cf} 
+Cellular\+Return\+Type\+\_\+\+Cell\+Value&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance@{CellularReturnType\_Distance}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance@{CellularReturnType\_Distance}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82aeea7b6e06cddcd0ad1432c22b2b596fc}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82aeea7b6e06cddcd0ad1432c22b2b596fc} 
+Cellular\+Return\+Type\+\_\+\+Distance&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance2@{CellularReturnType\_Distance2}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance2@{CellularReturnType\_Distance2}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ada079e0363c8545e563cfad68fc31bd7}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ada079e0363c8545e563cfad68fc31bd7} 
+Cellular\+Return\+Type\+\_\+\+Distance2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance2Add@{CellularReturnType\_Distance2Add}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance2Add@{CellularReturnType\_Distance2Add}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a1db39e56518560f9fad68a3a763d82db}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a1db39e56518560f9fad68a3a763d82db} 
+Cellular\+Return\+Type\+\_\+\+Distance2\+Add&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance2Sub@{CellularReturnType\_Distance2Sub}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance2Sub@{CellularReturnType\_Distance2Sub}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab043f7fed712006800514bec486ea042}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82ab043f7fed712006800514bec486ea042} 
+Cellular\+Return\+Type\+\_\+\+Distance2\+Sub&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance2Mul@{CellularReturnType\_Distance2Mul}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance2Mul@{CellularReturnType\_Distance2Mul}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a37a5663892c08b24d23fcde85348887c}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a37a5663892c08b24d23fcde85348887c} 
+Cellular\+Return\+Type\+\_\+\+Distance2\+Mul&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CellularReturnType\_Distance2Div@{CellularReturnType\_Distance2Div}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!CellularReturnType\_Distance2Div@{CellularReturnType\_Distance2Div}}}\Hypertarget{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a0374f893396dd1784c3aeadc018965b3}\label{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82a0374f893396dd1784c3aeadc018965b3} 
+Cellular\+Return\+Type\+\_\+\+Distance2\+Div&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}\label{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpType@{DomainWarpType}}
+\index{DomainWarpType@{DomainWarpType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpType}{DomainWarpType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Fast\+Noise\+Lite\+::\+Domain\+Warp\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DomainWarpType\_OpenSimplex2@{DomainWarpType\_OpenSimplex2}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!DomainWarpType\_OpenSimplex2@{DomainWarpType\_OpenSimplex2}}}\Hypertarget{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913ad2527f642f647ac188119f9332d12f32}\label{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913ad2527f642f647ac188119f9332d12f32} 
+Domain\+Warp\+Type\+\_\+\+Open\+Simplex2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DomainWarpType\_OpenSimplex2Reduced@{DomainWarpType\_OpenSimplex2Reduced}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!DomainWarpType\_OpenSimplex2Reduced@{DomainWarpType\_OpenSimplex2Reduced}}}\Hypertarget{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a887121d445b27c5b5b5acb240eb480d1}\label{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a887121d445b27c5b5b5acb240eb480d1} 
+Domain\+Warp\+Type\+\_\+\+Open\+Simplex2\+Reduced&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DomainWarpType\_BasicGrid@{DomainWarpType\_BasicGrid}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!DomainWarpType\_BasicGrid@{DomainWarpType\_BasicGrid}}}\Hypertarget{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a447821263f201badd6f3c275efa437d5}\label{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913a447821263f201badd6f3c275efa437d5} 
+Domain\+Warp\+Type\+\_\+\+Basic\+Grid&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7} 
+\index{FastNoiseLite@{FastNoiseLite}!FractalType@{FractalType}}
+\index{FractalType@{FractalType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FractalType}{FractalType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fast\+Noise\+Lite\+::\+Fractal\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_None@{FractalType\_None}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_None@{FractalType\_None}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7af093951a7dd378fa2c0358a732eefff1}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7af093951a7dd378fa2c0358a732eefff1} 
+Fractal\+Type\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_FBm@{FractalType\_FBm}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_FBm@{FractalType\_FBm}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ad25298c913211cb4c258b501da081a06}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ad25298c913211cb4c258b501da081a06} 
+Fractal\+Type\+\_\+\+FBm&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_Ridged@{FractalType\_Ridged}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_Ridged@{FractalType\_Ridged}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a7dbc5f9e9b13c0ba4fb87d4f21190ba6}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a7dbc5f9e9b13c0ba4fb87d4f21190ba6} 
+Fractal\+Type\+\_\+\+Ridged&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_PingPong@{FractalType\_PingPong}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_PingPong@{FractalType\_PingPong}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a35dd313649e5bcc962d1ed7cd2914a15}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7a35dd313649e5bcc962d1ed7cd2914a15} 
+Fractal\+Type\+\_\+\+Ping\+Pong&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_DomainWarpProgressive@{FractalType\_DomainWarpProgressive}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_DomainWarpProgressive@{FractalType\_DomainWarpProgressive}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ac78be47e9b220eded04e2fd7f7ca55dc}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7ac78be47e9b220eded04e2fd7f7ca55dc} 
+Fractal\+Type\+\_\+\+Domain\+Warp\+Progressive&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FractalType\_DomainWarpIndependent@{FractalType\_DomainWarpIndependent}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!FractalType\_DomainWarpIndependent@{FractalType\_DomainWarpIndependent}}}\Hypertarget{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7afd67757d93f8577128436183cf006230}\label{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7afd67757d93f8577128436183cf006230} 
+Fractal\+Type\+\_\+\+Domain\+Warp\+Independent&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a} 
+\index{FastNoiseLite@{FastNoiseLite}!NoiseType@{NoiseType}}
+\index{NoiseType@{NoiseType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{NoiseType}{NoiseType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Fast\+Noise\+Lite\+::\+Noise\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_OpenSimplex2@{NoiseType\_OpenSimplex2}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_OpenSimplex2@{NoiseType\_OpenSimplex2}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa273710125306b24a19ad729077a4ba2a}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa273710125306b24a19ad729077a4ba2a} 
+Noise\+Type\+\_\+\+Open\+Simplex2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_OpenSimplex2S@{NoiseType\_OpenSimplex2S}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_OpenSimplex2S@{NoiseType\_OpenSimplex2S}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aaac17b4bccd3cfd15a497f62f35fdda02}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aaac17b4bccd3cfd15a497f62f35fdda02} 
+Noise\+Type\+\_\+\+Open\+Simplex2S&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_Cellular@{NoiseType\_Cellular}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_Cellular@{NoiseType\_Cellular}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aae89ea8cb91c2af29779c72a9999b6a9d}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aae89ea8cb91c2af29779c72a9999b6a9d} 
+Noise\+Type\+\_\+\+Cellular&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_Perlin@{NoiseType\_Perlin}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_Perlin@{NoiseType\_Perlin}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa48814718aab8aa15024a1a6fb6e99985}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa48814718aab8aa15024a1a6fb6e99985} 
+Noise\+Type\+\_\+\+Perlin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_ValueCubic@{NoiseType\_ValueCubic}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_ValueCubic@{NoiseType\_ValueCubic}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa2ffe2220039377d96e1d7e6db8a76430}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa2ffe2220039377d96e1d7e6db8a76430} 
+Noise\+Type\+\_\+\+Value\+Cubic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoiseType\_Value@{NoiseType\_Value}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!NoiseType\_Value@{NoiseType\_Value}}}\Hypertarget{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa238407d71dbf00170b5880527a0280c2}\label{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0aa238407d71dbf00170b5880527a0280c2} 
+Noise\+Type\+\_\+\+Value&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}\label{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af} 
+\index{FastNoiseLite@{FastNoiseLite}!RotationType3D@{RotationType3D}}
+\index{RotationType3D@{RotationType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{RotationType3D}{RotationType3D}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Fast\+Noise\+Lite\+::\+Rotation\+Type3D}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RotationType3D\_None@{RotationType3D\_None}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!RotationType3D\_None@{RotationType3D\_None}}}\Hypertarget{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa59e3957062903084ab9e13f20f950901}\label{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa59e3957062903084ab9e13f20f950901} 
+Rotation\+Type3\+D\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RotationType3D\_ImproveXYPlanes@{RotationType3D\_ImproveXYPlanes}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!RotationType3D\_ImproveXYPlanes@{RotationType3D\_ImproveXYPlanes}}}\Hypertarget{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa1384eec7a60ea401549d8864211e6ae5}\label{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afa1384eec7a60ea401549d8864211e6ae5} 
+Rotation\+Type3\+D\+\_\+\+Improve\+XYPlanes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RotationType3D\_ImproveXZPlanes@{RotationType3D\_ImproveXZPlanes}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!RotationType3D\_ImproveXZPlanes@{RotationType3D\_ImproveXZPlanes}}}\Hypertarget{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afaf17e35a3980db55d702ef5dc063e37af}\label{class_fast_noise_lite_adc4818a7309d29312a3732261beea8afaf17e35a3980db55d702ef5dc063e37af} 
+Rotation\+Type3\+D\+\_\+\+Improve\+XZPlanes&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}\label{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408} 
+\index{FastNoiseLite@{FastNoiseLite}!TransformType3D@{TransformType3D}}
+\index{TransformType3D@{TransformType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{TransformType3D}{TransformType3D}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Fast\+Noise\+Lite\+::\+Transform\+Type3D}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TransformType3D\_None@{TransformType3D\_None}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!TransformType3D\_None@{TransformType3D\_None}}}\Hypertarget{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a8303a2a0a66cef0de5d57496ec871a0e}\label{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a8303a2a0a66cef0de5d57496ec871a0e} 
+Transform\+Type3\+D\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TransformType3D\_ImproveXYPlanes@{TransformType3D\_ImproveXYPlanes}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!TransformType3D\_ImproveXYPlanes@{TransformType3D\_ImproveXYPlanes}}}\Hypertarget{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a433ccf86ea32b420945f9f31fb30f25b}\label{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a433ccf86ea32b420945f9f31fb30f25b} 
+Transform\+Type3\+D\+\_\+\+Improve\+XYPlanes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TransformType3D\_ImproveXZPlanes@{TransformType3D\_ImproveXZPlanes}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!TransformType3D\_ImproveXZPlanes@{TransformType3D\_ImproveXZPlanes}}}\Hypertarget{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408abd8545bfda94ad820cb166610169e46a}\label{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408abd8545bfda94ad820cb166610169e46a} 
+Transform\+Type3\+D\+\_\+\+Improve\+XZPlanes&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TransformType3D\_DefaultOpenSimplex2@{TransformType3D\_DefaultOpenSimplex2}!FastNoiseLite@{FastNoiseLite}}\index{FastNoiseLite@{FastNoiseLite}!TransformType3D\_DefaultOpenSimplex2@{TransformType3D\_DefaultOpenSimplex2}}}\Hypertarget{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a60cae00b2eb23c462429815a05b48db6}\label{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408a60cae00b2eb23c462429815a05b48db6} 
+Transform\+Type3\+D\+\_\+\+Default\+Open\+Simplex2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fast_noise_lite_aac059288dbce5a0ddcdd54c82df9aaf9}\label{class_fast_noise_lite_aac059288dbce5a0ddcdd54c82df9aaf9} 
+\index{FastNoiseLite@{FastNoiseLite}!FastNoiseLite@{FastNoiseLite}}
+\index{FastNoiseLite@{FastNoiseLite}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastNoiseLite()}{FastNoiseLite()}}
+{\footnotesize\ttfamily Fast\+Noise\+Lite\+::\+Fast\+Noise\+Lite (\begin{DoxyParamCaption}\item[{int}]{seed = {\ttfamily 1337} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create new Fast\+Noise object with optional seed. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fast_noise_lite_a6d6d8c26846bc12dab68093605812539}\label{class_fast_noise_lite_a6d6d8c26846bc12dab68093605812539} 
+\index{FastNoiseLite@{FastNoiseLite}!CalculateFractalBounding@{CalculateFractalBounding}}
+\index{CalculateFractalBounding@{CalculateFractalBounding}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{CalculateFractalBounding()}{CalculateFractalBounding()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Calculate\+Fractal\+Bounding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad73e0d0258f4d5fbaf51e9eee76568a8}\label{class_fast_noise_lite_ad73e0d0258f4d5fbaf51e9eee76568a8} 
+\index{FastNoiseLite@{FastNoiseLite}!CubicLerp@{CubicLerp}}
+\index{CubicLerp@{CubicLerp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{CubicLerp()}{CubicLerp()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Cubic\+Lerp (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{c,  }\item[{float}]{d,  }\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a779a61505f0ba2c3854c3b14e86baf08}\label{class_fast_noise_lite_a779a61505f0ba2c3854c3b14e86baf08} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarp@{DomainWarp}}
+\index{DomainWarp@{DomainWarp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarp()}{DomainWarp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+2D warps the input position using current domain warp settings 
+
+Example usage with Get\+Noise 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_fast_noise_lite_a779a61505f0ba2c3854c3b14e86baf08}{DomainWarp}}(x,\ y)}
+\DoxyCodeLine{noise\ =\ \mbox{\hyperlink{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}{GetNoise}}(x,\ y)}
+
+\end{DoxyCode}
+ \Hypertarget{class_fast_noise_lite_a7e24432919ce9cf6930442f5bdeaeb15}\label{class_fast_noise_lite_a7e24432919ce9cf6930442f5bdeaeb15} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarp@{DomainWarp}}
+\index{DomainWarp@{DomainWarp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarp()}{DomainWarp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+3D warps the input position using current domain warp settings 
+
+Example usage with Get\+Noise 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_fast_noise_lite_a779a61505f0ba2c3854c3b14e86baf08}{DomainWarp}}(x,\ y,\ z)}
+\DoxyCodeLine{noise\ =\ \mbox{\hyperlink{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}{GetNoise}}(x,\ y,\ z)}
+
+\end{DoxyCode}
+ \Hypertarget{class_fast_noise_lite_a535eeb28d70929bccb1fca95cf73690c}\label{class_fast_noise_lite_a535eeb28d70929bccb1fca95cf73690c} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpFractalIndependent@{DomainWarpFractalIndependent}}
+\index{DomainWarpFractalIndependent@{DomainWarpFractalIndependent}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpFractalIndependent()}{DomainWarpFractalIndependent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Fractal\+Independent (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a40b4f39cb426ab64bcd2b5b1848a83ee}\label{class_fast_noise_lite_a40b4f39cb426ab64bcd2b5b1848a83ee} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpFractalIndependent@{DomainWarpFractalIndependent}}
+\index{DomainWarpFractalIndependent@{DomainWarpFractalIndependent}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpFractalIndependent()}{DomainWarpFractalIndependent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Fractal\+Independent (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a52d2af3ba683fd5cbbf276539965a433}\label{class_fast_noise_lite_a52d2af3ba683fd5cbbf276539965a433} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpFractalProgressive@{DomainWarpFractalProgressive}}
+\index{DomainWarpFractalProgressive@{DomainWarpFractalProgressive}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpFractalProgressive()}{DomainWarpFractalProgressive()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Fractal\+Progressive (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a1602e743cbccaebd61de57823e358871}\label{class_fast_noise_lite_a1602e743cbccaebd61de57823e358871} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpFractalProgressive@{DomainWarpFractalProgressive}}
+\index{DomainWarpFractalProgressive@{DomainWarpFractalProgressive}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpFractalProgressive()}{DomainWarpFractalProgressive()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Fractal\+Progressive (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a0203bb85d55f3507cfde54c7955c1d92}\label{class_fast_noise_lite_a0203bb85d55f3507cfde54c7955c1d92} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpSingle@{DomainWarpSingle}}
+\index{DomainWarpSingle@{DomainWarpSingle}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpSingle()}{DomainWarpSingle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Single (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a2a970d7497876b0d6755a23e776dc225}\label{class_fast_noise_lite_a2a970d7497876b0d6755a23e776dc225} 
+\index{FastNoiseLite@{FastNoiseLite}!DomainWarpSingle@{DomainWarpSingle}}
+\index{DomainWarpSingle@{DomainWarpSingle}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DomainWarpSingle()}{DomainWarpSingle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Domain\+Warp\+Single (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aa6c6438f68f556177e64b59750d19c7c}\label{class_fast_noise_lite_aa6c6438f68f556177e64b59750d19c7c} 
+\index{FastNoiseLite@{FastNoiseLite}!DoSingleDomainWarp@{DoSingleDomainWarp}}
+\index{DoSingleDomainWarp@{DoSingleDomainWarp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DoSingleDomainWarp()}{DoSingleDomainWarp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Do\+Single\+Domain\+Warp (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{amp,  }\item[{float}]{freq,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a65ea8382136ca7b4cde82eb7131da4f9}\label{class_fast_noise_lite_a65ea8382136ca7b4cde82eb7131da4f9} 
+\index{FastNoiseLite@{FastNoiseLite}!DoSingleDomainWarp@{DoSingleDomainWarp}}
+\index{DoSingleDomainWarp@{DoSingleDomainWarp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{DoSingleDomainWarp()}{DoSingleDomainWarp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Do\+Single\+Domain\+Warp (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{amp,  }\item[{float}]{freq,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr,  }\item[{FNfloat \&}]{zr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad488fcd54c3c767007773fa6c868d8a4}\label{class_fast_noise_lite_ad488fcd54c3c767007773fa6c868d8a4} 
+\index{FastNoiseLite@{FastNoiseLite}!FastAbs@{FastAbs}}
+\index{FastAbs@{FastAbs}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastAbs()}{FastAbs()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Fast\+Abs (\begin{DoxyParamCaption}\item[{float}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a3eed07e8df82818cf2f9850ebcaa19f1}\label{class_fast_noise_lite_a3eed07e8df82818cf2f9850ebcaa19f1} 
+\index{FastNoiseLite@{FastNoiseLite}!FastFloor@{FastFloor}}
+\index{FastFloor@{FastFloor}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastFloor()}{FastFloor()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+static int Fast\+Noise\+Lite\+::\+Fast\+Floor (\begin{DoxyParamCaption}\item[{FNfloat}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_acf1d95f04dbaa363154d1a798c7a14fa}\label{class_fast_noise_lite_acf1d95f04dbaa363154d1a798c7a14fa} 
+\index{FastNoiseLite@{FastNoiseLite}!FastMax@{FastMax}}
+\index{FastMax@{FastMax}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastMax()}{FastMax()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Fast\+Max (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ade6b4177f6db7c52bf46c15f714eebfd}\label{class_fast_noise_lite_ade6b4177f6db7c52bf46c15f714eebfd} 
+\index{FastNoiseLite@{FastNoiseLite}!FastMin@{FastMin}}
+\index{FastMin@{FastMin}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastMin()}{FastMin()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Fast\+Min (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a4b805b337efd232dbd8d679e9622f750}\label{class_fast_noise_lite_a4b805b337efd232dbd8d679e9622f750} 
+\index{FastNoiseLite@{FastNoiseLite}!FastRound@{FastRound}}
+\index{FastRound@{FastRound}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastRound()}{FastRound()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+static int Fast\+Noise\+Lite\+::\+Fast\+Round (\begin{DoxyParamCaption}\item[{FNfloat}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a50556149c7e3b6e660b67e73f1c11335}\label{class_fast_noise_lite_a50556149c7e3b6e660b67e73f1c11335} 
+\index{FastNoiseLite@{FastNoiseLite}!FastSqrt@{FastSqrt}}
+\index{FastSqrt@{FastSqrt}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{FastSqrt()}{FastSqrt()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Fast\+Sqrt (\begin{DoxyParamCaption}\item[{float}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a8e9a610e4e9492455bf7b6f3ff66b7e8}\label{class_fast_noise_lite_a8e9a610e4e9492455bf7b6f3ff66b7e8} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalFBm@{GenFractalFBm}}
+\index{GenFractalFBm@{GenFractalFBm}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalFBm()}{GenFractalFBm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+FBm (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a8b90f78ec6b63b108223b10cf833201d}\label{class_fast_noise_lite_a8b90f78ec6b63b108223b10cf833201d} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalFBm@{GenFractalFBm}}
+\index{GenFractalFBm@{GenFractalFBm}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalFBm()}{GenFractalFBm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+FBm (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ada5e3bb41e53c4c84fc7160f6855a30b}\label{class_fast_noise_lite_ada5e3bb41e53c4c84fc7160f6855a30b} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalPingPong@{GenFractalPingPong}}
+\index{GenFractalPingPong@{GenFractalPingPong}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalPingPong()}{GenFractalPingPong()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+Ping\+Pong (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_afde2043342de00dea478fdb208ef70bc}\label{class_fast_noise_lite_afde2043342de00dea478fdb208ef70bc} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalPingPong@{GenFractalPingPong}}
+\index{GenFractalPingPong@{GenFractalPingPong}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalPingPong()}{GenFractalPingPong()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+Ping\+Pong (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a812f3e4575bbb18242dace552e387ce5}\label{class_fast_noise_lite_a812f3e4575bbb18242dace552e387ce5} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalRidged@{GenFractalRidged}}
+\index{GenFractalRidged@{GenFractalRidged}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalRidged()}{GenFractalRidged()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+Ridged (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a372d33f25e60bb84ed497f033cd44619}\label{class_fast_noise_lite_a372d33f25e60bb84ed497f033cd44619} 
+\index{FastNoiseLite@{FastNoiseLite}!GenFractalRidged@{GenFractalRidged}}
+\index{GenFractalRidged@{GenFractalRidged}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenFractalRidged()}{GenFractalRidged()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Fractal\+Ridged (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a2276203f1c7f2731c58e18443014d62b}\label{class_fast_noise_lite_a2276203f1c7f2731c58e18443014d62b} 
+\index{FastNoiseLite@{FastNoiseLite}!GenNoiseSingle@{GenNoiseSingle}}
+\index{GenNoiseSingle@{GenNoiseSingle}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenNoiseSingle()}{GenNoiseSingle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Noise\+Single (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a1331a512b421c0e2a4c4de651707f964}\label{class_fast_noise_lite_a1331a512b421c0e2a4c4de651707f964} 
+\index{FastNoiseLite@{FastNoiseLite}!GenNoiseSingle@{GenNoiseSingle}}
+\index{GenNoiseSingle@{GenNoiseSingle}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GenNoiseSingle()}{GenNoiseSingle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Gen\+Noise\+Single (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c}\label{class_fast_noise_lite_ac5acf978145eba3730bb46033546c89c} 
+\index{FastNoiseLite@{FastNoiseLite}!GetNoise@{GetNoise}}
+\index{GetNoise@{GetNoise}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GetNoise()}{GetNoise()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Get\+Noise (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+2D noise at given position using current settings 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_noise}{Noise} output bounded between -\/1...1 
+\end{DoxyReturn}
+\Hypertarget{class_fast_noise_lite_ab283c7ec7664484731c49f580a73d425}\label{class_fast_noise_lite_ab283c7ec7664484731c49f580a73d425} 
+\index{FastNoiseLite@{FastNoiseLite}!GetNoise@{GetNoise}}
+\index{GetNoise@{GetNoise}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GetNoise()}{GetNoise()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Get\+Noise (\begin{DoxyParamCaption}\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+3D noise at given position using current settings 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_noise}{Noise} output bounded between -\/1...1 
+\end{DoxyReturn}
+\Hypertarget{class_fast_noise_lite_a05f3a612f2002d1f4e0d1ba2c1496e3c}\label{class_fast_noise_lite_a05f3a612f2002d1f4e0d1ba2c1496e3c} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoord@{GradCoord}}
+\index{GradCoord@{GradCoord}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoord()}{GradCoord()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::\+Grad\+Coord (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{float}]{xd,  }\item[{float}]{yd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a0e55d87883ba381bda2c3d50f5e1854e}\label{class_fast_noise_lite_a0e55d87883ba381bda2c3d50f5e1854e} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoord@{GradCoord}}
+\index{GradCoord@{GradCoord}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoord()}{GradCoord()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::\+Grad\+Coord (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{int}]{z\+Primed,  }\item[{float}]{xd,  }\item[{float}]{yd,  }\item[{float}]{zd }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_af332d959c4c9321d20cef03865c13143}\label{class_fast_noise_lite_af332d959c4c9321d20cef03865c13143} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoordDual@{GradCoordDual}}
+\index{GradCoordDual@{GradCoordDual}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoordDual()}{GradCoordDual()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Grad\+Coord\+Dual (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{float}]{xd,  }\item[{float}]{yd,  }\item[{float \&}]{xo,  }\item[{float \&}]{yo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ab3f23392ddeb598845855c01ab6841e4}\label{class_fast_noise_lite_ab3f23392ddeb598845855c01ab6841e4} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoordDual@{GradCoordDual}}
+\index{GradCoordDual@{GradCoordDual}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoordDual()}{GradCoordDual()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Grad\+Coord\+Dual (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{int}]{z\+Primed,  }\item[{float}]{xd,  }\item[{float}]{yd,  }\item[{float}]{zd,  }\item[{float \&}]{xo,  }\item[{float \&}]{yo,  }\item[{float \&}]{zo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a06cb84eaf0cf06b343b21214833e2f51}\label{class_fast_noise_lite_a06cb84eaf0cf06b343b21214833e2f51} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoordOut@{GradCoordOut}}
+\index{GradCoordOut@{GradCoordOut}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoordOut()}{GradCoordOut()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Grad\+Coord\+Out (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{float \&}]{xo,  }\item[{float \&}]{yo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a2fff0d975a3215c7c050a5585b8ef948}\label{class_fast_noise_lite_a2fff0d975a3215c7c050a5585b8ef948} 
+\index{FastNoiseLite@{FastNoiseLite}!GradCoordOut@{GradCoordOut}}
+\index{GradCoordOut@{GradCoordOut}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{GradCoordOut()}{GradCoordOut()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Grad\+Coord\+Out (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{int}]{z\+Primed,  }\item[{float \&}]{xo,  }\item[{float \&}]{yo,  }\item[{float \&}]{zo }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a5d9e063c01cccb611027bcc85cb8a28d}\label{class_fast_noise_lite_a5d9e063c01cccb611027bcc85cb8a28d} 
+\index{FastNoiseLite@{FastNoiseLite}!Hash@{Hash}}
+\index{Hash@{Hash}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{Hash()}{Hash()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static int Fast\+Noise\+Lite\+::\+Hash (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a863aa9a2d782f02e9d14f58da2a4b8c5}\label{class_fast_noise_lite_a863aa9a2d782f02e9d14f58da2a4b8c5} 
+\index{FastNoiseLite@{FastNoiseLite}!Hash@{Hash}}
+\index{Hash@{Hash}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{Hash()}{Hash()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static int Fast\+Noise\+Lite\+::\+Hash (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{int}]{z\+Primed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a9d010e057f9d0174d2799eab30a030a2}\label{class_fast_noise_lite_a9d010e057f9d0174d2799eab30a030a2} 
+\index{FastNoiseLite@{FastNoiseLite}!InterpHermite@{InterpHermite}}
+\index{InterpHermite@{InterpHermite}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{InterpHermite()}{InterpHermite()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Interp\+Hermite (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a402dd514176be219f2d894ab1905307c}\label{class_fast_noise_lite_a402dd514176be219f2d894ab1905307c} 
+\index{FastNoiseLite@{FastNoiseLite}!InterpQuintic@{InterpQuintic}}
+\index{InterpQuintic@{InterpQuintic}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{InterpQuintic()}{InterpQuintic()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Interp\+Quintic (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a5bc190208ca84c806ce71a7961206f46}\label{class_fast_noise_lite_a5bc190208ca84c806ce71a7961206f46} 
+\index{FastNoiseLite@{FastNoiseLite}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Lerp (\begin{DoxyParamCaption}\item[{float}]{a,  }\item[{float}]{b,  }\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a339c5b8d2e0f886099b0ea6a9cd78404}\label{class_fast_noise_lite_a339c5b8d2e0f886099b0ea6a9cd78404} 
+\index{FastNoiseLite@{FastNoiseLite}!PingPong@{PingPong}}
+\index{PingPong@{PingPong}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{PingPong()}{PingPong()}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Ping\+Pong (\begin{DoxyParamCaption}\item[{float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a3bf01ec5bf90b724d43dfffd77280a1a}\label{class_fast_noise_lite_a3bf01ec5bf90b724d43dfffd77280a1a} 
+\index{FastNoiseLite@{FastNoiseLite}!SetCellularDistanceFunction@{SetCellularDistanceFunction}}
+\index{SetCellularDistanceFunction@{SetCellularDistanceFunction}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetCellularDistanceFunction()}{SetCellularDistanceFunction()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Cellular\+Distance\+Function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Cellular\+Distance\+Function}}}]{cellular\+Distance\+Function }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets distance function used in cellular noise calculations. 
+
+Default\+: Distance \Hypertarget{class_fast_noise_lite_ae49c55743d5782ad3c752ccf2b08ef00}\label{class_fast_noise_lite_ae49c55743d5782ad3c752ccf2b08ef00} 
+\index{FastNoiseLite@{FastNoiseLite}!SetCellularJitter@{SetCellularJitter}}
+\index{SetCellularJitter@{SetCellularJitter}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetCellularJitter()}{SetCellularJitter()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Cellular\+Jitter (\begin{DoxyParamCaption}\item[{float}]{cellular\+Jitter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum distance a cellular point can move from it\textquotesingle{}s grid position. 
+
+Default\+: 1.\+0 Note\+: Setting this higher than 1 will cause artifacts 
+
+~\newline
+ \Hypertarget{class_fast_noise_lite_a376f2fc231bbdc600fd70f423e84da8f}\label{class_fast_noise_lite_a376f2fc231bbdc600fd70f423e84da8f} 
+\index{FastNoiseLite@{FastNoiseLite}!SetCellularReturnType@{SetCellularReturnType}}
+\index{SetCellularReturnType@{SetCellularReturnType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetCellularReturnType()}{SetCellularReturnType()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Cellular\+Return\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Cellular\+Return\+Type}}}]{cellular\+Return\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets return type from cellular noise calculations. 
+
+Default\+: Euclidean\+Sq \Hypertarget{class_fast_noise_lite_a5d5677498f978e13915b241901885cc9}\label{class_fast_noise_lite_a5d5677498f978e13915b241901885cc9} 
+\index{FastNoiseLite@{FastNoiseLite}!SetDomainWarpAmp@{SetDomainWarpAmp}}
+\index{SetDomainWarpAmp@{SetDomainWarpAmp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetDomainWarpAmp()}{SetDomainWarpAmp()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Domain\+Warp\+Amp (\begin{DoxyParamCaption}\item[{float}]{domain\+Warp\+Amp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the maximum warp distance from original position when using Domain\+Warp(...) 
+
+Default\+: 1.\+0 \Hypertarget{class_fast_noise_lite_a22e449e628ce14581ca277cb8915f1ef}\label{class_fast_noise_lite_a22e449e628ce14581ca277cb8915f1ef} 
+\index{FastNoiseLite@{FastNoiseLite}!SetDomainWarpType@{SetDomainWarpType}}
+\index{SetDomainWarpType@{SetDomainWarpType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetDomainWarpType()}{SetDomainWarpType()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Domain\+Warp\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Domain\+Warp\+Type}}}]{domain\+Warp\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the warp algorithm when using Domain\+Warp(...) 
+
+Default\+: Open\+Simplex2 \Hypertarget{class_fast_noise_lite_aa1b68b34d506dd498533d7849a41fa78}\label{class_fast_noise_lite_aa1b68b34d506dd498533d7849a41fa78} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalGain@{SetFractalGain}}
+\index{SetFractalGain@{SetFractalGain}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalGain()}{SetFractalGain()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Gain (\begin{DoxyParamCaption}\item[{float}]{gain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets octave gain for all fractal noise types. 
+
+Default\+: 0.\+5 \Hypertarget{class_fast_noise_lite_a29f35540c2eba7aa4378a73481bce283}\label{class_fast_noise_lite_a29f35540c2eba7aa4378a73481bce283} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalLacunarity@{SetFractalLacunarity}}
+\index{SetFractalLacunarity@{SetFractalLacunarity}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalLacunarity()}{SetFractalLacunarity()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Lacunarity (\begin{DoxyParamCaption}\item[{float}]{lacunarity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets octave lacunarity for all fractal noise types. 
+
+Default\+: 2.\+0 \Hypertarget{class_fast_noise_lite_a220275b5be1d2137f0a2f232a07e0792}\label{class_fast_noise_lite_a220275b5be1d2137f0a2f232a07e0792} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalOctaves@{SetFractalOctaves}}
+\index{SetFractalOctaves@{SetFractalOctaves}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalOctaves()}{SetFractalOctaves()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Octaves (\begin{DoxyParamCaption}\item[{int}]{octaves }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets octave count for all fractal noise types. 
+
+Default\+: 3 \Hypertarget{class_fast_noise_lite_ac09b58924278defc443addb34cf80f59}\label{class_fast_noise_lite_ac09b58924278defc443addb34cf80f59} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalPingPongStrength@{SetFractalPingPongStrength}}
+\index{SetFractalPingPongStrength@{SetFractalPingPongStrength}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalPingPongStrength()}{SetFractalPingPongStrength()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Ping\+Pong\+Strength (\begin{DoxyParamCaption}\item[{float}]{ping\+Pong\+Strength }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets strength of the fractal ping pong effect. 
+
+Default\+: 2.\+0 \Hypertarget{class_fast_noise_lite_aaaff254bccb75fe64d7eaa75fe3930d6}\label{class_fast_noise_lite_aaaff254bccb75fe64d7eaa75fe3930d6} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalType@{SetFractalType}}
+\index{SetFractalType@{SetFractalType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalType()}{SetFractalType()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fractal\+Type}}}]{fractal\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets method for combining octaves in all fractal noise types. 
+
+Default\+: None Note\+: Fractal\+Type\+\_\+\+Domain\+Warp... only affects Domain\+Warp(...) \Hypertarget{class_fast_noise_lite_aca5f269464ab16934796ded272a12ffc}\label{class_fast_noise_lite_aca5f269464ab16934796ded272a12ffc} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFractalWeightedStrength@{SetFractalWeightedStrength}}
+\index{SetFractalWeightedStrength@{SetFractalWeightedStrength}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFractalWeightedStrength()}{SetFractalWeightedStrength()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Fractal\+Weighted\+Strength (\begin{DoxyParamCaption}\item[{float}]{weighted\+Strength }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets octave weighting for all none Domain\+Warp fratal types. 
+
+Default\+: 0.\+0 Note\+: Keep between 0...1 to maintain -\/1...1 output bounding \Hypertarget{class_fast_noise_lite_a6e268d7e687b658f83dee38ea7dc1afc}\label{class_fast_noise_lite_a6e268d7e687b658f83dee38ea7dc1afc} 
+\index{FastNoiseLite@{FastNoiseLite}!SetFrequency@{SetFrequency}}
+\index{SetFrequency@{SetFrequency}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetFrequency()}{SetFrequency()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Frequency (\begin{DoxyParamCaption}\item[{float}]{frequency }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets frequency for all noise types. 
+
+Default\+: 0.\+01 \Hypertarget{class_fast_noise_lite_af345b52cbe9b499eb6a0c1d9b72a738f}\label{class_fast_noise_lite_af345b52cbe9b499eb6a0c1d9b72a738f} 
+\index{FastNoiseLite@{FastNoiseLite}!SetNoiseType@{SetNoiseType}}
+\index{SetNoiseType@{SetNoiseType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetNoiseType()}{SetNoiseType()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Noise\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Noise\+Type}}}]{noise\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets noise algorithm used for Get\+Noise(...) 
+
+Default\+: Open\+Simplex2 \Hypertarget{class_fast_noise_lite_a704dfe555b6ee0456707bb31e0aa8c0c}\label{class_fast_noise_lite_a704dfe555b6ee0456707bb31e0aa8c0c} 
+\index{FastNoiseLite@{FastNoiseLite}!SetRotationType3D@{SetRotationType3D}}
+\index{SetRotationType3D@{SetRotationType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetRotationType3D()}{SetRotationType3D()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Rotation\+Type3D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Rotation\+Type3D}}}]{rotation\+Type3D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets domain rotation type for 3D \doxylink{class_noise}{Noise} and 3D Domain\+Warp. Can aid in reducing directional artifacts when sampling a 2D plane in 3D. 
+
+Default\+: None \Hypertarget{class_fast_noise_lite_a4d2f591a9fb81fa37ec4ae45694ae90e}\label{class_fast_noise_lite_a4d2f591a9fb81fa37ec4ae45694ae90e} 
+\index{FastNoiseLite@{FastNoiseLite}!SetSeed@{SetSeed}}
+\index{SetSeed@{SetSeed}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SetSeed()}{SetSeed()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Set\+Seed (\begin{DoxyParamCaption}\item[{int}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets seed used for all noise types. 
+
+Default\+: 1337 \Hypertarget{class_fast_noise_lite_a143427440981833cf12e8fbeb8ec42b8}\label{class_fast_noise_lite_a143427440981833cf12e8fbeb8ec42b8} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleCellular@{SingleCellular}}
+\index{SingleCellular@{SingleCellular}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleCellular()}{SingleCellular()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Cellular (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a43f18d47106610ca4fae2667044bfc45}\label{class_fast_noise_lite_a43f18d47106610ca4fae2667044bfc45} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleCellular@{SingleCellular}}
+\index{SingleCellular@{SingleCellular}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleCellular()}{SingleCellular()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Cellular (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a4fe156e6bb6c906cdbfa5fbad8845d4a}\label{class_fast_noise_lite_a4fe156e6bb6c906cdbfa5fbad8845d4a} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleDomainWarpBasicGrid@{SingleDomainWarpBasicGrid}}
+\index{SingleDomainWarpBasicGrid@{SingleDomainWarpBasicGrid}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleDomainWarpBasicGrid()}{SingleDomainWarpBasicGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Single\+Domain\+Warp\+Basic\+Grid (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{warp\+Amp,  }\item[{float}]{frequency,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a949cbc10afdf8adb2660520bb8d0d6e3}\label{class_fast_noise_lite_a949cbc10afdf8adb2660520bb8d0d6e3} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleDomainWarpBasicGrid@{SingleDomainWarpBasicGrid}}
+\index{SingleDomainWarpBasicGrid@{SingleDomainWarpBasicGrid}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleDomainWarpBasicGrid()}{SingleDomainWarpBasicGrid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Single\+Domain\+Warp\+Basic\+Grid (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{warp\+Amp,  }\item[{float}]{frequency,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr,  }\item[{FNfloat \&}]{zr }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a957720c93ecf450ee39d20141b22dfb6}\label{class_fast_noise_lite_a957720c93ecf450ee39d20141b22dfb6} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleDomainWarpOpenSimplex2Gradient@{SingleDomainWarpOpenSimplex2Gradient}}
+\index{SingleDomainWarpOpenSimplex2Gradient@{SingleDomainWarpOpenSimplex2Gradient}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleDomainWarpOpenSimplex2Gradient()}{SingleDomainWarpOpenSimplex2Gradient()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Single\+Domain\+Warp\+Open\+Simplex2\+Gradient (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{warp\+Amp,  }\item[{float}]{frequency,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr,  }\item[{FNfloat \&}]{zr,  }\item[{bool}]{out\+Grad\+Only }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a74f1a02069a62bcc5c62a13b60afcfa1}\label{class_fast_noise_lite_a74f1a02069a62bcc5c62a13b60afcfa1} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleDomainWarpSimplexGradient@{SingleDomainWarpSimplexGradient}}
+\index{SingleDomainWarpSimplexGradient@{SingleDomainWarpSimplexGradient}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleDomainWarpSimplexGradient()}{SingleDomainWarpSimplexGradient()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Single\+Domain\+Warp\+Simplex\+Gradient (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{float}]{warp\+Amp,  }\item[{float}]{frequency,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat \&}]{xr,  }\item[{FNfloat \&}]{yr,  }\item[{bool}]{out\+Grad\+Only }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ac71a3e77feaa14fc75ec81593483fc4c}\label{class_fast_noise_lite_ac71a3e77feaa14fc75ec81593483fc4c} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleOpenSimplex2@{SingleOpenSimplex2}}
+\index{SingleOpenSimplex2@{SingleOpenSimplex2}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleOpenSimplex2()}{SingleOpenSimplex2()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Open\+Simplex2 (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aaa9e3c5f7c3533215e97d5f22c9cd851}\label{class_fast_noise_lite_aaa9e3c5f7c3533215e97d5f22c9cd851} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleOpenSimplex2S@{SingleOpenSimplex2S}}
+\index{SingleOpenSimplex2S@{SingleOpenSimplex2S}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleOpenSimplex2S()}{SingleOpenSimplex2S()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Open\+Simplex2S (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_af9446d9f1c657957e689876898a5e117}\label{class_fast_noise_lite_af9446d9f1c657957e689876898a5e117} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleOpenSimplex2S@{SingleOpenSimplex2S}}
+\index{SingleOpenSimplex2S@{SingleOpenSimplex2S}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleOpenSimplex2S()}{SingleOpenSimplex2S()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Open\+Simplex2S (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a52effc9c45621e394a57d373b2c7ecc1}\label{class_fast_noise_lite_a52effc9c45621e394a57d373b2c7ecc1} 
+\index{FastNoiseLite@{FastNoiseLite}!SinglePerlin@{SinglePerlin}}
+\index{SinglePerlin@{SinglePerlin}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SinglePerlin()}{SinglePerlin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Perlin (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a5752ba9c1e99b39f7eebfd4cf3da8e96}\label{class_fast_noise_lite_a5752ba9c1e99b39f7eebfd4cf3da8e96} 
+\index{FastNoiseLite@{FastNoiseLite}!SinglePerlin@{SinglePerlin}}
+\index{SinglePerlin@{SinglePerlin}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SinglePerlin()}{SinglePerlin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Perlin (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a1b82cd90da98cdd33d30b846c13343ae}\label{class_fast_noise_lite_a1b82cd90da98cdd33d30b846c13343ae} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleSimplex@{SingleSimplex}}
+\index{SingleSimplex@{SingleSimplex}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleSimplex()}{SingleSimplex()}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Simplex (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a5b24f72e0eb588de17b37612253abf63}\label{class_fast_noise_lite_a5b24f72e0eb588de17b37612253abf63} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleValue@{SingleValue}}
+\index{SingleValue@{SingleValue}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleValue()}{SingleValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Value (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a1ebb1aba2c7fa2000d06d33c77475429}\label{class_fast_noise_lite_a1ebb1aba2c7fa2000d06d33c77475429} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleValue@{SingleValue}}
+\index{SingleValue@{SingleValue}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleValue()}{SingleValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Value (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad711912ac1d26f8c97362a9cc0a78978}\label{class_fast_noise_lite_ad711912ac1d26f8c97362a9cc0a78978} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleValueCubic@{SingleValueCubic}}
+\index{SingleValueCubic@{SingleValueCubic}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleValueCubic()}{SingleValueCubic()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Value\+Cubic (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a7a92832aaa2806274738d84bab64d1c8}\label{class_fast_noise_lite_a7a92832aaa2806274738d84bab64d1c8} 
+\index{FastNoiseLite@{FastNoiseLite}!SingleValueCubic@{SingleValueCubic}}
+\index{SingleValueCubic@{SingleValueCubic}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{SingleValueCubic()}{SingleValueCubic()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+float Fast\+Noise\+Lite\+::\+Single\+Value\+Cubic (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{FNfloat}]{x,  }\item[{FNfloat}]{y,  }\item[{FNfloat}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aaeaa84a21bf84a57b7807255ce9cf464}\label{class_fast_noise_lite_aaeaa84a21bf84a57b7807255ce9cf464} 
+\index{FastNoiseLite@{FastNoiseLite}!TransformDomainWarpCoordinate@{TransformDomainWarpCoordinate}}
+\index{TransformDomainWarpCoordinate@{TransformDomainWarpCoordinate}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{TransformDomainWarpCoordinate()}{TransformDomainWarpCoordinate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Transform\+Domain\+Warp\+Coordinate (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aa5cdaceb73e8273858144c3f27415c7d}\label{class_fast_noise_lite_aa5cdaceb73e8273858144c3f27415c7d} 
+\index{FastNoiseLite@{FastNoiseLite}!TransformDomainWarpCoordinate@{TransformDomainWarpCoordinate}}
+\index{TransformDomainWarpCoordinate@{TransformDomainWarpCoordinate}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{TransformDomainWarpCoordinate()}{TransformDomainWarpCoordinate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Transform\+Domain\+Warp\+Coordinate (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a652ec43182c49bc2de3f038515f524ef}\label{class_fast_noise_lite_a652ec43182c49bc2de3f038515f524ef} 
+\index{FastNoiseLite@{FastNoiseLite}!TransformNoiseCoordinate@{TransformNoiseCoordinate}}
+\index{TransformNoiseCoordinate@{TransformNoiseCoordinate}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{TransformNoiseCoordinate()}{TransformNoiseCoordinate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Transform\+Noise\+Coordinate (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a9e0f9b623e15308d823523ded76d8e92}\label{class_fast_noise_lite_a9e0f9b623e15308d823523ded76d8e92} 
+\index{FastNoiseLite@{FastNoiseLite}!TransformNoiseCoordinate@{TransformNoiseCoordinate}}
+\index{TransformNoiseCoordinate@{TransformNoiseCoordinate}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{TransformNoiseCoordinate()}{TransformNoiseCoordinate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename FNfloat $>$ \\
+void Fast\+Noise\+Lite\+::\+Transform\+Noise\+Coordinate (\begin{DoxyParamCaption}\item[{FNfloat \&}]{x,  }\item[{FNfloat \&}]{y,  }\item[{FNfloat \&}]{z }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a7f9ba36d0f14fc43fb9e52f1e14494fb}\label{class_fast_noise_lite_a7f9ba36d0f14fc43fb9e52f1e14494fb} 
+\index{FastNoiseLite@{FastNoiseLite}!UpdateTransformType3D@{UpdateTransformType3D}}
+\index{UpdateTransformType3D@{UpdateTransformType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{UpdateTransformType3D()}{UpdateTransformType3D()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Update\+Transform\+Type3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aeebd1f42cf08230335b6c58cb725f6d0}\label{class_fast_noise_lite_aeebd1f42cf08230335b6c58cb725f6d0} 
+\index{FastNoiseLite@{FastNoiseLite}!UpdateWarpTransformType3D@{UpdateWarpTransformType3D}}
+\index{UpdateWarpTransformType3D@{UpdateWarpTransformType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{UpdateWarpTransformType3D()}{UpdateWarpTransformType3D()}}
+{\footnotesize\ttfamily void Fast\+Noise\+Lite\+::\+Update\+Warp\+Transform\+Type3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ac787ef53ff06dfa096392ff74eea9596}\label{class_fast_noise_lite_ac787ef53ff06dfa096392ff74eea9596} 
+\index{FastNoiseLite@{FastNoiseLite}!ValCoord@{ValCoord}}
+\index{ValCoord@{ValCoord}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{ValCoord()}{ValCoord()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Val\+Coord (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_abe0152f0a6f0bdae3e5b7bd9e1eda0c9}\label{class_fast_noise_lite_abe0152f0a6f0bdae3e5b7bd9e1eda0c9} 
+\index{FastNoiseLite@{FastNoiseLite}!ValCoord@{ValCoord}}
+\index{ValCoord@{ValCoord}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{ValCoord()}{ValCoord()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static float Fast\+Noise\+Lite\+::\+Val\+Coord (\begin{DoxyParamCaption}\item[{int}]{seed,  }\item[{int}]{x\+Primed,  }\item[{int}]{y\+Primed,  }\item[{int}]{z\+Primed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fast_noise_lite_a0abe941d5947124334543312551d1402}\label{class_fast_noise_lite_a0abe941d5947124334543312551d1402} 
+\index{FastNoiseLite@{FastNoiseLite}!mCellularDistanceFunction@{mCellularDistanceFunction}}
+\index{mCellularDistanceFunction@{mCellularDistanceFunction}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mCellularDistanceFunction}{mCellularDistanceFunction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_a398050da8e86742d6f0e8fb4cdf9851c}{Cellular\+Distance\+Function}} Fast\+Noise\+Lite\+::m\+Cellular\+Distance\+Function\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a50dc93ba0a397c58d8c1e087735df4af}\label{class_fast_noise_lite_a50dc93ba0a397c58d8c1e087735df4af} 
+\index{FastNoiseLite@{FastNoiseLite}!mCellularJitterModifier@{mCellularJitterModifier}}
+\index{mCellularJitterModifier@{mCellularJitterModifier}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mCellularJitterModifier}{mCellularJitterModifier}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Cellular\+Jitter\+Modifier\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aeb6bbde987e153de6aca302460055285}\label{class_fast_noise_lite_aeb6bbde987e153de6aca302460055285} 
+\index{FastNoiseLite@{FastNoiseLite}!mCellularReturnType@{mCellularReturnType}}
+\index{mCellularReturnType@{mCellularReturnType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mCellularReturnType}{mCellularReturnType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_a5b30b7fbc75d02e033e9776dbea52e82}{Cellular\+Return\+Type}} Fast\+Noise\+Lite\+::m\+Cellular\+Return\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a444efe1dc074914f91d8549a409ebdde}\label{class_fast_noise_lite_a444efe1dc074914f91d8549a409ebdde} 
+\index{FastNoiseLite@{FastNoiseLite}!mDomainWarpAmp@{mDomainWarpAmp}}
+\index{mDomainWarpAmp@{mDomainWarpAmp}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mDomainWarpAmp}{mDomainWarpAmp}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Domain\+Warp\+Amp\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a4e37b8d4d38b64e1de4f4497c8e0ff23}\label{class_fast_noise_lite_a4e37b8d4d38b64e1de4f4497c8e0ff23} 
+\index{FastNoiseLite@{FastNoiseLite}!mDomainWarpType@{mDomainWarpType}}
+\index{mDomainWarpType@{mDomainWarpType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mDomainWarpType}{mDomainWarpType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_a6e3acdac4a6f273e70240731c9a4a913}{Domain\+Warp\+Type}} Fast\+Noise\+Lite\+::m\+Domain\+Warp\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a9449a5cebea9638ca8626cd5219bf7ba}\label{class_fast_noise_lite_a9449a5cebea9638ca8626cd5219bf7ba} 
+\index{FastNoiseLite@{FastNoiseLite}!mFractalBounding@{mFractalBounding}}
+\index{mFractalBounding@{mFractalBounding}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mFractalBounding}{mFractalBounding}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Fractal\+Bounding\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_acee789a9d12be778becfb4f8402cb42a}\label{class_fast_noise_lite_acee789a9d12be778becfb4f8402cb42a} 
+\index{FastNoiseLite@{FastNoiseLite}!mFractalType@{mFractalType}}
+\index{mFractalType@{mFractalType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mFractalType}{mFractalType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_a691456d5ac06f0b2a828b0e2d3e7f7f7}{Fractal\+Type}} Fast\+Noise\+Lite\+::m\+Fractal\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a4bf74a82bf017d08b01654b597400d6d}\label{class_fast_noise_lite_a4bf74a82bf017d08b01654b597400d6d} 
+\index{FastNoiseLite@{FastNoiseLite}!mFrequency@{mFrequency}}
+\index{mFrequency@{mFrequency}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mFrequency}{mFrequency}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Frequency\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_adff27fcbd76388e9ce719e5199471b86}\label{class_fast_noise_lite_adff27fcbd76388e9ce719e5199471b86} 
+\index{FastNoiseLite@{FastNoiseLite}!mGain@{mGain}}
+\index{mGain@{mGain}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mGain}{mGain}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Gain\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a027a36c2a4d43086265e336b6eba913b}\label{class_fast_noise_lite_a027a36c2a4d43086265e336b6eba913b} 
+\index{FastNoiseLite@{FastNoiseLite}!mLacunarity@{mLacunarity}}
+\index{mLacunarity@{mLacunarity}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mLacunarity}{mLacunarity}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Lacunarity\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad6ca1c3cf47d8968a60270ee9097357a}\label{class_fast_noise_lite_ad6ca1c3cf47d8968a60270ee9097357a} 
+\index{FastNoiseLite@{FastNoiseLite}!mNoiseType@{mNoiseType}}
+\index{mNoiseType@{mNoiseType}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mNoiseType}{mNoiseType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_a92524ce8eee37bd74571a624244d3b0a}{Noise\+Type}} Fast\+Noise\+Lite\+::m\+Noise\+Type\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a95483e2a43133bcd9b18bd451f385e6c}\label{class_fast_noise_lite_a95483e2a43133bcd9b18bd451f385e6c} 
+\index{FastNoiseLite@{FastNoiseLite}!mOctaves@{mOctaves}}
+\index{mOctaves@{mOctaves}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mOctaves}{mOctaves}}
+{\footnotesize\ttfamily int Fast\+Noise\+Lite\+::m\+Octaves\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a5b93c33bf4a5c1646f237f1c86afd5e9}\label{class_fast_noise_lite_a5b93c33bf4a5c1646f237f1c86afd5e9} 
+\index{FastNoiseLite@{FastNoiseLite}!mPingPongStrength@{mPingPongStrength}}
+\index{mPingPongStrength@{mPingPongStrength}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mPingPongStrength}{mPingPongStrength}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Ping\+Pong\+Strength\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a60b5836312ea4abec9054ca0ac1f0cab}\label{class_fast_noise_lite_a60b5836312ea4abec9054ca0ac1f0cab} 
+\index{FastNoiseLite@{FastNoiseLite}!mRotationType3D@{mRotationType3D}}
+\index{mRotationType3D@{mRotationType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mRotationType3D}{mRotationType3D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_adc4818a7309d29312a3732261beea8af}{Rotation\+Type3D}} Fast\+Noise\+Lite\+::m\+Rotation\+Type3D\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_af71c4786508dc681eb9311e17cc5bf57}\label{class_fast_noise_lite_af71c4786508dc681eb9311e17cc5bf57} 
+\index{FastNoiseLite@{FastNoiseLite}!mSeed@{mSeed}}
+\index{mSeed@{mSeed}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mSeed}{mSeed}}
+{\footnotesize\ttfamily int Fast\+Noise\+Lite\+::m\+Seed\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad27490f738720c25a7af6cbd61660926}\label{class_fast_noise_lite_ad27490f738720c25a7af6cbd61660926} 
+\index{FastNoiseLite@{FastNoiseLite}!mTransformType3D@{mTransformType3D}}
+\index{mTransformType3D@{mTransformType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mTransformType3D}{mTransformType3D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Transform\+Type3D}} Fast\+Noise\+Lite\+::m\+Transform\+Type3D\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_aa7b078a1bbef83bc82320aeaeb420000}\label{class_fast_noise_lite_aa7b078a1bbef83bc82320aeaeb420000} 
+\index{FastNoiseLite@{FastNoiseLite}!mWarpTransformType3D@{mWarpTransformType3D}}
+\index{mWarpTransformType3D@{mWarpTransformType3D}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mWarpTransformType3D}{mWarpTransformType3D}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_fast_noise_lite_ad34674224c2780f5235f5e54a19e8408}{Transform\+Type3D}} Fast\+Noise\+Lite\+::m\+Warp\+Transform\+Type3D\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ae6d2d4bf368abc39361ac3b4f20ca119}\label{class_fast_noise_lite_ae6d2d4bf368abc39361ac3b4f20ca119} 
+\index{FastNoiseLite@{FastNoiseLite}!mWeightedStrength@{mWeightedStrength}}
+\index{mWeightedStrength@{mWeightedStrength}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{mWeightedStrength}{mWeightedStrength}}
+{\footnotesize\ttfamily float Fast\+Noise\+Lite\+::m\+Weighted\+Strength\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ad9f773b6c14bf912520629c7ba3e318e}\label{class_fast_noise_lite_ad9f773b6c14bf912520629c7ba3e318e} 
+\index{FastNoiseLite@{FastNoiseLite}!PrimeX@{PrimeX}}
+\index{PrimeX@{PrimeX}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{PrimeX}{PrimeX}}
+{\footnotesize\ttfamily const int Fast\+Noise\+Lite\+::\+PrimeX = 501125321\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_ae61601e33e67631a0c8345b2eddbf539}\label{class_fast_noise_lite_ae61601e33e67631a0c8345b2eddbf539} 
+\index{FastNoiseLite@{FastNoiseLite}!PrimeY@{PrimeY}}
+\index{PrimeY@{PrimeY}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{PrimeY}{PrimeY}}
+{\footnotesize\ttfamily const int Fast\+Noise\+Lite\+::\+PrimeY = 1136930381\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_fast_noise_lite_a702c2b7d315f389e0751bb33412c0c0b}\label{class_fast_noise_lite_a702c2b7d315f389e0751bb33412c0c0b} 
+\index{FastNoiseLite@{FastNoiseLite}!PrimeZ@{PrimeZ}}
+\index{PrimeZ@{PrimeZ}!FastNoiseLite@{FastNoiseLite}}
+\doxysubsubsection{\texorpdfstring{PrimeZ}{PrimeZ}}
+{\footnotesize\ttfamily const int Fast\+Noise\+Lite\+::\+PrimeZ = 1720413743\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/include/\mbox{\hyperlink{_fast_noise_lite_8h}{Fast\+Noise\+Lite.\+h}}\end{DoxyCompactItemize}

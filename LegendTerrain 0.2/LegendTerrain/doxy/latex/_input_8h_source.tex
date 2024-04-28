@@ -1,0 +1,54 @@
+\doxysection{Input.\+h}
+\hypertarget{_input_8h_source}{}\label{_input_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Input.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Input.h}}
+\mbox{\hyperlink{_input_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <glm/glm/vec2.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_key}{Key}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_key_a0672d4f933dc61563d4038e090416df8}{code}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_key_a7302bd0bbb441ab004ad13590277173f}{isPressed}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_key_a93a6ac81312058c11a1c2b6fede597af}{wasPressed}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_key_a24140b2a99eb55d7bb8d873f630ba58d}{wasReleased}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{struct_key_a53cb21bd51ec4ded24a25a1a01d30161}{Key}}(\textcolor{keywordtype}{int}\ keyCode\ =\ 0)\ :\ \mbox{\hyperlink{struct_key_a0672d4f933dc61563d4038e090416df8}{code}}(keyCode),\ \mbox{\hyperlink{struct_key_a7302bd0bbb441ab004ad13590277173f}{isPressed}}(false),\ \mbox{\hyperlink{struct_key_a93a6ac81312058c11a1c2b6fede597af}{wasPressed}}(false),\ \mbox{\hyperlink{struct_key_a24140b2a99eb55d7bb8d873f630ba58d}{wasReleased}}(true)\ \{\}}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_axis}{Axis}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_axis_a3745ff987bf05d2ae05e3c95a6c75a3e}{positiveKey}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_axis_a7ebb3c64c656a47e8749886b060d3def}{negativeKey}};}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{struct_axis_ae3c52fb71a128ad4413ec463db48421c}{Axis}}(\textcolor{keywordtype}{int}\ posKey\ =\ 0,\ \textcolor{keywordtype}{int}\ negKey\ =\ 0)\ :\ \mbox{\hyperlink{struct_axis_a3745ff987bf05d2ae05e3c95a6c75a3e}{positiveKey}}(posKey),\ \mbox{\hyperlink{struct_axis_a7ebb3c64c656a47e8749886b060d3def}{negativeKey}}(negKey)\ \{\}}
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input}{Input}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<int,\ Key>\ \mbox{\hyperlink{class_input_ac8f3d5df7a9cd7abb1a82bc94d45a523}{keyStates}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ int>\ \mbox{\hyperlink{class_input_a9592f5c4356b7414008d57e9eaea528f}{buttonMappings}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<std::string,\ Axis>\ \mbox{\hyperlink{class_input_afeb935bd41a7eba20a6359afccf4ec89}{axisMappings}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ glm::vec2\ \mbox{\hyperlink{class_input_afdf4e7245dbf50cd495dfcb9b7e29d6f}{mousePosition}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ std::unordered\_map<int,\ bool>\ \mbox{\hyperlink{class_input_a9de44ff345d9b48ce86b92daba615b2a}{mouseButtons}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_aeb342f15bb2b10271b01cf540c1b702e}{KeyCallback}}(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{int}\ scancode,\ \textcolor{keywordtype}{int}\ action,\ \textcolor{keywordtype}{int}\ mods);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_a34f72f74cfc112e57b9403886784394c}{MouseButtonCallback}}(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ button,\ \textcolor{keywordtype}{int}\ action,\ \textcolor{keywordtype}{int}\ mods);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_ae7f4425834936d3e0d1e56ca2ca409cc}{CursorPositionCallback}}(GLFWwindow*\ window,\ \textcolor{keywordtype}{double}\ xpos,\ \textcolor{keywordtype}{double}\ ypos);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_a5b39bea417d25e97990c69b02365beee}{Initialize}}(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ SCR\_WIDTH,\ \textcolor{keywordtype}{int}\ SCR\_HEIGHT);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}{Update}}();\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_a5b41b9520eba0bc7b4473df14eeb1632}{MapButton}}(\textcolor{keyword}{const}\ std::string\&\ buttonName,\ \textcolor{keywordtype}{int}\ keyCode);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_aafe3f797bba1a63dfe073896e3901fb6}{MapAxis}}(\textcolor{keyword}{const}\ std::string\&\ axisName,\ \textcolor{keywordtype}{int}\ positiveKey,\ \textcolor{keywordtype}{int}\ negativeKey);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_a894be09e67e1295931c28e37dba614b7}{GetButton}}(\textcolor{keyword}{const}\ std::string\&\ buttonName);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_a728edd2fb3a3f26c663bb23384dff45d}{GetButtonDown}}(\textcolor{keyword}{const}\ std::string\&\ buttonName);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_aed5640682baa8d52a658d153ec66cc6c}{GetButtonUp}}(\textcolor{keyword}{const}\ std::string\&\ buttonName);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_input_ab4adfd1204474abd2cef9d8668c8f903}{GetAxis}}(\textcolor{keyword}{const}\ std::string\&\ axisName);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ glm::vec2\ \mbox{\hyperlink{class_input_a163beff0902f775981c21da781906b78}{GetMousePosition}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_input_a18b88b431ec77fd560f8ee607408c9ed}{GetMouseButton}}(\textcolor{keywordtype}{int}\ button);}
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

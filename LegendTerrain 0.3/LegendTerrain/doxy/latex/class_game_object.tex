@@ -1,0 +1,147 @@
+\doxysection{Game\+Object Class Reference}
+\hypertarget{class_game_object}{}\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+
+
+Inheritance diagram for Game\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{class_game_object__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Game\+Object\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{class_game_object__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_object_aa85725d3f4bb2ad351735e517db660a9}{awake}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a4abb95a00e491aa09dc540f4bc9b9340}{start}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a484efb66a7a27c101e84c11d9905d7a6}{render}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_ad8fbb7b8ee07af2d8ea5008364670b6c}{update}} (float dt)
+\item 
+virtual void \mbox{\hyperlink{class_game_object_ac01bb106c39fec9e488fb7b945be3d0a}{on\+\_\+object\+\_\+add}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_addfac4e4b50ffd84a22604081c64c8dc}{on\+\_\+object\+\_\+remove}} ()
+\item 
+virtual \mbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\static std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f}{create}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}} = "{}Game\+Object"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55}{Game\+Object}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}\label{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [default]}}
+
+\Hypertarget{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55}\label{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}\label{class_game_object_a67ae2fa6e7916c799700cd659975d8ea} 
+\index{GameObject@{GameObject}!````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}}
+\index{````~GameObject@{\texorpdfstring{$\sim$}{\string~}GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GameObject()}{\string~GameObject()}}
+{\footnotesize\ttfamily virtual Game\+Object\+::\texorpdfstring{$\sim$}{\string~}\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_object_aa85725d3f4bb2ad351735e517db660a9}\label{class_game_object_aa85725d3f4bb2ad351735e517db660a9} 
+\index{GameObject@{GameObject}!awake@{awake}}
+\index{awake@{awake}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{awake()}{awake()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::awake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f}\label{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f} 
+\index{GameObject@{GameObject}!create@{create}}
+\index{create@{create}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily template$<$typename T , typename... Args$>$ \\
+static std\+::shared\+\_\+ptr$<$ T $>$ Game\+Object\+::create (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_game_object_ac01bb106c39fec9e488fb7b945be3d0a}\label{class_game_object_ac01bb106c39fec9e488fb7b945be3d0a} 
+\index{GameObject@{GameObject}!on\_object\_add@{on\_object\_add}}
+\index{on\_object\_add@{on\_object\_add}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{on\_object\_add()}{on\_object\_add()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::on\+\_\+object\+\_\+add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_game_object_addfac4e4b50ffd84a22604081c64c8dc}\label{class_game_object_addfac4e4b50ffd84a22604081c64c8dc} 
+\index{GameObject@{GameObject}!on\_object\_remove@{on\_object\_remove}}
+\index{on\_object\_remove@{on\_object\_remove}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{on\_object\_remove()}{on\_object\_remove()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::on\+\_\+object\+\_\+remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_game_object_a484efb66a7a27c101e84c11d9905d7a6}\label{class_game_object_a484efb66a7a27c101e84c11d9905d7a6} 
+\index{GameObject@{GameObject}!render@{render}}
+\index{render@{render}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_textured___object_a8ddcb4495a7415896d9932b913f1d521}{Textured\+\_\+\+Object}}.
+
+\Hypertarget{class_game_object_a4abb95a00e491aa09dc540f4bc9b9340}\label{class_game_object_a4abb95a00e491aa09dc540f4bc9b9340} 
+\index{GameObject@{GameObject}!start@{start}}
+\index{start@{start}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\Hypertarget{class_game_object_ad8fbb7b8ee07af2d8ea5008364670b6c}\label{class_game_object_ad8fbb7b8ee07af2d8ea5008364670b6c} 
+\index{GameObject@{GameObject}!update@{update}}
+\index{update@{update}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_generator_a9ea10932e25a916ac947264ae665373e}{Generator}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_object_af542b33c8de269343e22c5629e6b66c0}\label{class_game_object_af542b33c8de269343e22c5629e6b66c0} 
+\index{GameObject@{GameObject}!name@{name}}
+\index{name@{name}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Game\+Object\+::name = "{}Game\+Object"{}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/include/\mbox{\hyperlink{_game_object_8h}{Game\+Object.\+h}}\end{DoxyCompactItemize}

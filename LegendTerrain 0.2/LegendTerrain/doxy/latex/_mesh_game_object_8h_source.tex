@@ -1,0 +1,64 @@
+\doxysection{Mesh\+Game\+Object.\+h}
+\hypertarget{_mesh_game_object_8h_source}{}\label{_mesh_game_object_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/MeshGameObject.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/MeshGameObject.h}}
+\mbox{\hyperlink{_mesh_game_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_8h}{Mesh.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_shape_8h}{MeshShape.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh_game_object}{MeshGameObject}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}\ }
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_a2a63ab578898a9802caefeb6bcaf8ab6}{MeshGameObject}}(\mbox{\hyperlink{struct_mesh_shape}{MeshShape}}\ ms)}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ :\ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}\{ms.vertices,\ ms.indices\}}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a19a9e665d05435ef9bb06ccaefd03c03}{Move}}(\textcolor{keyword}{const}\ glm::vec3\&\ delta)\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_a1f89e11d694907e923904fdb7746e975}{position}}\ +=\ delta;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_aa7eb887987a659a53726643ac126b9fc}{SetPosition}}(\mbox{\hyperlink{class_mesh_game_object_a1f89e11d694907e923904fdb7746e975}{position}});}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a665a1672b4efd0d702d76f3a81117e04}{Rotate}}(\textcolor{keyword}{const}\ glm::vec3\&\ delta)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_a104d8c6b8005994346e2e2bae8fc76f9}{rotation}}\ +=\ delta;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_a3d4da78b9249055945f832649cf1c2f4}{SetRotation}}(\mbox{\hyperlink{class_mesh_game_object_a104d8c6b8005994346e2e2bae8fc76f9}{rotation}});}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a2813ab45209e82c6f37a458ce9ce5ffd}{SetTexture}}(std::string\ path)\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::shared\_ptr<Texture>\ texture\ =\ std::make\_shared<Texture>();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ texture-\/>Set(path);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_a93e4644c1f8f23c2ff7f49eb62dde94b}{SetTexture}}(texture);}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a51de59900bf080a6a104544c4d3dc4db}{SetShader}}(std::string\ vertex\_s,\ std::string\ frag\_s)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ std::shared\_ptr<Shader>\ shader\ =\ std::make\_shared<Shader>(vertex\_s,\ frag\_s);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_a08f3eb0098d659544b6ea2572ed91731}{SetShader}}(shader);}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a0f9885c73d5bd1240bdd53bb05ac7fa3}{SetShader}}(std::shared\_ptr<Shader>\ shader)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_a08f3eb0098d659544b6ea2572ed91731}{SetShader}}(shader);}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a62a654b9193284c008280ed2c6ea7121}{render}}()\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}}.\mbox{\hyperlink{class_mesh_afdd95c079fd0442afef8a6c421c8bfc9}{Draw}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_game_object_abf0fac6b4dcbbb3e1894c8d28b431021}{GetPosition}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_mesh_game_object_a1f89e11d694907e923904fdb7746e975}{position}};\ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a92fd9a5604e72ea03631abbdaf4a9e7a}{awake}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_ae2d56a32eaa0cbecfcf446ff6e402763}{start}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_af1878e7e0c33795684110da1d6849b1a}{update}}(\textcolor{keywordtype}{float}\ dt)\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a606ac7c0302efd9761aedf98194dd1b4}{on\_object\_add}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_game_object_a98ebf4f1e3596decd9c78387a24cb1d2}{on\_object\_remove}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_game_object_a1f89e11d694907e923904fdb7746e975}{position}}\ =\ \{0,0,0\};}
+\DoxyCodeLine{00056\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_mesh_game_object_a104d8c6b8005994346e2e2bae8fc76f9}{rotation}}\ =\ \{0,0,0\};}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ \mbox{\hyperlink{class_mesh_game_object_aef9dbaae52324cec3570ed39cac60c57}{mesh}};}
+\DoxyCodeLine{00058\ \};}
+
+\end{DoxyCode}

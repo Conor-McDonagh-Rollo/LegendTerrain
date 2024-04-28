@@ -1,0 +1,642 @@
+\doxysection{Perlin\+Noise.\+hpp}
+\hypertarget{_perlin_noise_8hpp_source}{}\label{_perlin_noise_8hpp_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.1/LegendTerrain/dependencies/PerlinNoise.hpp@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.1/LegendTerrain/dependencies/PerlinNoise.hpp}}
+\mbox{\hyperlink{_perlin_noise_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ siv::PerlinNoise}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ Perlin\ noise\ library\ for\ modern\ C++}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ Copyright\ (C)\ 2013-\/2021\ Ryo\ Suzuki\ <reputeless@gmail.com>}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ of\ this\ software\ and\ associated\ documentation\ files(the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and\ /\ or\ sell}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions\ :}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ }}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ }}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ \ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ \ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ \ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ \ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ THE\ SOFTWARE.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#\ pragma\ once}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#\ include\ <cstdint>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#\ include\ <algorithm>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#\ include\ <array>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#\ include\ <iterator>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#\ include\ <numeric>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#\ include\ <random>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#\ include\ <type\_traits>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#\ if\ \_\_has\_include(<concepts>)\ \&\&\ defined(\_\_cpp\_concepts)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#\ \ \ include\ <concepts>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ Library\ major\ version}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#\ define\ SIVPERLIN\_VERSION\_MAJOR\ \ \ \ \ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ Library\ minor\ version}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#\ define\ SIVPERLIN\_VERSION\_MINOR\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Library\ revision\ version}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#\ define\ SIVPERLIN\_VERSION\_REVISION\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ Library\ version}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#\ define\ SIVPERLIN\_VERSION\ \ \ \ \ \ \ \ \ \ ((SIVPERLIN\_VERSION\_MAJOR\ *\ 100\ *\ 100)\ +\ (SIVPERLIN\_VERSION\_MINOR\ *\ 100)\ +\ (SIVPERLIN\_VERSION\_REVISION))}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ [[nodiscard]]\ for\ constructors}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#\ if\ (201907L\ <=\ \_\_has\_cpp\_attribute(nodiscard))}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_NODISCARD\_CXX20\ [[nodiscard]]}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#\ else}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_NODISCARD\_CXX20}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ std::uniform\_random\_bit\_generator\ concept}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#\ if\ \_\_cpp\_lib\_concepts}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_CONCEPT\_URBG\ \ template\ <std::uniform\_random\_bit\_generator\ URBG>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_CONCEPT\_URBG\_\ template\ <std::uniform\_random\_bit\_generator\ URBG>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#\ else}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_CONCEPT\_URBG\ \ template\ <class\ URBG,\ std::enable\_if\_t<std::conjunction\_v<std::is\_invocable<URBG\&>,\ std::is\_unsigned<std::invoke\_result\_t<URBG\&>>>>*\ =\ nullptr>}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_CONCEPT\_URBG\_\ template\ <class\ URBG,\ std::enable\_if\_t<std::conjunction\_v<std::is\_invocable<URBG\&>,\ std::is\_unsigned<std::invoke\_result\_t<URBG\&>>>>*>}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ arbitrary\ value\ for\ increasing\ entropy}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#\ ifndef\ SIVPERLIN\_DEFAULT\_Y}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_DEFAULT\_Y\ (0.12345)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ arbitrary\ value\ for\ increasing\ entropy}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#\ ifndef\ SIVPERLIN\_DEFAULT\_Z}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#\ \ \ define\ SIVPERLIN\_DEFAULT\_Z\ (0.34567)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacesiv}{siv}}}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{BasicPerlinNoise}}}
+\DoxyCodeLine{00088\ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_floating\_point\_v<Float>);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Typedefs}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{state\_type}}\ =\ std::array<std::uint8\_t,\ 256>;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ =\ Float;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0c116a3033db7a54fc6d73aad6c184cf}{default\_random\_engine}}\ =\ std::mt19937;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0e9251cfc0e063cc6357891af094cb09}{seed\_type}}\ =\ \textcolor{keyword}{typename}\ default\_random\_engine::result\_type;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Constructors}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2}{SIVPERLIN\_NODISCARD\_CXX20}}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad6a9425e18082af3786e8950a6e24e93}{BasicPerlinNoise}}()\ noexcept;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2}{SIVPERLIN\_NODISCARD\_CXX20}}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ explicit\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{BasicPerlinNoise}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0e9251cfc0e063cc6357891af094cb09}{seed\_type}}\ seed);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\_CONCEPT\_URBG}}}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2}{SIVPERLIN\_NODISCARD\_CXX20}}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ explicit\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{BasicPerlinNoise}}(URBG\&\&\ urbg);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Reseed}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{reseed}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0e9251cfc0e063cc6357891af094cb09}{seed\_type}}\ seed);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\_CONCEPT\_URBG}}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{reseed}}(URBG\&\&\ urbg);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Serialization}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ constexpr\ const\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{state\_type}}\&\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a15ec1a68df38d98097e3fe5e20691f2e}{serialize}}()\ const\ noexcept;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ constexpr\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4dfbc4459afac610adbc93dd052594f2}{deserialize}}(const\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{state\_type}}\&\ state)\ noexcept;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Noise\ (The\ result\ is\ in\ the\ range\ [-\/1,\ 1])}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ac317c7b4db6cec1ca2ae736d5ea44016}{noise1D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x)\ const\ noexcept;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5932224416791c5b6d03fcd2eb440367}{noise2D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y)\ const\ noexcept;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57e63fac64188065437e070d6b06b5ae}{noise3D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z)\ const\ noexcept;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Noise\ (The\ result\ is\ remapped\ to\ the\ range\ [0,\ 1])}}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_abd7881e4c69a16755c7f757a47e430f6}{noise1D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x)\ const\ noexcept;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a31349b5897d43b89a97c89a75b9d5e51}{noise2D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y)\ const\ noexcept;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aeb15a7586375470de2c939993989d6a2}{noise3D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z)\ const\ noexcept;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Octave\ noise\ (The\ result\ can\ be\ out\ of\ the\ range\ [-\/1,\ 1])}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a169709465e7f338683563080899cfad9}{octave1D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a177e090ed08fb8c7419f6cfdd60de0db}{octave2D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa8c62976582c9b6e1e4763f8c4da9964}{octave3D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Octave\ noise\ (The\ result\ is\ clamped\ to\ the\ range\ [-\/1,\ 1])}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ab435595249e79e29ed27406c6e94900e}{octave1D\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4684bc6076babe2075c59856c7d1762b}{octave2D\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad476700e19c7b12f9e57b6b79aa1eaec}{octave3D\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Octave\ noise\ (The\ result\ is\ clamped\ and\ remapped\ to\ the\ range\ [0,\ 1])}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa6bbbf7e846cd0e93479a9280dda46ce}{octave1D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4162c01496581089729d7b5be5edc57e}{octave2D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a484ced9b2077cc6aba5dabc9b12cad2a}{octave3D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Octave\ noise\ (The\ result\ is\ normalized\ to\ the\ range\ [-\/1,\ 1])}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a9afed183f6996dbb66f2f9855168a4eb}{normalizedOctave1D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5eff1b38ec629ee6777380b6b0dcb14b}{normalizedOctave2D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a2d6e6a2311dbac1268c43e4b4f13343b}{normalizedOctave3D}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ Octave\ noise\ (The\ result\ is\ normalized\ and\ remapped\ to\ the\ range\ [0,\ 1])}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aeec9b2949906ff4cc117a2c674d60981}{normalizedOctave1D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aef0edee75e5c2ee211f428dd5434de74}{normalizedOctave2D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a786b47d43d2cdb7a2b399cd5d4e16295}{normalizedOctave3D\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ std::int32\_t\ octaves,\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}(0.5))\ const\ noexcept;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ private:}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{state\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}};}
+\DoxyCodeLine{00242\ \ \ \ \ \};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ using\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{PerlinNoise}}\ =\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{BasicPerlinNoise}}<\textcolor{keywordtype}{double}>;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ namespace\ perlin\_detail}
+\DoxyCodeLine{00247\ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ These\ functions\ are\ provided\ for\ consistency.}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ You\ may\ get\ different\ results\ from\ std::shuffle()\ with\ different\ standard\ library\ implementations.}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\_CONCEPT\_URBG}}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb}{Random}}(\textcolor{keyword}{const}\ std::uint64\_t\ max,\ URBG\&\&\ urbg)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (urbg()\ \%\ (max\ +\ 1));}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ RandomIt,\ \textcolor{keyword}{class}\ URBG>}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60}{Shuffle}}(RandomIt\ first,\ RandomIt\ last,\ URBG\&\&\ urbg)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (first\ ==\ last)}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ \textcolor{keyword}{typename}\ std::iterator\_traits<RandomIt>::difference\_type;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (RandomIt\ it\ =\ first\ +\ 1;\ it\ <\ last;\ ++it)}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint64\_t\ n\ =\ \textcolor{keyword}{static\_cast<}std::uint64\_t\textcolor{keyword}{>}(it\ -\/\ first);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::iter\_swap(it,\ first\ +\ \textcolor{keyword}{static\_cast<}difference\_type\textcolor{keyword}{>}(\mbox{\hyperlink{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb}{Random}}(n,\ std::forward<URBG>(urbg))));}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{Fade}}(\textcolor{keyword}{const}\ Float\ t)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t\ *\ t\ *\ t\ *\ (t\ *\ (t\ *\ 6\ -\/\ 15)\ +\ 10);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{Lerp}}(\textcolor{keyword}{const}\ Float\ a,\ \textcolor{keyword}{const}\ Float\ b,\ \textcolor{keyword}{const}\ Float\ t)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (a\ +\ (b\ -\/\ a)\ *\ t);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{Grad}}(\textcolor{keyword}{const}\ std::uint8\_t\ hash,\ \textcolor{keyword}{const}\ Float\ x,\ \textcolor{keyword}{const}\ Float\ y,\ \textcolor{keyword}{const}\ Float\ z)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ h\ =\ hash\ \&\ 15;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Float\ u\ =\ h\ <\ 8\ ?\ x\ :\ y;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Float\ v\ =\ h\ <\ 4\ ?\ y\ :\ h\ ==\ 12\ ||\ h\ ==\ 14\ ?\ x\ :\ z;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((h\ \&\ 1)\ ==\ 0\ ?\ u\ :\ -\/u)\ +\ ((h\ \&\ 2)\ ==\ 0\ ?\ v\ :\ -\/v);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{Remap\_01}}(\textcolor{keyword}{const}\ Float\ x)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ *\ Float(0.5)\ +\ Float(0.5));}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{Clamp\_11}}(\textcolor{keyword}{const}\ Float\ x)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::clamp(x,\ Float(-\/1.0),\ Float(1.0));}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{RemapClamp\_01}}(\textcolor{keyword}{const}\ Float\ x)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <=\ Float(-\/1.0))}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Float(0.0);}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Float(1.0)\ <=\ x)}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Float(1.0);}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ *\ Float(0.5)\ +\ Float(0.5));}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Noise,\ \textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16}{Octave1D}}(\textcolor{keyword}{const}\ Noise\&\ noise,\ Float\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ Float\ persistence)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ =\ Float;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ result\ =\ 0;}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ amplitude\ =\ 1;}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ octaves;\ ++i)}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ (noise.noise1D(x)\ *\ amplitude);}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ *=\ 2;}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amplitude\ *=\ persistence;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Noise,\ \textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f}{Octave2D}}(\textcolor{keyword}{const}\ Noise\&\ noise,\ Float\ x,\ Float\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ Float\ persistence)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ =\ Float;}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ result\ =\ 0;}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ amplitude\ =\ 1;}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ octaves;\ ++i)}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ (noise.noise2D(x,\ y)\ *\ amplitude);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ *=\ 2;}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ *=\ 2;}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amplitude\ *=\ persistence;}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Noise,\ \textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05}{Octave3D}}(\textcolor{keyword}{const}\ Noise\&\ noise,\ Float\ x,\ Float\ y,\ Float\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ Float\ persistence)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ =\ Float;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ result\ =\ 0;}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ amplitude\ =\ 1;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ octaves;\ ++i)}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ (noise.noise3D(x,\ y,\ z)\ *\ amplitude);}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ *=\ 2;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ *=\ 2;}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\ *=\ 2;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amplitude\ *=\ persistence;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ [[nodiscard]]}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ Float\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{MaxAmplitude}}(\textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ Float\ persistence)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ =\ Float;}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ result\ =\ 0;}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ amplitude\ =\ 1;}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::int32\_t\ i\ =\ 0;\ i\ <\ octaves;\ ++i)}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result\ +=\ amplitude;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ amplitude\ *=\ persistence;}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad6a9425e18082af3786e8950a6e24e93}{BasicPerlinNoise<Float>::BasicPerlinNoise}}()\ noexcept}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}\{\ 151,160,137,91,90,15,}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 190,\ 6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 88,237,149,56,87,174,20,125,136,171,168,\ 68,175,74,165,71,134,139,48,27,166,}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 102,143,54,\ 65,25,63,161,\ 1,216,80,73,209,76,132,187,208,\ 89,18,169,200,196,}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 135,130,116,188,159,86,164,100,109,198,173,186,\ 3,64,52,217,226,250,124,123,}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 223,183,170,213,119,248,152,\ 2,44,154,163,\ 70,221,153,101,155,167,\ 43,172,9,}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 129,22,39,253,\ 19,98,108,110,79,113,224,232,178,185,\ 112,104,218,246,97,228,}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 251,34,242,193,238,210,144,12,191,179,162,241,\ 81,51,145,235,249,14,239,107,}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 49,192,214,\ 31,181,199,106,157,184,\ 84,204,176,115,121,50,45,127,\ 4,150,254,}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180\ \}\ \{\}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad6a9425e18082af3786e8950a6e24e93}{BasicPerlinNoise<Float>::BasicPerlinNoise}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0e9251cfc0e063cc6357891af094cb09}{seed\_type}}\ seed)}
+\DoxyCodeLine{00428\ \ \ \ \ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{reseed}}(seed);}
+\DoxyCodeLine{00430\ \ \ \ \ \}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00433\ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_a87d591432ea101f8fad75443ac2a75a4}{SIVPERLIN\_CONCEPT\_URBG\_}}}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad6a9425e18082af3786e8950a6e24e93}{BasicPerlinNoise<Float>::BasicPerlinNoise}}(URBG\&\&\ urbg)}
+\DoxyCodeLine{00435\ \ \ \ \ \{}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{reseed}}(std::forward<URBG>(urbg));}
+\DoxyCodeLine{00437\ \ \ \ \ \}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{BasicPerlinNoise<Float>::reseed}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0e9251cfc0e063cc6357891af094cb09}{seed\_type}}\ seed)}
+\DoxyCodeLine{00443\ \ \ \ \ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{reseed}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0c116a3033db7a54fc6d73aad6c184cf}{default\_random\_engine}}\{\ seed\ \});}
+\DoxyCodeLine{00445\ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00448\ \ \ \ \ \mbox{\hyperlink{_perlin_noise_8hpp_a87d591432ea101f8fad75443ac2a75a4}{SIVPERLIN\_CONCEPT\_URBG\_}}}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57b1016cf277fe70731228672163c06a}{BasicPerlinNoise<Float>::reseed}}(URBG\&\&\ urbg)}
+\DoxyCodeLine{00450\ \ \ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ std::iota(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}.begin(),\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}.end(),\ uint8\_t\{\ 0\ \});}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60}{perlin\_detail::Shuffle}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}.begin(),\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}.end(),\ std::forward<URBG>(urbg));}
+\DoxyCodeLine{00454\ \ \ \ \ \}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{BasicPerlinNoise<Float>::state\_type}}\&\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a15ec1a68df38d98097e3fe5e20691f2e}{BasicPerlinNoise<Float>::serialize}}()\ const\ noexcept}
+\DoxyCodeLine{00460\ \ \ \ \ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}};}
+\DoxyCodeLine{00462\ \ \ \ \ \}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00464\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4dfbc4459afac610adbc93dd052594f2}{BasicPerlinNoise<Float>::deserialize}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a0b943b30e8f58896fb36fc96f363291e}{state\_type}}\&\ state)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00466\ \ \ \ \ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}\ =\ state;}
+\DoxyCodeLine{00468\ \ \ \ \ \}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ac317c7b4db6cec1ca2ae736d5ea44016}{BasicPerlinNoise<Float>::noise1D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00474\ \ \ \ \ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57e63fac64188065437e070d6b06b5ae}{noise3D}}(x,}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\textcolor{keyword}{>}(\mbox{\hyperlink{_perlin_noise_8hpp_a9f2327007613370ef1447c54c4954690}{SIVPERLIN\_DEFAULT\_Y}}),}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\textcolor{keyword}{>}(\mbox{\hyperlink{_perlin_noise_8hpp_a0db58116c8a50c76dabe4b18a19e6f16}{SIVPERLIN\_DEFAULT\_Z}}));}
+\DoxyCodeLine{00478\ \ \ \ \ \}}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5932224416791c5b6d03fcd2eb440367}{BasicPerlinNoise<Float>::noise2D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00482\ \ \ \ \ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57e63fac64188065437e070d6b06b5ae}{noise3D}}(x,}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ y,}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\textcolor{keyword}{>}(\mbox{\hyperlink{_perlin_noise_8hpp_a0db58116c8a50c76dabe4b18a19e6f16}{SIVPERLIN\_DEFAULT\_Z}}));}
+\DoxyCodeLine{00486\ \ \ \ \ \}}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57e63fac64188065437e070d6b06b5ae}{BasicPerlinNoise<Float>::noise3D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00490\ \ \ \ \ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \_x\ =\ std::floor(x);}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \_y\ =\ std::floor(y);}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ \_z\ =\ std::floor(z);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ ix\ =\ \textcolor{keyword}{static\_cast<}std::int32\_t\textcolor{keyword}{>}(\_x)\ \&\ 255;}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ iy\ =\ \textcolor{keyword}{static\_cast<}std::int32\_t\textcolor{keyword}{>}(\_y)\ \&\ 255;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::int32\_t\ iz\ =\ \textcolor{keyword}{static\_cast<}std::int32\_t\textcolor{keyword}{>}(\_z)\ \&\ 255;}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ fx\ =\ (x\ -\/\ \_x);}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ fy\ =\ (y\ -\/\ \_y);}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ fz\ =\ (z\ -\/\ \_z);}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ u\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{perlin\_detail::Fade}}(fx);}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ v\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{perlin\_detail::Fade}}(fy);}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ w\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{perlin\_detail::Fade}}(fz);}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ A\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[ix\ \&\ 255]\ +\ iy)\ \&\ 255;}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ B\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(ix\ +\ 1)\ \&\ 255]\ +\ iy)\ \&\ 255;}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ AA\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[A]\ +\ iz)\ \&\ 255;}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ AB\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(A\ +\ 1)\ \&\ 255]\ +\ iz)\ \&\ 255;}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ BA\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[B]\ +\ iz)\ \&\ 255;}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::uint8\_t\ BB\ =\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(B\ +\ 1)\ \&\ 255]\ +\ iz)\ \&\ 255;}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p0\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[AA],\ fx,\ fy,\ fz);}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p1\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[BA],\ fx\ -\/\ 1,\ fy,\ fz);}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p2\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[AB],\ fx,\ fy\ -\/\ 1,\ fz);}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p3\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[BB],\ fx\ -\/\ 1,\ fy\ -\/\ 1,\ fz);}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p4\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(AA\ +\ 1)\ \&\ 255],\ fx,\ fy,\ fz\ -\/\ 1);}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p5\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(BA\ +\ 1)\ \&\ 255],\ fx\ -\/\ 1,\ fy,\ fz\ -\/\ 1);}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p6\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(AB\ +\ 1)\ \&\ 255],\ fx,\ fy\ -\/\ 1,\ fz\ -\/\ 1);}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ p7\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{perlin\_detail::Grad}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad1abeb8d6b563b61448ffbdb43b0f57e}{m\_permutation}}[(BB\ +\ 1)\ \&\ 255],\ fx\ -\/\ 1,\ fy\ -\/\ 1,\ fz\ -\/\ 1);}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ q0\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(p0,\ p1,\ u);}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ q1\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(p2,\ p3,\ u);}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ q2\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(p4,\ p5,\ u);}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ q3\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(p6,\ p7,\ u);}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ r0\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(q0,\ q1,\ v);}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ r1\ =\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(q2,\ q3,\ v);}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{perlin\_detail::Lerp}}(r0,\ r1,\ w);}
+\DoxyCodeLine{00534\ \ \ \ \ \}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_abd7881e4c69a16755c7f757a47e430f6}{BasicPerlinNoise<Float>::noise1D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00540\ \ \ \ \ \{}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ac317c7b4db6cec1ca2ae736d5ea44016}{noise1D}}(x));}
+\DoxyCodeLine{00542\ \ \ \ \ \}}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a31349b5897d43b89a97c89a75b9d5e51}{BasicPerlinNoise<Float>::noise2D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00546\ \ \ \ \ \{}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5932224416791c5b6d03fcd2eb440367}{noise2D}}(x,\ y));}
+\DoxyCodeLine{00548\ \ \ \ \ \}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aeb15a7586375470de2c939993989d6a2}{BasicPerlinNoise<Float>::noise3D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00552\ \ \ \ \ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a57e63fac64188065437e070d6b06b5ae}{noise3D}}(x,\ y,\ z));}
+\DoxyCodeLine{00554\ \ \ \ \ \}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00559\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a169709465e7f338683563080899cfad9}{BasicPerlinNoise<Float>::octave1D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00560\ \ \ \ \ \{}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16}{perlin\_detail::Octave1D}}(*\textcolor{keyword}{this},\ x,\ octaves,\ persistence);}
+\DoxyCodeLine{00562\ \ \ \ \ \}}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a177e090ed08fb8c7419f6cfdd60de0db}{BasicPerlinNoise<Float>::octave2D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00566\ \ \ \ \ \{}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f}{perlin\_detail::Octave2D}}(*\textcolor{keyword}{this},\ x,\ y,\ octaves,\ persistence);}
+\DoxyCodeLine{00568\ \ \ \ \ \}}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa8c62976582c9b6e1e4763f8c4da9964}{BasicPerlinNoise<Float>::octave3D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00572\ \ \ \ \ \{}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05}{perlin\_detail::Octave3D}}(*\textcolor{keyword}{this},\ x,\ y,\ z,\ octaves,\ persistence);}
+\DoxyCodeLine{00574\ \ \ \ \ \}}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ab435595249e79e29ed27406c6e94900e}{BasicPerlinNoise<Float>::octave1D\_11}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00580\ \ \ \ \ \{}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{perlin\_detail::Clamp\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a169709465e7f338683563080899cfad9}{octave1D}}(x,\ octaves,\ persistence));}
+\DoxyCodeLine{00582\ \ \ \ \ \}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4684bc6076babe2075c59856c7d1762b}{BasicPerlinNoise<Float>::octave2D\_11}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00586\ \ \ \ \ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{perlin\_detail::Clamp\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a177e090ed08fb8c7419f6cfdd60de0db}{octave2D}}(x,\ y,\ octaves,\ persistence));}
+\DoxyCodeLine{00588\ \ \ \ \ \}}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_ad476700e19c7b12f9e57b6b79aa1eaec}{BasicPerlinNoise<Float>::octave3D\_11}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00592\ \ \ \ \ \{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{perlin\_detail::Clamp\_11}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa8c62976582c9b6e1e4763f8c4da9964}{octave3D}}(x,\ y,\ z,\ octaves,\ persistence));}
+\DoxyCodeLine{00594\ \ \ \ \ \}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00599\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa6bbbf7e846cd0e93479a9280dda46ce}{BasicPerlinNoise<Float>::octave1D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00600\ \ \ \ \ \{}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{perlin\_detail::RemapClamp\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a169709465e7f338683563080899cfad9}{octave1D}}(x,\ octaves,\ persistence));}
+\DoxyCodeLine{00602\ \ \ \ \ \}}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00605\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a4162c01496581089729d7b5be5edc57e}{BasicPerlinNoise<Float>::octave2D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00606\ \ \ \ \ \{}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{perlin\_detail::RemapClamp\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a177e090ed08fb8c7419f6cfdd60de0db}{octave2D}}(x,\ y,\ octaves,\ persistence));}
+\DoxyCodeLine{00608\ \ \ \ \ \}}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a484ced9b2077cc6aba5dabc9b12cad2a}{BasicPerlinNoise<Float>::octave3D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00612\ \ \ \ \ \{}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{perlin\_detail::RemapClamp\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa8c62976582c9b6e1e4763f8c4da9964}{octave3D}}(x,\ y,\ z,\ octaves,\ persistence));}
+\DoxyCodeLine{00614\ \ \ \ \ \}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a9afed183f6996dbb66f2f9855168a4eb}{BasicPerlinNoise<Float>::normalizedOctave1D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00620\ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a169709465e7f338683563080899cfad9}{octave1D}}(x,\ octaves,\ persistence)\ /\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{perlin\_detail::MaxAmplitude}}(octaves,\ persistence));}
+\DoxyCodeLine{00622\ \ \ \ \ \}}
+\DoxyCodeLine{00623\ }
+\DoxyCodeLine{00624\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00625\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5eff1b38ec629ee6777380b6b0dcb14b}{BasicPerlinNoise<Float>::normalizedOctave2D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00626\ \ \ \ \ \{}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a177e090ed08fb8c7419f6cfdd60de0db}{octave2D}}(x,\ y,\ octaves,\ persistence)\ /\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{perlin\_detail::MaxAmplitude}}(octaves,\ persistence));}
+\DoxyCodeLine{00628\ \ \ \ \ \}}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a2d6e6a2311dbac1268c43e4b4f13343b}{BasicPerlinNoise<Float>::normalizedOctave3D}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00632\ \ \ \ \ \{}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aa8c62976582c9b6e1e4763f8c4da9964}{octave3D}}(x,\ y,\ z,\ octaves,\ persistence)\ /\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{perlin\_detail::MaxAmplitude}}(octaves,\ persistence));}
+\DoxyCodeLine{00634\ \ \ \ \ \}}
+\DoxyCodeLine{00635\ }
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00639\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aeec9b2949906ff4cc117a2c674d60981}{BasicPerlinNoise<Float>::normalizedOctave1D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00640\ \ \ \ \ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a9afed183f6996dbb66f2f9855168a4eb}{normalizedOctave1D}}(x,\ octaves,\ persistence));}
+\DoxyCodeLine{00642\ \ \ \ \ \}}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00645\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_aef0edee75e5c2ee211f428dd5434de74}{BasicPerlinNoise<Float>::normalizedOctave2D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00646\ \ \ \ \ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a5eff1b38ec629ee6777380b6b0dcb14b}{normalizedOctave2D}}(x,\ y,\ octaves,\ persistence));}
+\DoxyCodeLine{00648\ \ \ \ \ \}}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Float>}
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{BasicPerlinNoise<Float>::value\_type}}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a786b47d43d2cdb7a2b399cd5d4e16295}{BasicPerlinNoise<Float>::normalizedOctave3D\_01}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ y,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ z,\ \textcolor{keyword}{const}\ std::int32\_t\ octaves,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_adab434ddc2e1522616e3e0d1f14c1024}{value\_type}}\ persistence)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00652\ \ \ \ \ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{perlin\_detail::Remap\_01}}(\mbox{\hyperlink{classsiv_1_1_basic_perlin_noise_a2d6e6a2311dbac1268c43e4b4f13343b}{normalizedOctave3D}}(x,\ y,\ z,\ octaves,\ persistence));}
+\DoxyCodeLine{00654\ \ \ \ \ \}}
+\DoxyCodeLine{00655\ \}}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\#\ undef\ SIVPERLIN\_NODISCARD\_CXX20}}
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#\ undef\ SIVPERLIN\_CONCEPT\_URBG}}
+\DoxyCodeLine{00659\ \textcolor{preprocessor}{\#\ undef\ SIVPERLIN\_CONCEPT\_URBG\_}}
+
+\end{DoxyCode}

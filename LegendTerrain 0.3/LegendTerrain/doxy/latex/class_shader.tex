@@ -1,0 +1,91 @@
+\doxysection{Shader Class Reference}
+\hypertarget{class_shader}{}\label{class_shader}\index{Shader@{Shader}}
+
+
+{\ttfamily \#include $<$Shader.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shader_a030f11ffb4a05a7acb52c445046c7b70}{Shader}} (const char \texorpdfstring{$\ast$}{*}vertex\+Path="{}assets/shaders/vertex.\+glsl"{}, const char \texorpdfstring{$\ast$}{*}fragment\+Path="{}assets/shaders/fragment.\+glsl"{})
+\item 
+void \mbox{\hyperlink{class_shader_a870fa9f13d69e558815d6fd351a469dc}{use}} ()
+\item 
+void \mbox{\hyperlink{class_shader_ab1a56d6c299bd7eaa18c2e142ef7bd9f}{set\+Bool}} (const std\+::string \&name, bool value) const
+\item 
+void \mbox{\hyperlink{class_shader_ad362e2b654cd95a3574cd505411e41fd}{set\+Int}} (const std\+::string \&name, int value) const
+\item 
+void \mbox{\hyperlink{class_shader_afe7367621f74c2d26431d8ac15252bf3}{set\+Float}} (const std\+::string \&name, float value) const
+\item 
+void \mbox{\hyperlink{class_shader_adf4160bbe2c67a6737bf74f53629f510}{set\+Vec4}} (const std\+::string \&name, float v1, float v2, float v3, float v4) const
+\item 
+void \mbox{\hyperlink{class_shader_a596703711729b3a6cf90cbb86e9906ac}{set\+Mat4}} (const std\+::string \&name, glm\+::mat4 \&model) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_shader_a142a08b6fbdfc982d82ca10ee0b0f38d}{ID}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shader_a030f11ffb4a05a7acb52c445046c7b70}\label{class_shader_a030f11ffb4a05a7acb52c445046c7b70} 
+\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{vertex\+Path = {\ttfamily "{}assets/shaders/vertex.glsl"{}},  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fragment\+Path = {\ttfamily "{}assets/shaders/fragment.glsl"{}} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shader_ab1a56d6c299bd7eaa18c2e142ef7bd9f}\label{class_shader_ab1a56d6c299bd7eaa18c2e142ef7bd9f} 
+\index{Shader@{Shader}!setBool@{setBool}}
+\index{setBool@{setBool}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setBool()}{setBool()}}
+{\footnotesize\ttfamily void Shader\+::set\+Bool (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{bool}]{value }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_shader_afe7367621f74c2d26431d8ac15252bf3}\label{class_shader_afe7367621f74c2d26431d8ac15252bf3} 
+\index{Shader@{Shader}!setFloat@{setFloat}}
+\index{setFloat@{setFloat}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setFloat()}{setFloat()}}
+{\footnotesize\ttfamily void Shader\+::set\+Float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{float}]{value }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_shader_ad362e2b654cd95a3574cd505411e41fd}\label{class_shader_ad362e2b654cd95a3574cd505411e41fd} 
+\index{Shader@{Shader}!setInt@{setInt}}
+\index{setInt@{setInt}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setInt()}{setInt()}}
+{\footnotesize\ttfamily void Shader\+::set\+Int (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{int}]{value }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_shader_a596703711729b3a6cf90cbb86e9906ac}\label{class_shader_a596703711729b3a6cf90cbb86e9906ac} 
+\index{Shader@{Shader}!setMat4@{setMat4}}
+\index{setMat4@{setMat4}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setMat4()}{setMat4()}}
+{\footnotesize\ttfamily void Shader\+::set\+Mat4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{glm\+::mat4 \&}]{model }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_shader_adf4160bbe2c67a6737bf74f53629f510}\label{class_shader_adf4160bbe2c67a6737bf74f53629f510} 
+\index{Shader@{Shader}!setVec4@{setVec4}}
+\index{setVec4@{setVec4}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setVec4()}{setVec4()}}
+{\footnotesize\ttfamily void Shader\+::set\+Vec4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{float}]{v1,  }\item[{float}]{v2,  }\item[{float}]{v3,  }\item[{float}]{v4 }\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_shader_a870fa9f13d69e558815d6fd351a469dc}\label{class_shader_a870fa9f13d69e558815d6fd351a469dc} 
+\index{Shader@{Shader}!use@{use}}
+\index{use@{use}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void Shader\+::use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shader_a142a08b6fbdfc982d82ca10ee0b0f38d}\label{class_shader_a142a08b6fbdfc982d82ca10ee0b0f38d} 
+\index{Shader@{Shader}!ID@{ID}}
+\index{ID@{ID}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily unsigned int Shader\+::\+ID = NULL}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/include/\mbox{\hyperlink{_shader_8h}{Shader.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/src/\mbox{\hyperlink{_shader_8cpp}{Shader.\+cpp}}\end{DoxyCompactItemize}

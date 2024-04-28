@@ -1,0 +1,41 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/GameObject.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/GameObject.h}}
+\mbox{\hyperlink{_game_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_engine}{Engine}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}}\ :\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<GameObject>\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{GameObject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55}{GameObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_name)\ \{\ \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}\ =\ \_name;\ \}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}\ =\ \textcolor{stringliteral}{"{}GameObject"{}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_aa85725d3f4bb2ad351735e517db660a9}{awake}}()\ \{\};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a4abb95a00e491aa09dc540f4bc9b9340}{start}}()\ \{\};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a484efb66a7a27c101e84c11d9905d7a6}{render}}()\ \{\};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_ad8fbb7b8ee07af2d8ea5008364670b6c}{update}}(\textcolor{keywordtype}{float}\ dt)\ \{\};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_ac01bb106c39fec9e488fb7b945be3d0a}{on\_object\_add}}()\ \{\};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_addfac4e4b50ffd84a22604081c64c8dc}{on\_object\_remove}}()\ \{\};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\string~GameObject}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//Factory}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<T>\ \mbox{\hyperlink{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f}{create}}(Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<GameObject,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ be\ a\ GameObject"{}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ the\ object}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ obj\ =\ std::make\_shared<T>(std::forward<Args>(args)...);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Register\ with\ the\ Engine}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_engine_accfdaedded34d223576bea363effa1e0}{Engine::getInstance}}().\mbox{\hyperlink{class_engine_aab6b8c1da3d5859830206e008214028b}{addObject}}(obj);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,113 @@
+\doxysection{Window Class Reference}
+\hypertarget{class_window}{}\label{class_window}\index{Window@{Window}}
+
+
+{\ttfamily \#include $<$Window.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}{Window}} (int width, int height, const std\+::string \&title)
+\item 
+\mbox{\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{\texorpdfstring{$\sim$}{\string~}\+Window}} ()
+\item 
+void \mbox{\hyperlink{class_window_a0c038a001160f4cf9bae7870f287908c}{make\+Context\+Current}} ()
+\item 
+bool \mbox{\hyperlink{class_window_a1caaf150558c0c35a8811f19ccac817d}{should\+Close}} () const
+\item 
+void \mbox{\hyperlink{class_window_af6ffedb8d12d5551bdb4c298de87ed56}{swap\+Buffers}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_window_a4be938e0f95c4a815e88339426876c5f}{poll\+Events}} ()
+\item 
+static bool \mbox{\hyperlink{class_window_a7210c06963915681167ee6d46768c0fa}{is\+Context\+Current}} (const \mbox{\hyperlink{class_window}{Window}} \&wnd)
+\item 
+static bool \mbox{\hyperlink{class_window_a7612c7ade67591afac000b467bb3f82d}{has\+Open\+Windows}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+GLFWwindow \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_window}{Window}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}\label{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190} 
+\index{Window@{Window}!Window@{Window}}
+\index{Window@{Window}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{Window()}{Window()}}
+{\footnotesize\ttfamily Window\+::\+Window (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{const std\+::string \&}]{title }\end{DoxyParamCaption})}
+
+\Hypertarget{class_window_a245d821e6016fa1f6970ccbbedd635f6}\label{class_window_a245d821e6016fa1f6970ccbbedd635f6} 
+\index{Window@{Window}!````~Window@{\texorpdfstring{$\sim$}{\string~}Window}}
+\index{````~Window@{\texorpdfstring{$\sim$}{\string~}Window}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Window()}{\string~Window()}}
+{\footnotesize\ttfamily Window\+::\texorpdfstring{$\sim$}{\string~}\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_window_a7612c7ade67591afac000b467bb3f82d}\label{class_window_a7612c7ade67591afac000b467bb3f82d} 
+\index{Window@{Window}!hasOpenWindows@{hasOpenWindows}}
+\index{hasOpenWindows@{hasOpenWindows}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{hasOpenWindows()}{hasOpenWindows()}}
+{\footnotesize\ttfamily static bool Window\+::has\+Open\+Windows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_window_a7210c06963915681167ee6d46768c0fa}\label{class_window_a7210c06963915681167ee6d46768c0fa} 
+\index{Window@{Window}!isContextCurrent@{isContextCurrent}}
+\index{isContextCurrent@{isContextCurrent}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{isContextCurrent()}{isContextCurrent()}}
+{\footnotesize\ttfamily static bool Window\+::is\+Context\+Current (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window}{Window}} \&}]{wnd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_window_a0c038a001160f4cf9bae7870f287908c}\label{class_window_a0c038a001160f4cf9bae7870f287908c} 
+\index{Window@{Window}!makeContextCurrent@{makeContextCurrent}}
+\index{makeContextCurrent@{makeContextCurrent}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{makeContextCurrent()}{makeContextCurrent()}}
+{\footnotesize\ttfamily void Window\+::make\+Context\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_window_a4be938e0f95c4a815e88339426876c5f}\label{class_window_a4be938e0f95c4a815e88339426876c5f} 
+\index{Window@{Window}!pollEvents@{pollEvents}}
+\index{pollEvents@{pollEvents}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{pollEvents()}{pollEvents()}}
+{\footnotesize\ttfamily static void Window\+::poll\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_window_a1caaf150558c0c35a8811f19ccac817d}\label{class_window_a1caaf150558c0c35a8811f19ccac817d} 
+\index{Window@{Window}!shouldClose@{shouldClose}}
+\index{shouldClose@{shouldClose}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{shouldClose()}{shouldClose()}}
+{\footnotesize\ttfamily bool Window\+::should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_window_af6ffedb8d12d5551bdb4c298de87ed56}\label{class_window_af6ffedb8d12d5551bdb4c298de87ed56} 
+\index{Window@{Window}!swapBuffers@{swapBuffers}}
+\index{swapBuffers@{swapBuffers}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{swapBuffers()}{swapBuffers()}}
+{\footnotesize\ttfamily void Window\+::swap\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}\label{class_window_a9957db4afdad3d57e5c5b6626b44b6d0} 
+\index{Window@{Window}!window@{window}}
+\index{window@{window}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily GLFWwindow\texorpdfstring{$\ast$}{*} Window\+::window\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}\label{class_window_a8c272b2bcb7c3ec3f89604413060b3a5} 
+\index{Window@{Window}!windows@{windows}}
+\index{windows@{windows}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{windows}{windows}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_window}{Window}} \texorpdfstring{$\ast$}{*} $>$ Window\+::windows\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/include/\mbox{\hyperlink{_window_8h}{Window.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{_window_8cpp}{Window.\+cpp}}\end{DoxyCompactItemize}

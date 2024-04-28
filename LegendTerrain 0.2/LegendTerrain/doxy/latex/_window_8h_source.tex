@@ -1,0 +1,59 @@
+\doxysection{Window.\+h}
+\hypertarget{_window_8h_source}{}\label{_window_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Window.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/Window.h}}
+\mbox{\hyperlink{_window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_8h}{../include/Input.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_window}{Window}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ GLFWwindow*\ \mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Window*>\ \mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_window_a2bf7954f0cf38a7fc4c4742e4a91a190}{Window}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ std::string\&\ title);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{\string~Window}}()\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find(\mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.begin(),\ \mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.end(),\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.end())\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.erase(it);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ glfwDestroyWindow(\mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.empty())\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_window_a0c038a001160f4cf9bae7870f287908c}{makeContextCurrent}}()\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ glfwMakeContextCurrent(\mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}});}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_window_a1caaf150558c0c35a8811f19ccac817d}{shouldClose}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glfwWindowShouldClose(\mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}});}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_window_af6ffedb8d12d5551bdb4c298de87ed56}{swapBuffers}}()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ glfwSwapBuffers(\mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}});}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_window_a4be938e0f95c4a815e88339426876c5f}{pollEvents}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ glfwPollEvents();}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_window_a7210c06963915681167ee6d46768c0fa}{isContextCurrent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_window}{Window}}\&\ wnd)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glfwGetCurrentContext()\ ==\ wnd.\mbox{\hyperlink{class_window_a9957db4afdad3d57e5c5b6626b44b6d0}{window}};}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_window_a7612c7ade67591afac000b467bb3f82d}{hasOpenWindows}}()\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{class_window_a8c272b2bcb7c3ec3f89604413060b3a5}{windows}}.empty();}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \};}
+
+\end{DoxyCode}

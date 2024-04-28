@@ -1,0 +1,115 @@
+\doxysection{siv\+::perlin\+\_\+detail Namespace Reference}
+\hypertarget{namespacesiv_1_1perlin__detail}{}\label{namespacesiv_1_1perlin__detail}\index{siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG}} std\+::uint64\+\_\+t \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb}{Random}} (const std\+::uint64\+\_\+t max, URBG \&\&urbg)
+\item 
+{\footnotesize template$<$class Random\+It , class URBG $>$ }\\void \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60}{Shuffle}} (Random\+It first, Random\+It last, URBG \&\&urbg)
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{Fade}} (const Float t) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{Lerp}} (const Float a, const Float b, const Float t) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{Grad}} (const std\+::uint8\+\_\+t hash, const Float x, const Float y, const Float z) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{Remap\+\_\+01}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{Clamp\+\_\+11}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{Remap\+Clamp\+\_\+01}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16}{Octave1D}} (const Noise \&noise, Float x, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f}{Octave2D}} (const Noise \&noise, Float x, Float y, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05}{Octave3D}} (const Noise \&noise, Float x, Float y, Float z, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{Max\+Amplitude}} (const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}\label{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Clamp\_11@{Clamp\_11}}
+\index{Clamp\_11@{Clamp\_11}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Clamp\_11()}{Clamp\_11()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Clamp\+\_\+11 (\begin{DoxyParamCaption}\item[{const Float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}\label{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Fade@{Fade}}
+\index{Fade@{Fade}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Fade()}{Fade()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Fade (\begin{DoxyParamCaption}\item[{const Float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}\label{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Grad@{Grad}}
+\index{Grad@{Grad}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Grad()}{Grad()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Grad (\begin{DoxyParamCaption}\item[{const std\+::uint8\+\_\+t}]{hash,  }\item[{const Float}]{x,  }\item[{const Float}]{y,  }\item[{const Float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}\label{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Lerp@{Lerp}}
+\index{Lerp@{Lerp}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Lerp()}{Lerp()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Lerp (\begin{DoxyParamCaption}\item[{const Float}]{a,  }\item[{const Float}]{b,  }\item[{const Float}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}\label{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!MaxAmplitude@{MaxAmplitude}}
+\index{MaxAmplitude@{MaxAmplitude}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{MaxAmplitude()}{MaxAmplitude()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Max\+Amplitude (\begin{DoxyParamCaption}\item[{const std\+::int32\+\_\+t}]{octaves,  }\item[{const Float}]{persistence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16}\label{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Octave1D@{Octave1D}}
+\index{Octave1D@{Octave1D}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Octave1D()}{Octave1D()}}
+{\footnotesize\ttfamily template$<$class Noise , class Float $>$ \\
+auto siv\+::perlin\+\_\+detail\+::\+Octave1D (\begin{DoxyParamCaption}\item[{const Noise \&}]{noise,  }\item[{Float}]{x,  }\item[{const std\+::int32\+\_\+t}]{octaves,  }\item[{const Float}]{persistence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f}\label{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Octave2D@{Octave2D}}
+\index{Octave2D@{Octave2D}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Octave2D()}{Octave2D()}}
+{\footnotesize\ttfamily template$<$class Noise , class Float $>$ \\
+auto siv\+::perlin\+\_\+detail\+::\+Octave2D (\begin{DoxyParamCaption}\item[{const Noise \&}]{noise,  }\item[{Float}]{x,  }\item[{Float}]{y,  }\item[{const std\+::int32\+\_\+t}]{octaves,  }\item[{const Float}]{persistence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05}\label{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Octave3D@{Octave3D}}
+\index{Octave3D@{Octave3D}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Octave3D()}{Octave3D()}}
+{\footnotesize\ttfamily template$<$class Noise , class Float $>$ \\
+auto siv\+::perlin\+\_\+detail\+::\+Octave3D (\begin{DoxyParamCaption}\item[{const Noise \&}]{noise,  }\item[{Float}]{x,  }\item[{Float}]{y,  }\item[{Float}]{z,  }\item[{const std\+::int32\+\_\+t}]{octaves,  }\item[{const Float}]{persistence }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb}\label{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Random@{Random}}
+\index{Random@{Random}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG}} std\+::uint64\+\_\+t siv\+::perlin\+\_\+detail\+::\+Random (\begin{DoxyParamCaption}\item[{const std\+::uint64\+\_\+t}]{max,  }\item[{URBG \&\&}]{urbg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}\label{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Remap\_01@{Remap\_01}}
+\index{Remap\_01@{Remap\_01}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Remap\_01()}{Remap\_01()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Remap\+\_\+01 (\begin{DoxyParamCaption}\item[{const Float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}\label{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!RemapClamp\_01@{RemapClamp\_01}}
+\index{RemapClamp\_01@{RemapClamp\_01}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{RemapClamp\_01()}{RemapClamp\_01()}}
+{\footnotesize\ttfamily template$<$class Float $>$ \\
+constexpr Float siv\+::perlin\+\_\+detail\+::\+Remap\+Clamp\+\_\+01 (\begin{DoxyParamCaption}\item[{const Float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60}\label{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60} 
+\index{siv::perlin\_detail@{siv::perlin\_detail}!Shuffle@{Shuffle}}
+\index{Shuffle@{Shuffle}!siv::perlin\_detail@{siv::perlin\_detail}}
+\doxysubsubsection{\texorpdfstring{Shuffle()}{Shuffle()}}
+{\footnotesize\ttfamily template$<$class Random\+It , class URBG $>$ \\
+void siv\+::perlin\+\_\+detail\+::\+Shuffle (\begin{DoxyParamCaption}\item[{Random\+It}]{first,  }\item[{Random\+It}]{last,  }\item[{URBG \&\&}]{urbg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

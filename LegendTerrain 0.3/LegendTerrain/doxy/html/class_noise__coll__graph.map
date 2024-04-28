@@ -1,0 +1,6 @@
+<map id="Noise" name="Noise">
+<area shape="rect" id="Node000001" title=" " alt="" coords="29,96,83,123"/>
+<area shape="poly" id="edge2_Node000001_Node000001" title=" " alt="" coords="99,99,107,103,110,110,101,119,84,120,83,115,99,114,105,109,103,107,97,104"/>
+<area shape="rect" id="Node000002" href="$class_fast_noise_lite.html" title=" " alt="" coords="5,5,107,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,48,59,95,53,95,53,48"/>
+</map>

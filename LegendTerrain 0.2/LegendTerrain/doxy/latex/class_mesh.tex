@@ -1,0 +1,190 @@
+\doxysection{Mesh Class Reference}
+\hypertarget{class_mesh}{}\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+{\ttfamily \#include $<$Mesh.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_a1bfd1eb4e2530fe0fe46bf798a8b7ecd}{Mesh}} (const std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&vertices, const std\+::vector$<$ unsigned int $>$ \&indices)
+\item 
+\mbox{\hyperlink{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}{\texorpdfstring{$\sim$}{\string~}\+Mesh}} ()
+\item 
+void \mbox{\hyperlink{class_mesh_aa7eb887987a659a53726643ac126b9fc}{Set\+Position}} (const glm\+::vec3 \&\+\_\+position)
+\item 
+void \mbox{\hyperlink{class_mesh_a3d4da78b9249055945f832649cf1c2f4}{Set\+Rotation}} (const glm\+::vec3 \&\+\_\+rotation)
+\item 
+void \mbox{\hyperlink{class_mesh_a003982cd424ce6089b8aea928a277048}{Set\+Scale}} (const glm\+::vec3 \&\+\_\+scale)
+\item 
+void \mbox{\hyperlink{class_mesh_a93e4644c1f8f23c2ff7f49eb62dde94b}{Set\+Texture}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e}{texture}})
+\item 
+void \mbox{\hyperlink{class_mesh_a08f3eb0098d659544b6ea2572ed91731}{Set\+Shader}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$ \mbox{\hyperlink{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae}{shader}})
+\item 
+void \mbox{\hyperlink{class_mesh_afdd95c079fd0442afef8a6c421c8bfc9}{Draw}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_mesh_a39267676a714ec95328e916f0bc397ef}{Update\+Transformation\+Matrix}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_mesh_af3c130a7e2a9d259b3bb1e258c08f90e}{position}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_mesh_a73a92a342c5fc081422d12e26ebcda85}{rotation}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_mesh_aea97af1884bc8be8a4b14922317dafce}{scale}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_mesh_a0857e43c186991528edc8a98b7ad5a8e}{transformation\+Matrix}}
+\item 
+GLuint \mbox{\hyperlink{class_mesh_a09b989b9d4df8ae595d7e80e091a4a5b}{VAO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_mesh_a0d28b2c6fee628a13f43cae3f858569b}{VBO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_mesh_a894c6723c0172f4e38b2509582abfa6c}{EBO}} = 0
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e}{texture}}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$ \mbox{\hyperlink{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae}{shader}}
+\item 
+GLsizei \mbox{\hyperlink{class_mesh_a33f96cf1a8f76ca877079ebd9423d072}{vertex\+Count}}
+\item 
+GLsizei \mbox{\hyperlink{class_mesh_ae89f95e85ae7fa157545324aa5f5db7d}{index\+Count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mesh_a1bfd1eb4e2530fe0fe46bf798a8b7ecd}\label{class_mesh_a1bfd1eb4e2530fe0fe46bf798a8b7ecd} 
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \&}]{vertices,  }\item[{const std\+::vector$<$ unsigned int $>$ \&}]{indices }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a5efe4da1a4c0971cfb037bd70304c303}\label{class_mesh_a5efe4da1a4c0971cfb037bd70304c303} 
+\index{Mesh@{Mesh}!````~Mesh@{\texorpdfstring{$\sim$}{\string~}Mesh}}
+\index{````~Mesh@{\texorpdfstring{$\sim$}{\string~}Mesh}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Mesh()}{\string~Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\texorpdfstring{$\sim$}{\string~}\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mesh_afdd95c079fd0442afef8a6c421c8bfc9}\label{class_mesh_afdd95c079fd0442afef8a6c421c8bfc9} 
+\index{Mesh@{Mesh}!Draw@{Draw}}
+\index{Draw@{Draw}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Mesh\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_aa7eb887987a659a53726643ac126b9fc}\label{class_mesh_aa7eb887987a659a53726643ac126b9fc} 
+\index{Mesh@{Mesh}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily void Mesh\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{\+\_\+position }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a3d4da78b9249055945f832649cf1c2f4}\label{class_mesh_a3d4da78b9249055945f832649cf1c2f4} 
+\index{Mesh@{Mesh}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{SetRotation()}{SetRotation()}}
+{\footnotesize\ttfamily void Mesh\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{\+\_\+rotation }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a003982cd424ce6089b8aea928a277048}\label{class_mesh_a003982cd424ce6089b8aea928a277048} 
+\index{Mesh@{Mesh}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily void Mesh\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{\+\_\+scale }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a08f3eb0098d659544b6ea2572ed91731}\label{class_mesh_a08f3eb0098d659544b6ea2572ed91731} 
+\index{Mesh@{Mesh}!SetShader@{SetShader}}
+\index{SetShader@{SetShader}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{SetShader()}{SetShader()}}
+{\footnotesize\ttfamily void Mesh\+::\+Set\+Shader (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$}]{shader }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a93e4644c1f8f23c2ff7f49eb62dde94b}\label{class_mesh_a93e4644c1f8f23c2ff7f49eb62dde94b} 
+\index{Mesh@{Mesh}!SetTexture@{SetTexture}}
+\index{SetTexture@{SetTexture}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{SetTexture()}{SetTexture()}}
+{\footnotesize\ttfamily void Mesh\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$}]{texture }\end{DoxyParamCaption})}
+
+\Hypertarget{class_mesh_a39267676a714ec95328e916f0bc397ef}\label{class_mesh_a39267676a714ec95328e916f0bc397ef} 
+\index{Mesh@{Mesh}!UpdateTransformationMatrix@{UpdateTransformationMatrix}}
+\index{UpdateTransformationMatrix@{UpdateTransformationMatrix}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{UpdateTransformationMatrix()}{UpdateTransformationMatrix()}}
+{\footnotesize\ttfamily void Mesh\+::\+Update\+Transformation\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_mesh_a894c6723c0172f4e38b2509582abfa6c}\label{class_mesh_a894c6723c0172f4e38b2509582abfa6c} 
+\index{Mesh@{Mesh}!EBO@{EBO}}
+\index{EBO@{EBO}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{EBO}{EBO}}
+{\footnotesize\ttfamily GLuint Mesh\+::\+EBO = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_ae89f95e85ae7fa157545324aa5f5db7d}\label{class_mesh_ae89f95e85ae7fa157545324aa5f5db7d} 
+\index{Mesh@{Mesh}!indexCount@{indexCount}}
+\index{indexCount@{indexCount}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{indexCount}{indexCount}}
+{\footnotesize\ttfamily GLsizei Mesh\+::index\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_af3c130a7e2a9d259b3bb1e258c08f90e}\label{class_mesh_af3c130a7e2a9d259b3bb1e258c08f90e} 
+\index{Mesh@{Mesh}!position@{position}}
+\index{position@{position}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 Mesh\+::position\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a73a92a342c5fc081422d12e26ebcda85}\label{class_mesh_a73a92a342c5fc081422d12e26ebcda85} 
+\index{Mesh@{Mesh}!rotation@{rotation}}
+\index{rotation@{rotation}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily glm\+::vec3 Mesh\+::rotation\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_aea97af1884bc8be8a4b14922317dafce}\label{class_mesh_aea97af1884bc8be8a4b14922317dafce} 
+\index{Mesh@{Mesh}!scale@{scale}}
+\index{scale@{scale}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily glm\+::vec3 Mesh\+::scale\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae}\label{class_mesh_ae2b11f14f32a1cdc7861f229e0d176ae} 
+\index{Mesh@{Mesh}!shader@{shader}}
+\index{shader@{shader}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{shader}{shader}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_shader}{Shader}}$>$ Mesh\+::shader\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e}\label{class_mesh_a8fea37129e70d7f179dafdb03e5cff2e} 
+\index{Mesh@{Mesh}!texture@{texture}}
+\index{texture@{texture}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_texture}{Texture}}$>$ Mesh\+::texture\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a0857e43c186991528edc8a98b7ad5a8e}\label{class_mesh_a0857e43c186991528edc8a98b7ad5a8e} 
+\index{Mesh@{Mesh}!transformationMatrix@{transformationMatrix}}
+\index{transformationMatrix@{transformationMatrix}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{transformationMatrix}{transformationMatrix}}
+{\footnotesize\ttfamily glm\+::mat4 Mesh\+::transformation\+Matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a09b989b9d4df8ae595d7e80e091a4a5b}\label{class_mesh_a09b989b9d4df8ae595d7e80e091a4a5b} 
+\index{Mesh@{Mesh}!VAO@{VAO}}
+\index{VAO@{VAO}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{VAO}{VAO}}
+{\footnotesize\ttfamily GLuint Mesh\+::\+VAO = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a0d28b2c6fee628a13f43cae3f858569b}\label{class_mesh_a0d28b2c6fee628a13f43cae3f858569b} 
+\index{Mesh@{Mesh}!VBO@{VBO}}
+\index{VBO@{VBO}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{VBO}{VBO}}
+{\footnotesize\ttfamily GLuint Mesh\+::\+VBO = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mesh_a33f96cf1a8f76ca877079ebd9423d072}\label{class_mesh_a33f96cf1a8f76ca877079ebd9423d072} 
+\index{Mesh@{Mesh}!vertexCount@{vertexCount}}
+\index{vertexCount@{vertexCount}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{vertexCount}{vertexCount}}
+{\footnotesize\ttfamily GLsizei Mesh\+::vertex\+Count\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/include/\mbox{\hyperlink{_mesh_8h}{Mesh.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{_mesh_8cpp}{Mesh.\+cpp}}\end{DoxyCompactItemize}

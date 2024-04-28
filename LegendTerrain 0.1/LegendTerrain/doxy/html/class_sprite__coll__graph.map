@@ -1,0 +1,11 @@
+<map id="Sprite" name="Sprite">
+<area shape="rect" id="Node000001" title=" " alt="" coords="93,172,148,199"/>
+<area shape="rect" id="Node000002" href="$class_textured___object.html" title=" " alt="" coords="62,96,179,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,138,123,172,118,172,118,138"/>
+<area shape="rect" id="Node000003" href="$class_object.html" title=" " alt="" coords="5,5,65,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="59,41,110,94,106,97,56,45"/>
+<area shape="rect" id="Node000004" href="$class_texture.html" title=" " alt="" coords="88,5,153,32"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="123,48,123,95,118,95,118,48"/>
+<area shape="rect" id="Node000005" href="$class_shader.html" title=" " alt="" coords="177,5,240,32"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="194,46,172,74,142,98,138,93,168,70,190,43"/>
+</map>

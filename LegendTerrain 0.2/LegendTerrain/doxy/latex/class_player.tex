@@ -1,0 +1,114 @@
+\doxysection{Player Class Reference}
+\hypertarget{class_player}{}\label{class_player}\index{Player@{Player}}
+
+
+Inheritance diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{class_player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Player\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{class_player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_aefd863c1ec478f5307add1a00a8dab54}{Player}} (\mbox{\hyperlink{struct_mesh_shape}{Mesh\+Shape}} ms)
+\item 
+void \mbox{\hyperlink{class_player_abe2902b7decc38472183a08977eeb57f}{update}} (float dt) override
+\item 
+void \mbox{\hyperlink{class_player_a1957328f4f840def8b910a17a2ca6318}{start}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_mesh_game_object}{Mesh\+Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_game_object_a2a63ab578898a9802caefeb6bcaf8ab6}{Mesh\+Game\+Object}} (\mbox{\hyperlink{struct_mesh_shape}{Mesh\+Shape}} ms)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a19a9e665d05435ef9bb06ccaefd03c03}{Move}} (const glm\+::vec3 \&delta)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a665a1672b4efd0d702d76f3a81117e04}{Rotate}} (const glm\+::vec3 \&delta)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a2813ab45209e82c6f37a458ce9ce5ffd}{Set\+Texture}} (std\+::string path)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a51de59900bf080a6a104544c4d3dc4db}{Set\+Shader}} (std\+::string vertex\+\_\+s, std\+::string frag\+\_\+s)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a0f9885c73d5bd1240bdd53bb05ac7fa3}{Set\+Shader}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$ shader)
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a62a654b9193284c008280ed2c6ea7121}{render}} () override
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_mesh_game_object_abf0fac6b4dcbbb3e1894c8d28b431021}{Get\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a92fd9a5604e72ea03631abbdaf4a9e7a}{awake}} () override
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a606ac7c0302efd9761aedf98194dd1b4}{on\+\_\+object\+\_\+add}} () override
+\item 
+void \mbox{\hyperlink{class_mesh_game_object_a98ebf4f1e3596decd9c78387a24cb1d2}{on\+\_\+object\+\_\+remove}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\static std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f}{create}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}} = "{}Game\+Object"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55}{Game\+Object}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_player_aefd863c1ec478f5307add1a00a8dab54}\label{class_player_aefd863c1ec478f5307add1a00a8dab54} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mesh_shape}{Mesh\+Shape}}}]{ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_a1957328f4f840def8b910a17a2ca6318}\label{class_player_a1957328f4f840def8b910a17a2ca6318} 
+\index{Player@{Player}!start@{start}}
+\index{start@{start}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Player\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_mesh_game_object_ae2d56a32eaa0cbecfcf446ff6e402763}{Mesh\+Game\+Object}}.
+
+\Hypertarget{class_player_abe2902b7decc38472183a08977eeb57f}\label{class_player_abe2902b7decc38472183a08977eeb57f} 
+\index{Player@{Player}!update@{update}}
+\index{update@{update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Player\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_mesh_game_object_af1878e7e0c33795684110da1d6849b1a}{Mesh\+Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{main_8cpp}{main.\+cpp}}\end{DoxyCompactItemize}

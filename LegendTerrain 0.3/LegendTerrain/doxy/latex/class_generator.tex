@@ -1,0 +1,149 @@
+\doxysection{Generator Class Reference}
+\hypertarget{class_generator}{}\label{class_generator}\index{Generator@{Generator}}
+
+
+{\ttfamily \#include $<$Generator.\+h$>$}
+
+
+
+Inheritance diagram for Generator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{class_generator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Generator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_generator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}{Generator}} ()
+\item 
+void \mbox{\hyperlink{class_generator_a64ab791569a2b2c98631d71d82a1594e}{run}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_game_object_aa85725d3f4bb2ad351735e517db660a9}{awake}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a4abb95a00e491aa09dc540f4bc9b9340}{start}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_a484efb66a7a27c101e84c11d9905d7a6}{render}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_ac01bb106c39fec9e488fb7b945be3d0a}{on\+\_\+object\+\_\+add}} ()
+\item 
+virtual void \mbox{\hyperlink{class_game_object_addfac4e4b50ffd84a22604081c64c8dc}{on\+\_\+object\+\_\+remove}} ()
+\item 
+virtual \mbox{\hyperlink{class_game_object_a67ae2fa6e7916c799700cd659975d8ea}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_generator_a9ea10932e25a916ac947264ae665373e}{update}} (float dt) override
+\item 
+void \mbox{\hyperlink{class_generator_a0af661379b54f3977d8d7f2d82d2ecc6}{generate\+Terrain}} (const glm\+::vec3 \&position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_terrain}{Terrain}} $>$ $>$ \mbox{\hyperlink{class_generator_a20082d8f5889b3664ea1ffef9aee646c}{terrain}}
+\item 
+std\+::map$<$ std\+::pair$<$ int, int $>$, bool $>$ \mbox{\hyperlink{class_generator_aedc1fd1b6069e23c4176c0fa67e2d707}{current\+Terrain}}
+\item 
+\mbox{\hyperlink{class_camera}{Camera}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_generator_a0ccb0ec4268c72548f908dc38952f114}{main\+Camera}} = nullptr
+\item 
+const int \mbox{\hyperlink{class_generator_a5b7c4dfb4a7a173015af5d961f389954}{GEN\+\_\+\+DIST}} = 10
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\static std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_game_object_af649d96ab4c6fbf8a7e5c1ac75c1971f}{create}} (Args \&\&... args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}} = "{}Game\+Object"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\item 
+\mbox{\hyperlink{class_game_object_a948a6e47a77e2e7b78324f241b7a2d55}{Game\+Object}} (const char \texorpdfstring{$\ast$}{*}\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10}\label{class_generator_aaaf1e5f3a47ede3ef8a96a301ee04a10} 
+\index{Generator@{Generator}!Generator@{Generator}}
+\index{Generator@{Generator}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{Generator()}{Generator()}}
+{\footnotesize\ttfamily Generator\+::\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_generator_a0af661379b54f3977d8d7f2d82d2ecc6}\label{class_generator_a0af661379b54f3977d8d7f2d82d2ecc6} 
+\index{Generator@{Generator}!generateTerrain@{generateTerrain}}
+\index{generateTerrain@{generateTerrain}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{generateTerrain()}{generateTerrain()}}
+{\footnotesize\ttfamily void Generator\+::generate\+Terrain (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_generator_a64ab791569a2b2c98631d71d82a1594e}\label{class_generator_a64ab791569a2b2c98631d71d82a1594e} 
+\index{Generator@{Generator}!run@{run}}
+\index{run@{run}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Generator\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_generator_a9ea10932e25a916ac947264ae665373e}\label{class_generator_a9ea10932e25a916ac947264ae665373e} 
+\index{Generator@{Generator}!update@{update}}
+\index{update@{update}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Generator\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object_ad8fbb7b8ee07af2d8ea5008364670b6c}{Game\+Object}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_generator_aedc1fd1b6069e23c4176c0fa67e2d707}\label{class_generator_aedc1fd1b6069e23c4176c0fa67e2d707} 
+\index{Generator@{Generator}!currentTerrain@{currentTerrain}}
+\index{currentTerrain@{currentTerrain}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{currentTerrain}{currentTerrain}}
+{\footnotesize\ttfamily std\+::map$<$std\+::pair$<$int, int$>$, bool$>$ Generator\+::current\+Terrain\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_generator_a5b7c4dfb4a7a173015af5d961f389954}\label{class_generator_a5b7c4dfb4a7a173015af5d961f389954} 
+\index{Generator@{Generator}!GEN\_DIST@{GEN\_DIST}}
+\index{GEN\_DIST@{GEN\_DIST}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{GEN\_DIST}{GEN\_DIST}}
+{\footnotesize\ttfamily const int Generator\+::\+GEN\+\_\+\+DIST = 10\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_generator_a0ccb0ec4268c72548f908dc38952f114}\label{class_generator_a0ccb0ec4268c72548f908dc38952f114} 
+\index{Generator@{Generator}!mainCamera@{mainCamera}}
+\index{mainCamera@{mainCamera}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{mainCamera}{mainCamera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}}\texorpdfstring{$\ast$}{*} Generator\+::main\+Camera = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_generator_a20082d8f5889b3664ea1ffef9aee646c}\label{class_generator_a20082d8f5889b3664ea1ffef9aee646c} 
+\index{Generator@{Generator}!terrain@{terrain}}
+\index{terrain@{terrain}!Generator@{Generator}}
+\doxysubsubsection{\texorpdfstring{terrain}{terrain}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_terrain}{Terrain}}$>$ $>$ Generator\+::terrain\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/include/\mbox{\hyperlink{_generator_8h}{Generator.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+3/\+Legend\+Terrain/src/\mbox{\hyperlink{_generator_8cpp}{Generator.\+cpp}}\end{DoxyCompactItemize}

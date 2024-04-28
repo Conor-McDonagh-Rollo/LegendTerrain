@@ -1,0 +1,144 @@
+\doxysection{Engine Class Reference}
+\hypertarget{class_engine}{}\label{class_engine}\index{Engine@{Engine}}
+
+
+{\ttfamily \#include $<$Engine.\+h$>$}
+
+
+
+Collaboration diagram for Engine\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_engine__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ \mbox{\hyperlink{class_engine_a4ff9028178a459691955fbd12162700d}{Get\+Current\+Scene}} ()
+\item 
+void \mbox{\hyperlink{class_engine_aab6b8c1da3d5859830206e008214028b}{add\+Object}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ obj)
+\item 
+void \mbox{\hyperlink{class_engine_a4d8066dd213a03f5420d1bf60f150ca7}{start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_engine}{Engine}} $>$ \& \mbox{\hyperlink{class_engine_a7b3956f5d973f5aaa998d5eab5b6d79a}{get\+Instance}} ()
+\item 
+static void \mbox{\hyperlink{class_engine_ad930cc0b8fbf8d04af6107a4aaae4863}{load}} (int sizeX, int sizeY, const char \texorpdfstring{$\ast$}{*}title)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$ \mbox{\hyperlink{class_engine_aa4df1727b70577014ffdf568ed10c44f}{default\+Shader}} = nullptr
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ \mbox{\hyperlink{class_engine_a34c2177c163f29f013f55138b21f57df}{main\+Camera}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_engine_aa38b60f115fea3ebc643ec4ea8ac2e0e}{clear\+Screen}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_manager}{Scene\+Manager}} \mbox{\hyperlink{class_engine_aada3478cb9361acd2b14c1b5445b3326}{scene\+Man}}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_window}{Window}} $>$ \mbox{\hyperlink{class_engine_ad2971aa1ec53be4976ad564f9b87162e}{main\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_engine}{Engine}} $>$ \mbox{\hyperlink{class_engine_af42bf044a470440cd47a73f1cdd9a0b7}{instance}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}\label{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_engine_aab6b8c1da3d5859830206e008214028b}\label{class_engine_aab6b8c1da3d5859830206e008214028b} 
+\index{Engine@{Engine}!addObject@{addObject}}
+\index{addObject@{addObject}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}}
+{\footnotesize\ttfamily void Engine\+::add\+Object (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_engine_aa38b60f115fea3ebc643ec4ea8ac2e0e}\label{class_engine_aa38b60f115fea3ebc643ec4ea8ac2e0e} 
+\index{Engine@{Engine}!clearScreen@{clearScreen}}
+\index{clearScreen@{clearScreen}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{clearScreen()}{clearScreen()}}
+{\footnotesize\ttfamily void Engine\+::clear\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_engine_a4ff9028178a459691955fbd12162700d}\label{class_engine_a4ff9028178a459691955fbd12162700d} 
+\index{Engine@{Engine}!GetCurrentScene@{GetCurrentScene}}
+\index{GetCurrentScene@{GetCurrentScene}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{GetCurrentScene()}{GetCurrentScene()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_scene}{Scene}} $>$ Engine\+::\+Get\+Current\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_engine_a7b3956f5d973f5aaa998d5eab5b6d79a}\label{class_engine_a7b3956f5d973f5aaa998d5eab5b6d79a} 
+\index{Engine@{Engine}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_engine}{Engine}} $>$ \& Engine\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_engine_ad930cc0b8fbf8d04af6107a4aaae4863}\label{class_engine_ad930cc0b8fbf8d04af6107a4aaae4863} 
+\index{Engine@{Engine}!load@{load}}
+\index{load@{load}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily static void Engine\+::load (\begin{DoxyParamCaption}\item[{int}]{sizeX,  }\item[{int}]{sizeY,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{title }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_engine_a4d8066dd213a03f5420d1bf60f150ca7}\label{class_engine_a4d8066dd213a03f5420d1bf60f150ca7} 
+\index{Engine@{Engine}!start@{start}}
+\index{start@{start}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Engine\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_engine_aa4df1727b70577014ffdf568ed10c44f}\label{class_engine_aa4df1727b70577014ffdf568ed10c44f} 
+\index{Engine@{Engine}!defaultShader@{defaultShader}}
+\index{defaultShader@{defaultShader}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{defaultShader}{defaultShader}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shader}{Shader}} $>$ Engine\+::default\+Shader = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_engine_af42bf044a470440cd47a73f1cdd9a0b7}\label{class_engine_af42bf044a470440cd47a73f1cdd9a0b7} 
+\index{Engine@{Engine}!instance@{instance}}
+\index{instance@{instance}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{instance}{instance}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_engine}{Engine}} $>$ Engine\+::instance = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_engine_a34c2177c163f29f013f55138b21f57df}\label{class_engine_a34c2177c163f29f013f55138b21f57df} 
+\index{Engine@{Engine}!mainCamera@{mainCamera}}
+\index{mainCamera@{mainCamera}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{mainCamera}{mainCamera}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_camera}{Camera}} $>$ Engine\+::main\+Camera = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_engine_ad2971aa1ec53be4976ad564f9b87162e}\label{class_engine_ad2971aa1ec53be4976ad564f9b87162e} 
+\index{Engine@{Engine}!mainWindow@{mainWindow}}
+\index{mainWindow@{mainWindow}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{mainWindow}{mainWindow}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_window}{Window}}$>$ Engine\+::main\+Window\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_engine_aada3478cb9361acd2b14c1b5445b3326}\label{class_engine_aada3478cb9361acd2b14c1b5445b3326} 
+\index{Engine@{Engine}!sceneMan@{sceneMan}}
+\index{sceneMan@{sceneMan}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{sceneMan}{sceneMan}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_scene_manager}{Scene\+Manager}} Engine\+::scene\+Man\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/include/\mbox{\hyperlink{_engine_8h}{Engine.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{_engine_8cpp}{Engine.\+cpp}}\end{DoxyCompactItemize}

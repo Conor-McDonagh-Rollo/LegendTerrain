@@ -1,0 +1,138 @@
+\doxysection{C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.2/\+Legend\+Terrain/dependencies/\+Perlin\+Noise.hpp File Reference}
+\hypertarget{_perlin_noise_8hpp}{}\label{_perlin_noise_8hpp}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/dependencies/PerlinNoise.hpp@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/dependencies/PerlinNoise.hpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for Perlin\+Noise.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_perlin_noise_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{siv\+::\+Basic\+Perlin\+Noise$<$ Float $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacesiv}{siv}}
+\item 
+namespace \mbox{\hyperlink{namespacesiv_1_1perlin__detail}{siv\+::perlin\+\_\+detail}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a39c7e5d6d0259522bb99b120ed0ff968}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MAJOR}}~3
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_ae5955f0dab585006bddac876b21deb92}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MINOR}}~0
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a6f3e2e47e84c32ca2c6eb533d9074a53}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+REVISION}}~0
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_af14bd5749245b331b6c65aba67143577}{SIVPERLIN\+\_\+\+VERSION}}~((\mbox{\hyperlink{_perlin_noise_8hpp_a39c7e5d6d0259522bb99b120ed0ff968}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MAJOR}} \texorpdfstring{$\ast$}{*} 100 \texorpdfstring{$\ast$}{*} 100) + (\mbox{\hyperlink{_perlin_noise_8hpp_ae5955f0dab585006bddac876b21deb92}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MINOR}} \texorpdfstring{$\ast$}{*} 100) + (\mbox{\hyperlink{_perlin_noise_8hpp_a6f3e2e47e84c32ca2c6eb533d9074a53}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+REVISION}}))
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2}{SIVPERLIN\+\_\+\+NODISCARD\+\_\+\+CXX20}}
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG}}~template $<$class URBG, std\+::enable\+\_\+if\+\_\+t$<$std\+::conjunction\+\_\+v$<$std\+::is\+\_\+invocable$<$URBG\&$>$, std\+::is\+\_\+unsigned$<$std\+::invoke\+\_\+result\+\_\+t$<$URBG\&$>$$>$$>$$>$\texorpdfstring{$\ast$}{*} = nullptr$>$
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a87d591432ea101f8fad75443ac2a75a4}{SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG\+\_\+}}~template $<$class URBG, std\+::enable\+\_\+if\+\_\+t$<$std\+::conjunction\+\_\+v$<$std\+::is\+\_\+invocable$<$URBG\&$>$, std\+::is\+\_\+unsigned$<$std\+::invoke\+\_\+result\+\_\+t$<$URBG\&$>$$>$$>$$>$\texorpdfstring{$\ast$}{*}$>$
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a9f2327007613370ef1447c54c4954690}{SIVPERLIN\+\_\+\+DEFAULT\+\_\+Y}}~(0.\+12345)
+\item 
+\#define \mbox{\hyperlink{_perlin_noise_8hpp_a0db58116c8a50c76dabe4b18a19e6f16}{SIVPERLIN\+\_\+\+DEFAULT\+\_\+Z}}~(0.\+34567)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacesiv_a19b30a5aa85ac92ec477b07ef5d13333}{siv\+::\+Perlin\+Noise}} = \mbox{\hyperlink{classsiv_1_1_basic_perlin_noise}{Basic\+Perlin\+Noise}}$<$double$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}{SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG}} std\+::uint64\+\_\+t \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abd854675b54866fc622415694b6bd3cb}{siv\+::perlin\+\_\+detail\+::\+Random}} (const std\+::uint64\+\_\+t max, URBG \&\&urbg)
+\item 
+{\footnotesize template$<$class Random\+It , class URBG $>$ }\\void \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a16865b937a1f342de4ef3bee4a60ae60}{siv\+::perlin\+\_\+detail\+::\+Shuffle}} (Random\+It first, Random\+It last, URBG \&\&urbg)
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a0345e6dc25edf85f44e13515af5aacc2}{siv\+::perlin\+\_\+detail\+::\+Fade}} (const Float t) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ae1ba1ce8b3776cbb4a127a4ab9dfb3d0}{siv\+::perlin\+\_\+detail\+::\+Lerp}} (const Float a, const Float b, const Float t) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_ad0153e65818bf1c497cbe22400485452}{siv\+::perlin\+\_\+detail\+::\+Grad}} (const std\+::uint8\+\_\+t hash, const Float x, const Float y, const Float z) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abe44c15baebb7d06e958efec8c77dc35}{siv\+::perlin\+\_\+detail\+::\+Remap\+\_\+01}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a225e8220194ba4118467b786df91daea}{siv\+::perlin\+\_\+detail\+::\+Clamp\+\_\+11}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9ee11c276584d0d26189537bf664bd43}{siv\+::perlin\+\_\+detail\+::\+Remap\+Clamp\+\_\+01}} (const Float x) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a3e9288c0cb01f70c7a7ec27c2daaaa16}{siv\+::perlin\+\_\+detail\+::\+Octave1D}} (const Noise \&noise, Float x, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_abc5213b0c52239f8eb12d46f8956b78f}{siv\+::perlin\+\_\+detail\+::\+Octave2D}} (const Noise \&noise, Float x, Float y, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Noise , class Float $>$ }\\auto \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a9b2fe92febc0352a4b2b7eaf915e2e05}{siv\+::perlin\+\_\+detail\+::\+Octave3D}} (const Noise \&noise, Float x, Float y, Float z, const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\item 
+{\footnotesize template$<$class Float $>$ }\\constexpr Float \mbox{\hyperlink{namespacesiv_1_1perlin__detail_a7471b046dc9c442c625e15e9bcf5814f}{siv\+::perlin\+\_\+detail\+::\+Max\+Amplitude}} (const std\+::int32\+\_\+t octaves, const Float persistence) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98}\label{_perlin_noise_8hpp_af03bbe1b77c83b5542be8cd0e10b3c98} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_CONCEPT\_URBG@{SIVPERLIN\_CONCEPT\_URBG}}
+\index{SIVPERLIN\_CONCEPT\_URBG@{SIVPERLIN\_CONCEPT\_URBG}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_CONCEPT\_URBG}{SIVPERLIN\_CONCEPT\_URBG}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG~template $<$class URBG, std\+::enable\+\_\+if\+\_\+t$<$std\+::conjunction\+\_\+v$<$std\+::is\+\_\+invocable$<$URBG\&$>$, std\+::is\+\_\+unsigned$<$std\+::invoke\+\_\+result\+\_\+t$<$URBG\&$>$$>$$>$$>$\texorpdfstring{$\ast$}{*} = nullptr$>$}
+
+\Hypertarget{_perlin_noise_8hpp_a87d591432ea101f8fad75443ac2a75a4}\label{_perlin_noise_8hpp_a87d591432ea101f8fad75443ac2a75a4} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_CONCEPT\_URBG\_@{SIVPERLIN\_CONCEPT\_URBG\_}}
+\index{SIVPERLIN\_CONCEPT\_URBG\_@{SIVPERLIN\_CONCEPT\_URBG\_}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_CONCEPT\_URBG\_}{SIVPERLIN\_CONCEPT\_URBG\_}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+CONCEPT\+\_\+\+URBG\+\_\+~template $<$class URBG, std\+::enable\+\_\+if\+\_\+t$<$std\+::conjunction\+\_\+v$<$std\+::is\+\_\+invocable$<$URBG\&$>$, std\+::is\+\_\+unsigned$<$std\+::invoke\+\_\+result\+\_\+t$<$URBG\&$>$$>$$>$$>$\texorpdfstring{$\ast$}{*}$>$}
+
+\Hypertarget{_perlin_noise_8hpp_a9f2327007613370ef1447c54c4954690}\label{_perlin_noise_8hpp_a9f2327007613370ef1447c54c4954690} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_DEFAULT\_Y@{SIVPERLIN\_DEFAULT\_Y}}
+\index{SIVPERLIN\_DEFAULT\_Y@{SIVPERLIN\_DEFAULT\_Y}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_DEFAULT\_Y}{SIVPERLIN\_DEFAULT\_Y}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+DEFAULT\+\_\+Y~(0.\+12345)}
+
+\Hypertarget{_perlin_noise_8hpp_a0db58116c8a50c76dabe4b18a19e6f16}\label{_perlin_noise_8hpp_a0db58116c8a50c76dabe4b18a19e6f16} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_DEFAULT\_Z@{SIVPERLIN\_DEFAULT\_Z}}
+\index{SIVPERLIN\_DEFAULT\_Z@{SIVPERLIN\_DEFAULT\_Z}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_DEFAULT\_Z}{SIVPERLIN\_DEFAULT\_Z}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+DEFAULT\+\_\+Z~(0.\+34567)}
+
+\Hypertarget{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2}\label{_perlin_noise_8hpp_a7019e7fb7f82fbac3370dac1c322a9e2} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_NODISCARD\_CXX20@{SIVPERLIN\_NODISCARD\_CXX20}}
+\index{SIVPERLIN\_NODISCARD\_CXX20@{SIVPERLIN\_NODISCARD\_CXX20}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_NODISCARD\_CXX20}{SIVPERLIN\_NODISCARD\_CXX20}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+NODISCARD\+\_\+\+CXX20}
+
+\Hypertarget{_perlin_noise_8hpp_af14bd5749245b331b6c65aba67143577}\label{_perlin_noise_8hpp_af14bd5749245b331b6c65aba67143577} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_VERSION@{SIVPERLIN\_VERSION}}
+\index{SIVPERLIN\_VERSION@{SIVPERLIN\_VERSION}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_VERSION}{SIVPERLIN\_VERSION}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+VERSION~((\mbox{\hyperlink{_perlin_noise_8hpp_a39c7e5d6d0259522bb99b120ed0ff968}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MAJOR}} \texorpdfstring{$\ast$}{*} 100 \texorpdfstring{$\ast$}{*} 100) + (\mbox{\hyperlink{_perlin_noise_8hpp_ae5955f0dab585006bddac876b21deb92}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+MINOR}} \texorpdfstring{$\ast$}{*} 100) + (\mbox{\hyperlink{_perlin_noise_8hpp_a6f3e2e47e84c32ca2c6eb533d9074a53}{SIVPERLIN\+\_\+\+VERSION\+\_\+\+REVISION}}))}
+
+\Hypertarget{_perlin_noise_8hpp_a39c7e5d6d0259522bb99b120ed0ff968}\label{_perlin_noise_8hpp_a39c7e5d6d0259522bb99b120ed0ff968} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_VERSION\_MAJOR@{SIVPERLIN\_VERSION\_MAJOR}}
+\index{SIVPERLIN\_VERSION\_MAJOR@{SIVPERLIN\_VERSION\_MAJOR}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_VERSION\_MAJOR}{SIVPERLIN\_VERSION\_MAJOR}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+VERSION\+\_\+\+MAJOR~3}
+
+\Hypertarget{_perlin_noise_8hpp_ae5955f0dab585006bddac876b21deb92}\label{_perlin_noise_8hpp_ae5955f0dab585006bddac876b21deb92} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_VERSION\_MINOR@{SIVPERLIN\_VERSION\_MINOR}}
+\index{SIVPERLIN\_VERSION\_MINOR@{SIVPERLIN\_VERSION\_MINOR}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_VERSION\_MINOR}{SIVPERLIN\_VERSION\_MINOR}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+VERSION\+\_\+\+MINOR~0}
+
+\Hypertarget{_perlin_noise_8hpp_a6f3e2e47e84c32ca2c6eb533d9074a53}\label{_perlin_noise_8hpp_a6f3e2e47e84c32ca2c6eb533d9074a53} 
+\index{PerlinNoise.hpp@{PerlinNoise.hpp}!SIVPERLIN\_VERSION\_REVISION@{SIVPERLIN\_VERSION\_REVISION}}
+\index{SIVPERLIN\_VERSION\_REVISION@{SIVPERLIN\_VERSION\_REVISION}!PerlinNoise.hpp@{PerlinNoise.hpp}}
+\doxysubsubsection{\texorpdfstring{SIVPERLIN\_VERSION\_REVISION}{SIVPERLIN\_VERSION\_REVISION}}
+{\footnotesize\ttfamily \#define SIVPERLIN\+\_\+\+VERSION\+\_\+\+REVISION~0}
+

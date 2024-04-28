@@ -1,0 +1,41 @@
+\doxysection{Shader.\+h}
+\hypertarget{_shader_8h_source}{}\label{_shader_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Shader.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Shader.h}}
+\mbox{\hyperlink{_shader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SHADER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SHADER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}\ \textcolor{comment}{//\ include\ glad\ to\ get\ all\ the\ required\ OpenGL\ headers}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/glm/ext/matrix\_transform.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glm/glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_position}{Position}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_position_af684446cbf0f6d53386686283da6dcc6}{x}},\ \mbox{\hyperlink{struct_position_a54a6182b5f7539295b32255808897d3f}{y}},\ \mbox{\hyperlink{struct_position_a5dc8c08d3d7209ba538ad21ba604aa44}{z}};}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shader}{Shader}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ the\ program\ ID}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_shader_a142a08b6fbdfc982d82ca10ee0b0f38d}{ID}}\ =\ NULL;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ constructor\ reads\ and\ builds\ the\ shader}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_shader_a030f11ffb4a05a7acb52c445046c7b70}{Shader}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ vertexPath\ =\ \textcolor{stringliteral}{"{}assets/shaders/vertex.glsl"{}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fragmentPath\ =\ \textcolor{stringliteral}{"{}assets/shaders/fragment.glsl"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ use/activate\ the\ shader}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_a870fa9f13d69e558815d6fd351a469dc}{use}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ utility\ uniform\ functions}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_ab1a56d6c299bd7eaa18c2e142ef7bd9f}{setBool}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{bool}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_ad362e2b654cd95a3574cd505411e41fd}{setInt}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{int}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_afe7367621f74c2d26431d8ac15252bf3}{setFloat}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_adf4160bbe2c67a6737bf74f53629f510}{setVec4}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{float}\ v1,\ \textcolor{keywordtype}{float}\ v2,\ \textcolor{keywordtype}{float}\ v3,\ \textcolor{keywordtype}{float}\ v4)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_shader_a596703711729b3a6cf90cbb86e9906ac}{setMat4}}(\textcolor{keyword}{const}\ std::string\&\ name,\ glm::mat4\ \&model)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

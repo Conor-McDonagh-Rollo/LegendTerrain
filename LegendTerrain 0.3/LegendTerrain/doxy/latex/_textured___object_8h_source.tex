@@ -1,0 +1,108 @@
+\doxysection{Textured\+\_\+\+Object.\+h}
+\hypertarget{_textured___object_8h_source}{}\label{_textured___object_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Textured\_Object.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Textured\_Object.h}}
+\mbox{\hyperlink{_textured___object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TEXTURED\_OBJECT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TEXTURED\_OBJECT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm/glm.hpp>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <glm/glm/ext/matrix\_transform.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_shader_8h}{Shader.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_textured___object}{Textured\_Object}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_textured___object_adebcc055da454e2d305c043800e8104a}{Textured\_Object}}()\ \{\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_a4b76246339f2c6126847a7106857a1af}{generate}}(GLuint\&\ \_VAO,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\&\ \_VBO,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\&\ \_EBO,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\&\ \_VBO\_Tex,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_verticiesSize,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}*\ \_verticies,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_tec\_coordsSize,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}*\ \_tec\_coords,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \_indicesSize,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ \_indices,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ amountOfIndicies,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numOfVert);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_a8ddcb4495a7415896d9932b913f1d521}{render}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_ace4e5fb4ee3fc266e36fa7d6168bd53c}{move}}(\textcolor{keywordtype}{float}\ x\ =\ 0.f,\ \textcolor{keywordtype}{float}\ y\ =\ 0.f,\ \textcolor{keywordtype}{float}\ z\ =\ 0.f)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.x\ +=\ x;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.y\ +=\ y;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.z\ +=\ z;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_a02f917257f0a00eaad00aa6fc4937ca3}{rotate}}(\textcolor{keywordtype}{float}\ angleDeltaX\ =\ 0.0f,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ angleDeltaY\ =\ 0.0f,\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ angleDeltaZ\ =\ 0.0f)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.x\ +=\ angleDeltaX;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.y\ +=\ angleDeltaY;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.z\ +=\ angleDeltaZ;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normalize\ the\ angles\ to\ [0,\ 360)}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.x\ >=\ 360.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.x\ -\/=\ 360.0f;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.y\ >=\ 360.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.y\ -\/=\ 360.0f;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.z\ >=\ 360.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.z\ -\/=\ 360.0f;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.x\ <\ 0.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.x\ +=\ 360.0f;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.y\ <\ 0.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.y\ +=\ 360.0f;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.z\ <\ 0.0f)\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}.z\ +=\ 360.0f;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_a2a84b641752044cbbd610fbfe373a995}{rebindVBO}}()}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ \mbox{\hyperlink{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0}{VBO}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ \mbox{\hyperlink{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7}{vertexCount}},\ \mbox{\hyperlink{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77}{m\_vertices}},\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_adeec2d0654968935ec73622cad4555a7}{setShader}}(\mbox{\hyperlink{class_shader}{Shader}}\&\ shader)}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}{currentShader}}\ =\ \&shader;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotationAngle}}\ =\ \{\ 0,0,0\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_textured___object_a8a6981eae515f380b0217f8bf9187556}{updateModelMatrix}}()}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}}\ =\ glm::mat4(1.0f);\ \textcolor{comment}{//\ Start\ with\ an\ identity\ matrix}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ glm::vec3\ newPosition\ =\ glm::vec3(\mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.x,\ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.y,\ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}.z);\ \textcolor{comment}{//\ New\ position}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}}\ =\ glm::translate(\mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}},\ newPosition);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Rotation\ around\ the\ X,\ Y,\ and\ Z\ axes}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//model\ =\ glm::rotate(model,\ glm::radians(rotationAngle.x),\ glm::vec3(1.0f,\ 0.0f,\ 0.0f));}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//model\ =\ glm::rotate(model,\ glm::radians(rotationAngle.y),\ glm::vec3(0.0f,\ 1.0f,\ 0.0f));}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//model\ =\ glm::rotate(model,\ glm::radians(rotationAngle.z),\ glm::vec3(0.0f,\ 0.0f,\ 1.0f));}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}{currentShader}}-\/>\mbox{\hyperlink{class_shader_a596703711729b3a6cf90cbb86e9906ac}{setMat4}}(\textcolor{stringliteral}{"{}model"{}},\ \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}});}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ GLuint\ \mbox{\hyperlink{class_textured___object_af103a22c88a3cb58f867d2fdaa17c7a2}{VAO}}\ =\ 0,\ \mbox{\hyperlink{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0}{VBO}}\ =\ 0,\ \mbox{\hyperlink{class_textured___object_a9c71bb97fd3532f6b3f675795809cd0d}{EBO}}\ =\ 0,\ \mbox{\hyperlink{class_textured___object_aa465480895675ee711b23375b2e60fe7}{VBO\_Tex}}\ =\ 0;}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}*\ \mbox{\hyperlink{class_textured___object_a5974ce7ebc5282a2936a134ff75bf2e6}{texture}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00087\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}}\ =\ glm::mat4(1.0f);}
+\DoxyCodeLine{00088\ \ \ \ \ glm::vec3\ \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}}\ =\ glm::vec3(0.f,\ 0.f,\ 0.f);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77}{m\_vertices}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{class_textured___object_aaf33f7c5a9f6d9752720e7338e198eb9}{m\_texCoords}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_textured___object_adebe280f5297c42aff79da3db31f8b0f}{m\_indices}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00093\ \ \ \ \ GLuint\ \mbox{\hyperlink{class_textured___object_a928fecf885bd9c350075bac8e8f41da6}{index}}\ =\ 0;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_textured___object_a2b67fe29bb2e5e5e8905f5941bf1137f}{indexCount}}\ =\ 6;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7}{vertexCount}}\ =\ 4;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_textured___object_ad8114b230eb97b240fa95148e649e049}{texCoordCount}}\ =\ 0;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_shader}{Shader}}*\ \mbox{\hyperlink{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}{currentShader}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

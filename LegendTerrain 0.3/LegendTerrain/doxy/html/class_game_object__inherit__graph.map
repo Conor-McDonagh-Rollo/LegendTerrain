@@ -1,0 +1,11 @@
+<map id="GameObject" name="GameObject">
+<area shape="rect" id="Node000001" title=" " alt="" coords="57,96,152,123"/>
+<area shape="rect" id="Node000003" href="$class_generator.html" title=" " alt="" coords="5,171,84,197"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,136,57,172,53,169,82,133"/>
+<area shape="rect" id="Node000004" href="$class_textured___object.html" title=" " alt="" coords="108,171,224,197"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="127,133,157,169,153,172,123,136"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="15,5,194,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,64,107,95,102,95,102,64"/>
+<area shape="rect" id="Node000005" href="$class_terrain.html" title=" " alt="" coords="136,245,196,272"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="169,213,169,245,163,245,163,213"/>
+</map>

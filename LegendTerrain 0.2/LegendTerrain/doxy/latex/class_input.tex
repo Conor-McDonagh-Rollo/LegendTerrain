@@ -1,0 +1,171 @@
+\doxysection{Input Class Reference}
+\hypertarget{class_input}{}\label{class_input}\index{Input@{Input}}
+
+
+{\ttfamily \#include $<$Input.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_input_a5b39bea417d25e97990c69b02365beee}{Initialize}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int SCR\+\_\+\+WIDTH, int SCR\+\_\+\+HEIGHT)
+\item 
+static void \mbox{\hyperlink{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}{Update}} ()
+\item 
+static void \mbox{\hyperlink{class_input_a5b41b9520eba0bc7b4473df14eeb1632}{Map\+Button}} (const std\+::string \&button\+Name, int key\+Code)
+\item 
+static void \mbox{\hyperlink{class_input_aafe3f797bba1a63dfe073896e3901fb6}{Map\+Axis}} (const std\+::string \&axis\+Name, int positive\+Key, int negative\+Key)
+\item 
+static bool \mbox{\hyperlink{class_input_a894be09e67e1295931c28e37dba614b7}{Get\+Button}} (const std\+::string \&button\+Name)
+\item 
+static bool \mbox{\hyperlink{class_input_a728edd2fb3a3f26c663bb23384dff45d}{Get\+Button\+Down}} (const std\+::string \&button\+Name)
+\item 
+static bool \mbox{\hyperlink{class_input_aed5640682baa8d52a658d153ec66cc6c}{Get\+Button\+Up}} (const std\+::string \&button\+Name)
+\item 
+static float \mbox{\hyperlink{class_input_ab4adfd1204474abd2cef9d8668c8f903}{Get\+Axis}} (const std\+::string \&axis\+Name)
+\item 
+static glm\+::vec2 \mbox{\hyperlink{class_input_a163beff0902f775981c21da781906b78}{Get\+Mouse\+Position}} ()
+\item 
+static bool \mbox{\hyperlink{class_input_a18b88b431ec77fd560f8ee607408c9ed}{Get\+Mouse\+Button}} (int button)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_input_aeb342f15bb2b10271b01cf540c1b702e}{Key\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int key, int scancode, int action, int mods)
+\item 
+static void \mbox{\hyperlink{class_input_a34f72f74cfc112e57b9403886784394c}{Mouse\+Button\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int button, int action, int mods)
+\item 
+static void \mbox{\hyperlink{class_input_ae7f4425834936d3e0d1e56ca2ca409cc}{Cursor\+Position\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, double xpos, double ypos)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{struct_key}{Key}} $>$ \mbox{\hyperlink{class_input_ac8f3d5df7a9cd7abb1a82bc94d45a523}{key\+States}}
+\item 
+static std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{class_input_a9592f5c4356b7414008d57e9eaea528f}{button\+Mappings}}
+\item 
+static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{struct_axis}{Axis}} $>$ \mbox{\hyperlink{class_input_afeb935bd41a7eba20a6359afccf4ec89}{axis\+Mappings}}
+\item 
+static glm\+::vec2 \mbox{\hyperlink{class_input_afdf4e7245dbf50cd495dfcb9b7e29d6f}{mouse\+Position}}
+\item 
+static std\+::unordered\+\_\+map$<$ int, bool $>$ \mbox{\hyperlink{class_input_a9de44ff345d9b48ce86b92daba615b2a}{mouse\+Buttons}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_ae7f4425834936d3e0d1e56ca2ca409cc}\label{class_input_ae7f4425834936d3e0d1e56ca2ca409cc} 
+\index{Input@{Input}!CursorPositionCallback@{CursorPositionCallback}}
+\index{CursorPositionCallback@{CursorPositionCallback}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{CursorPositionCallback()}{CursorPositionCallback()}}
+{\footnotesize\ttfamily void Input\+::\+Cursor\+Position\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{double}]{xpos,  }\item[{double}]{ypos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_ab4adfd1204474abd2cef9d8668c8f903}\label{class_input_ab4adfd1204474abd2cef9d8668c8f903} 
+\index{Input@{Input}!GetAxis@{GetAxis}}
+\index{GetAxis@{GetAxis}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetAxis()}{GetAxis()}}
+{\footnotesize\ttfamily float Input\+::\+Get\+Axis (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{axis\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a894be09e67e1295931c28e37dba614b7}\label{class_input_a894be09e67e1295931c28e37dba614b7} 
+\index{Input@{Input}!GetButton@{GetButton}}
+\index{GetButton@{GetButton}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetButton()}{GetButton()}}
+{\footnotesize\ttfamily bool Input\+::\+Get\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{button\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a728edd2fb3a3f26c663bb23384dff45d}\label{class_input_a728edd2fb3a3f26c663bb23384dff45d} 
+\index{Input@{Input}!GetButtonDown@{GetButtonDown}}
+\index{GetButtonDown@{GetButtonDown}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetButtonDown()}{GetButtonDown()}}
+{\footnotesize\ttfamily bool Input\+::\+Get\+Button\+Down (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{button\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_aed5640682baa8d52a658d153ec66cc6c}\label{class_input_aed5640682baa8d52a658d153ec66cc6c} 
+\index{Input@{Input}!GetButtonUp@{GetButtonUp}}
+\index{GetButtonUp@{GetButtonUp}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetButtonUp()}{GetButtonUp()}}
+{\footnotesize\ttfamily bool Input\+::\+Get\+Button\+Up (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{button\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a18b88b431ec77fd560f8ee607408c9ed}\label{class_input_a18b88b431ec77fd560f8ee607408c9ed} 
+\index{Input@{Input}!GetMouseButton@{GetMouseButton}}
+\index{GetMouseButton@{GetMouseButton}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetMouseButton()}{GetMouseButton()}}
+{\footnotesize\ttfamily bool Input\+::\+Get\+Mouse\+Button (\begin{DoxyParamCaption}\item[{int}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a163beff0902f775981c21da781906b78}\label{class_input_a163beff0902f775981c21da781906b78} 
+\index{Input@{Input}!GetMousePosition@{GetMousePosition}}
+\index{GetMousePosition@{GetMousePosition}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetMousePosition()}{GetMousePosition()}}
+{\footnotesize\ttfamily glm\+::vec2 Input\+::\+Get\+Mouse\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a5b39bea417d25e97990c69b02365beee}\label{class_input_a5b39bea417d25e97990c69b02365beee} 
+\index{Input@{Input}!Initialize@{Initialize}}
+\index{Initialize@{Initialize}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{Initialize()}{Initialize()}}
+{\footnotesize\ttfamily void Input\+::\+Initialize (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{SCR\+\_\+\+WIDTH,  }\item[{int}]{SCR\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_aeb342f15bb2b10271b01cf540c1b702e}\label{class_input_aeb342f15bb2b10271b01cf540c1b702e} 
+\index{Input@{Input}!KeyCallback@{KeyCallback}}
+\index{KeyCallback@{KeyCallback}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{KeyCallback()}{KeyCallback()}}
+{\footnotesize\ttfamily void Input\+::\+Key\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_aafe3f797bba1a63dfe073896e3901fb6}\label{class_input_aafe3f797bba1a63dfe073896e3901fb6} 
+\index{Input@{Input}!MapAxis@{MapAxis}}
+\index{MapAxis@{MapAxis}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{MapAxis()}{MapAxis()}}
+{\footnotesize\ttfamily void Input\+::\+Map\+Axis (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{axis\+Name,  }\item[{int}]{positive\+Key,  }\item[{int}]{negative\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a5b41b9520eba0bc7b4473df14eeb1632}\label{class_input_a5b41b9520eba0bc7b4473df14eeb1632} 
+\index{Input@{Input}!MapButton@{MapButton}}
+\index{MapButton@{MapButton}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{MapButton()}{MapButton()}}
+{\footnotesize\ttfamily void Input\+::\+Map\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{button\+Name,  }\item[{int}]{key\+Code }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_input_a34f72f74cfc112e57b9403886784394c}\label{class_input_a34f72f74cfc112e57b9403886784394c} 
+\index{Input@{Input}!MouseButtonCallback@{MouseButtonCallback}}
+\index{MouseButtonCallback@{MouseButtonCallback}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{MouseButtonCallback()}{MouseButtonCallback()}}
+{\footnotesize\ttfamily void Input\+::\+Mouse\+Button\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window,  }\item[{int}]{button,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_af80dcfde6dbfe39bf3bc0345c75595ce}\label{class_input_af80dcfde6dbfe39bf3bc0345c75595ce} 
+\index{Input@{Input}!Update@{Update}}
+\index{Update@{Update}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Input\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_input_afeb935bd41a7eba20a6359afccf4ec89}\label{class_input_afeb935bd41a7eba20a6359afccf4ec89} 
+\index{Input@{Input}!axisMappings@{axisMappings}}
+\index{axisMappings@{axisMappings}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{axisMappings}{axisMappings}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{struct_axis}{Axis}} $>$ Input\+::axis\+Mappings\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_a9592f5c4356b7414008d57e9eaea528f}\label{class_input_a9592f5c4356b7414008d57e9eaea528f} 
+\index{Input@{Input}!buttonMappings@{buttonMappings}}
+\index{buttonMappings@{buttonMappings}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{buttonMappings}{buttonMappings}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Input\+::button\+Mappings\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_ac8f3d5df7a9cd7abb1a82bc94d45a523}\label{class_input_ac8f3d5df7a9cd7abb1a82bc94d45a523} 
+\index{Input@{Input}!keyStates@{keyStates}}
+\index{keyStates@{keyStates}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{keyStates}{keyStates}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{struct_key}{Key}} $>$ Input\+::key\+States\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_a9de44ff345d9b48ce86b92daba615b2a}\label{class_input_a9de44ff345d9b48ce86b92daba615b2a} 
+\index{Input@{Input}!mouseButtons@{mouseButtons}}
+\index{mouseButtons@{mouseButtons}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{mouseButtons}{mouseButtons}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ int, bool $>$ Input\+::mouse\+Buttons\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_input_afdf4e7245dbf50cd495dfcb9b7e29d6f}\label{class_input_afdf4e7245dbf50cd495dfcb9b7e29d6f} 
+\index{Input@{Input}!mousePosition@{mousePosition}}
+\index{mousePosition@{mousePosition}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{mousePosition}{mousePosition}}
+{\footnotesize\ttfamily glm\+::vec2 Input\+::mouse\+Position\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/include/\mbox{\hyperlink{_input_8h}{Input.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+2/\+Legend\+Terrain/src/\mbox{\hyperlink{_input_8cpp}{Input.\+cpp}}\end{DoxyCompactItemize}

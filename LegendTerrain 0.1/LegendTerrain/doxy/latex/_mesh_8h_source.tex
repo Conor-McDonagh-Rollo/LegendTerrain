@@ -1,0 +1,57 @@
+\doxysection{Mesh.\+h}
+\hypertarget{_mesh_8h_source}{}\label{_mesh_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.1/LegendTerrain/include/Mesh.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.1/LegendTerrain/include/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MESH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MESH\_H}}
+\DoxyCodeLine{00003\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\#include\ "{}Textured\_Object.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\#include\ <glm/glm/glm.hpp>}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\#include\ <assimp/Importer.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\#include\ <assimp/scene.h>}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\#include\ <assimp/postprocess.h>}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{struct\ Vertex\ \{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ glm::vec3\ Position;\ \ //\ Position}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ \ \ glm::vec3\ Normal;\ \ \ \ //\ Normal}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ glm::vec2\ TexCoords;\ //\ Texture\ Coordinates}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{struct\ \_Texture\ \{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ unsigned\ int\ id;}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ std::string\ type;}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ aiString\ path;}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00023\ \textcolor{comment}{}}
+\DoxyCodeLine{00024\ \textcolor{comment}{class\ Mesh\ :\ public\ Textured\_Object\ \{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{public:}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ Mesh(const\ char*\ path,\ glm::vec3\ pos);}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ \ \ \ void\ draw()\ override;}}
+\DoxyCodeLine{00028\ \textcolor{comment}{}}
+\DoxyCodeLine{00029\ \textcolor{comment}{private:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ \ \ \ Assimp::Importer\ importer;}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ std::vector<Vertex>\ vertices;}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ std::vector<unsigned\ int>\ indices;}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ std::vector<\_Texture>\ textures;}}
+\DoxyCodeLine{00035\ \textcolor{comment}{}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ void\ processNode(aiNode*\ node,\ const\ aiScene*\ scene)\ \{}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ \ \ \ \ \ for\ (unsigned\ int\ i\ =\ 0;\ i\ <\ scene-\/>mRootNode-\/>mNumMeshes;\ i++)\ \{}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ aiMesh*\ mesh\ =\ scene-\/>mMeshes[scene-\/>mRootNode-\/>mMeshes[i]];}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ processMesh(mesh,\ scene);}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00041\ \textcolor{comment}{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ Process\ children\ nodes}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ for\ (unsigned\ int\ i\ =\ 0;\ i\ <\ scene-\/>mRootNode-\/>mNumChildren;\ i++)\ \{}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ processNode(scene-\/>mRootNode-\/>mChildren[i],\ scene);}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00047\ \textcolor{comment}{}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ void\ processMesh(aiMesh*\ mesh,\ const\ aiScene*\ scene);}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00050\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

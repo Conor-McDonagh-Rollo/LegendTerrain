@@ -1,0 +1,109 @@
+\doxysection{Plane Class Reference}
+\hypertarget{class_plane}{}\label{class_plane}\index{Plane@{Plane}}
+
+
+{\ttfamily \#include $<$Plane.\+h$>$}
+
+
+
+Inheritance diagram for Plane\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_plane__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Plane\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_plane__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plane_af95a22c719d14941885825b67bfcbbf5}{Plane}} (glm\+::vec3 pos=\{0, 0, 0\}, const char \texorpdfstring{$\ast$}{*}tex\+\_\+path="{}assets/defaults/default\+\_\+texture.\+jpg"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_textured___object}{Textured\+\_\+\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_textured___object_adebcc055da454e2d305c043800e8104a}{Textured\+\_\+\+Object}} ()
+\item 
+void \mbox{\hyperlink{class_textured___object_a4b76246339f2c6126847a7106857a1af}{generate}} (GLuint \&\+\_\+\+VAO, GLuint \&\+\_\+\+VBO, GLuint \&\+\_\+\+EBO, GLuint \&\+\_\+\+VBO\+\_\+\+Tex, size\+\_\+t \+\_\+verticies\+Size, float \texorpdfstring{$\ast$}{*}\+\_\+verticies, size\+\_\+t \+\_\+tec\+\_\+coords\+Size, float \texorpdfstring{$\ast$}{*}\+\_\+tec\+\_\+coords, size\+\_\+t \+\_\+indices\+Size, unsigned int \texorpdfstring{$\ast$}{*}\+\_\+indices, int amount\+Of\+Indicies, int num\+Of\+Vert)
+\item 
+void \mbox{\hyperlink{class_textured___object_afa50f07aaa73a9173fd700868f4ccd71}{draw}} () override
+\item 
+void \mbox{\hyperlink{class_textured___object_a9b8bcdfdb0beccd54c730a75d3139edb}{move}} (float x=0.f, float y=0.f, float z=0.f) override
+\item 
+void \mbox{\hyperlink{class_textured___object_a1662b2e8d21743f45576041e1338e423}{rotate}} (float angle\+DeltaX=0.\+0f, float angle\+DeltaY=0.\+0f, float angle\+DeltaZ=0.\+0f) override
+\item 
+void \mbox{\hyperlink{class_textured___object_a2a84b641752044cbbd610fbfe373a995}{rebind\+VBO}} ()
+\item 
+void \mbox{\hyperlink{class_textured___object_adeec2d0654968935ec73622cad4555a7}{set\+Shader}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_object}{Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_object_a40860402e64d8008fb42329df7097cdb}{Object}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_textured___object}{Textured\+\_\+\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_textured___object_a8a6981eae515f380b0217f8bf9187556}{update\+Model\+Matrix}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_textured___object}{Textured\+\_\+\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_textured___object_ac039b14e58dc7a91654153b92b50f351}{rotation\+Angle}} = \{ 0,0,0 \}
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_af103a22c88a3cb58f867d2fdaa17c7a2}{VAO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a46ecb41a8eeb3cc19e49074ed582efb0}{VBO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a9c71bb97fd3532f6b3f675795809cd0d}{EBO}} = 0
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_aa465480895675ee711b23375b2e60fe7}{VBO\+\_\+\+Tex}} = 0
+\item 
+\mbox{\hyperlink{class_texture}{Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_a5974ce7ebc5282a2936a134ff75bf2e6}{texture}} = nullptr
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_textured___object_addd5b8e121cae852f36e862da32b0433}{model}} = glm\+::mat4(1.\+0f)
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_textured___object_acb26aef526773d5cba3f8b1c1705f1cb}{position}} = glm\+::vec3(0.f, 0.f, 0.f)
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_addd3d90ce68c95a73d8ff33cdc47ec77}{m\+\_\+vertices}} = nullptr
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_aaf33f7c5a9f6d9752720e7338e198eb9}{m\+\_\+tex\+Coords}} = nullptr
+\item 
+unsigned int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_adebe280f5297c42aff79da3db31f8b0f}{m\+\_\+indices}} = nullptr
+\item 
+GLuint \mbox{\hyperlink{class_textured___object_a928fecf885bd9c350075bac8e8f41da6}{index}} = 0
+\item 
+int \mbox{\hyperlink{class_textured___object_a2b67fe29bb2e5e5e8905f5941bf1137f}{index\+Count}} = 6
+\item 
+int \mbox{\hyperlink{class_textured___object_afcd08362bdf515f803a4d9a7265ba7e7}{vertex\+Count}} = 4
+\item 
+int \mbox{\hyperlink{class_textured___object_ad8114b230eb97b240fa95148e649e049}{tex\+Coord\+Count}} = 0
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_textured___object_a86ebf6627de9d9f8526506642e7b4535}{current\+Shader}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_plane_af95a22c719d14941885825b67bfcbbf5}\label{class_plane_af95a22c719d14941885825b67bfcbbf5} 
+\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{Plane()}{Plane()}}
+{\footnotesize\ttfamily Plane\+::\+Plane (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{pos = {\ttfamily \{0,0,0\}},  }\item[{const char \texorpdfstring{$\ast$}{*}}]{tex\+\_\+path = {\ttfamily "{}assets/defaults/default\+\_\+texture.jpg"{}} }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+1/\+Legend\+Terrain/include/\mbox{\hyperlink{_plane_8h}{Plane.\+h}}\item 
+C\+:/\+Users/\+C00260445/\+Desktop/legend terrain/\+Legend\+Terrain/\+Legend\+Terrain 0.\+1/\+Legend\+Terrain/src/\mbox{\hyperlink{_plane_8cpp}{Plane.\+cpp}}\end{DoxyCompactItemize}

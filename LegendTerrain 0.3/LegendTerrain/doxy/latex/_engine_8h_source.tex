@@ -1,0 +1,74 @@
+\doxysection{Engine.\+h}
+\hypertarget{_engine_8h_source}{}\label{_engine_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Engine.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.3/LegendTerrain/include/Engine.h}}
+\mbox{\hyperlink{_engine_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ENGINE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ENGINE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_scene_manager_8h}{SceneManager.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_engine}{Engine}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }Sprite;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Plane;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_terrain}{Terrain}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shader}{Shader}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_engine}{Engine}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_engine_a475b1d2527e9900267a5e62053b7f72a}{Engine}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Shader>\ \mbox{\hyperlink{class_engine_aa4df1727b70577014ffdf568ed10c44f}{defaultShader}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<Camera>\ \mbox{\hyperlink{class_engine_a34c2177c163f29f013f55138b21f57df}{mainCamera}};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_aa38b60f115fea3ebc643ec4ea8ac2e0e}{clearScreen}}();\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ GLFWwindow*\ \mbox{\hyperlink{class_engine_aee74e4ad8c03c700aeeb74f349c2d7d4}{getWindow}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_engine_ae045425baa2fd8b0667b603bc413b333}{window}};\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_engine}{Engine}}\&\ \mbox{\hyperlink{class_engine_accfdaedded34d223576bea363effa1e0}{getInstance}}()\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{class_engine_a51493b63c58390f775dd2bc6f72a2b75}{instance}};}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::shared\_ptr<Scene>\ \mbox{\hyperlink{class_engine_a4ff9028178a459691955fbd12162700d}{GetCurrentScene}}()\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_engine_aada3478cb9361acd2b14c1b5445b3326}{sceneMan}}.\mbox{\hyperlink{class_scene_manager_a58260fb4b5b455312c1a9607d629ee9d}{GetActiveScene}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_aab6b8c1da3d5859830206e008214028b}{addObject}}(std::shared\_ptr<GameObject>\ obj)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_engine_aada3478cb9361acd2b14c1b5445b3326}{sceneMan}}.\mbox{\hyperlink{class_scene_manager_a4171a53bc903f090222cb027ec88166b}{AddGameObjectToScene}}(obj);}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_ac88ada17b33bc5ddaf6bb73e0cdc67f3}{stop}}()}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ glfwSetWindowShouldClose(\mbox{\hyperlink{class_engine_ae045425baa2fd8b0667b603bc413b333}{window}},\ 1);}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_a4d8066dd213a03f5420d1bf60f150ca7}{start}}();}
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ settings}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_engine_a85d338ad7c1a649ae8b4be9b2bf0b228}{SCR\_WIDTH}}\ =\ 1920;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_engine_a69eed82e438107701582559a709eee45}{SCR\_HEIGHT}}\ =\ 1080;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ GLFWwindow*\ \mbox{\hyperlink{class_engine_ae045425baa2fd8b0667b603bc413b333}{window}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<Shader>\ \mbox{\hyperlink{class_engine_a54113724d6949fd56e6e574f721844bc}{shaders}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_a1e29c73a853a1a13e3cba0e84726b62a}{mouse\_callback}}(GLFWwindow*\ \mbox{\hyperlink{class_engine_ae045425baa2fd8b0667b603bc413b333}{window}},\ \textcolor{keywordtype}{double}\ xpos,\ \textcolor{keywordtype}{double}\ ypos);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ Static\ member\ function\ for\ GLFW\ callback}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_engine_a77c0c85e57bce6c149c0b5ea04b001d0}{framebuffer\_size\_callback}}(GLFWwindow*\ \mbox{\hyperlink{class_engine_ae045425baa2fd8b0667b603bc413b333}{window}},\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_scene_manager}{SceneManager}}\ \mbox{\hyperlink{class_engine_aada3478cb9361acd2b14c1b5445b3326}{sceneMan}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_engine}{Engine}}*\ \mbox{\hyperlink{class_engine_a51493b63c58390f775dd2bc6f72a2b75}{instance}};}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

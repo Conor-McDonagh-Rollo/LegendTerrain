@@ -1,0 +1,35 @@
+\doxysection{Scene\+Manager.\+h}
+\hypertarget{_scene_manager_8h_source}{}\label{_scene_manager_8h_source}\index{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/SceneManager.h@{C:/Users/C00260445/Desktop/legend terrain/LegendTerrain/LegendTerrain 0.2/LegendTerrain/include/SceneManager.h}}
+\mbox{\hyperlink{_scene_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_scene}{Scene}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \mbox{\hyperlink{struct_scene_a5f0b0443c151e61620dfc8cd54f15005}{Scene}}(std::string\ \_sc\_name)\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_scene_a44b2d6bffa153dda02f026f8533ceb08}{name}}\ =\ \_sc\_name;}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_scene_a5232a68cc40b3a2108a97fc38074cf69}{objects}}\ =\ std::list<std::shared\_ptr<GameObject>>();}
+\DoxyCodeLine{00010\ \ \ \ \ \}}
+\DoxyCodeLine{00011\ \ \ \ \ std::string\ \mbox{\hyperlink{struct_scene_a44b2d6bffa153dda02f026f8533ceb08}{name}};}
+\DoxyCodeLine{00012\ \ \ \ \ std::list<std::shared\_ptr<GameObject>>\ \mbox{\hyperlink{struct_scene_a5232a68cc40b3a2108a97fc38074cf69}{objects}};}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_scene_manager}{SceneManager}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::list<std::shared\_ptr<Scene>>\ \mbox{\hyperlink{class_scene_manager_a14cfdbf0cf924bf1f89337e03160e9c0}{scenes}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Scene>\ \mbox{\hyperlink{class_scene_manager_a892795b902c5a2f3243ac7b92e0e7484}{currentScene}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_scene_manager_a52085e6737c23b491c228e86781af808}{SceneManager}}();}
+\DoxyCodeLine{00022\ \ \ \ \ std::shared\_ptr<Scene>\ \mbox{\hyperlink{class_scene_manager_a41eba336f9ea3b133094267b0ef38020}{AddScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_name);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_manager_a89c0b225e6a9342fb1932b144d895ef0}{SetScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_name);}
+\DoxyCodeLine{00024\ \ \ \ \ std::shared\_ptr<Scene>\ \mbox{\hyperlink{class_scene_manager_acbcbbd3fa8f1fcfe11214ccb69a5b9af}{GetScene}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_name);}
+\DoxyCodeLine{00025\ \ \ \ \ std::shared\_ptr<Scene>\ \mbox{\hyperlink{class_scene_manager_a58260fb4b5b455312c1a9607d629ee9d}{GetActiveScene}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_manager_a6d2ce8a3ded090dce71b6e6a421fee54}{LoopScene}}(\textcolor{keywordtype}{float}\ dt);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_manager_a4171a53bc903f090222cb027ec88166b}{AddGameObjectToScene}}(std::shared\_ptr<GameObject>\&\ \_obj);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_scene_manager_a0b23bec64a7a2bc91ee6bb7b875d0b5f}{RemoveGameObjectFromScene}}(std::shared\_ptr<GameObject>\&\ \_obj);}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}
