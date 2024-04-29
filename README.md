@@ -4,6 +4,13 @@
 
 ---
 
+## Documents
+[Software Design Document](Documentation/Software%20Design%20Document.pdf)
+[Technical Design Document](Documentation/Technical%20Design%20Document.pdf)
+[Project Report](Documentation/Project%20Report.pdf)
+
+---
+
 ## Introduction
 
 `LegendTerrain` is an in-progress framework that is being designed for procedural environment and terrain generation. This framework will set the foundation for dynamic, expansive, and immersive game worlds.
